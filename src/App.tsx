@@ -1,10 +1,13 @@
-
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./Pages/Home";
 
 function App() {
   return (
-    <div className="bg-red-200">
-      App, hello world,
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
