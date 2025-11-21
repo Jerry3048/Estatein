@@ -1,6 +1,9 @@
+import Navbar from "../Components/Navbar"
 function Home() {
   return (
-    <div>Hello world</div>
+    <div>
+      <Navbar />
+    </div>
   )
 }
 
