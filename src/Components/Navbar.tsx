@@ -18,7 +18,7 @@ const Navbar = () => {
     <div className="bg-[#1A1A1A]">
       {/* Top small bar */}
       <div
-        className="text-white bg-black/10 h-10 flex items-center justify-between px-4 sm:px-10 w-full"
+        className="text-white bg-black/10 h-15 flex items-center justify-between px-4 sm:px-10 w-full"
         style={{
           backgroundImage: "url('/logo/Abstract Design.png')",
           backgroundPosition: "center",
@@ -35,6 +35,7 @@ const Navbar = () => {
           X
         </button>
       </div>
+      <hr className="h-px bg-gray-600 border-0 w-full" />
 
       {/* MAIN NAVBAR */}
       <div className="max-w-[90%] mx-auto">
@@ -80,7 +81,7 @@ const Navbar = () => {
           {/* MOBILE MENU */}
          {isOpen && (
           <div
-            className={`fixed top-10 right-0 w-[55%] bg-[#1A1A1A] backdrop-blur-lx 
+            className={`fixed top-16 right-0 w-[55%] bg-[#1A1A1A] backdrop-blur-lx 
             text-white p-6 rounded-xl shadow-xl z-50 
             flex flex-col items-start space-y-4 transition duration-300`}
           >
@@ -101,7 +102,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `text-[17px] ${
-                      isActive ? "text-purple-400 font-semibold" : "hover:text-purple-300"
+                      isActive ? "text-[#703BF7] font-semibold" : "hover:text-purple-500"
                     }`
                   }
                 >
@@ -110,7 +111,7 @@ const Navbar = () => {
               ))}
 
               {/* Purple Contact Button */}
-              <button className=" bg-purple-500 hover:bg-purple-600 text-white  rounded-md font-semibold">
+              <button className=" bg-[#703BF7] hover:bg-purple-600 text-white  rounded-md font-semibold">
                 Contact Us
               </button>
             </div>
@@ -118,6 +119,7 @@ const Navbar = () => {
         )}
         </div>
       </div>
+      <hr className="h-px bg-gray-600 border-0 w-full" />
     </div>
   );
 };
