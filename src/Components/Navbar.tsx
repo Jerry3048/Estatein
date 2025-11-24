@@ -18,7 +18,7 @@ const Navbar = () => {
     <div className="bg-[#1A1A1A]">
       {/* Top small bar */}
       <div
-        className="text-white bg-black/10 h-15 flex items-center justify-between px-4 sm:px-10 w-full"
+        className="text-white bg-[#1A1A1A] h-10 flex items-center justify-between px-4 sm:px-10 w-full"
         style={{
           backgroundImage: "url('/logo/Abstract Design.png')",
           backgroundPosition: "center",
@@ -26,7 +26,7 @@ const Navbar = () => {
       >
         <div className="flex justify-center lg:ml-[40%] sm:ml-[20%] items-center">
           <img src={text} alt="Logo" className="h-5 mr-2 w-[70%]" />
-          <NavLink to="#" className="underline text-sm">
+          <NavLink to="#" className="underline text-sm hidden">
             Learn More
           </NavLink>
         </div>
