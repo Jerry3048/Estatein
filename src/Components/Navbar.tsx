@@ -10,7 +10,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/About" },
-    { name: "Properties", path: "/Team" },
+    { name: "Properties", path: "/properties" },
     { name: "Services", path: "/Process" },
   ];
 
@@ -26,7 +26,7 @@ const Navbar = () => {
       >
         <div className="flex justify-center lg:ml-[40%] sm:ml-[20%] items-center">
           <img src={text} alt="Logo" className="h-5 mr-2 w-[70%]" />
-          <NavLink to="#" className="underline text-sm hidden">
+          <NavLink to="#" className="underline text-sm hidden sm:block">
             Learn More
           </NavLink>
         </div>

@@ -1,10 +1,14 @@
 import Navbar from "../Components/Navbar"
 import hero from "/logo/Image.png"
 import centerLogo from "/logo/Sub Container.png"
+import PropertySection from "../Components/PropertySection";
+import CommentSection from "../Components/CommentSection";
+
 
 function Home() {
+ 
 
-   const items = [
+   const services = [
     {
       img: "/logo/servicecontainer/Icon Container (1).png",
       text: "Find Your Dream Home",
@@ -15,18 +19,18 @@ function Home() {
     },
     {
       img: "/logo/servicecontainer/Icon Container (2).png",
-      text: "Effirtless Property Management",
+      text: "Effortless Property Management",
     },
     {
       img: "/logo/servicecontainer/Icon Container (3).png",
-      text: "Smart Investment,Informed Decision",
+      text: "Smart Investment. Informed Decision",
     },
   ];
 
   return (
     <div className="">
       <Navbar />
-      <div className="relative flex flex-col sm:flex-row">
+      <section className="relative flex flex-col sm:flex-row">
 
         {/* CENTER FLOATING IMAGE */}
         <div className="hidden sm:block absolute left-[52%] top-1/3 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -39,7 +43,7 @@ function Home() {
             Discover Your Dream Property with Estatein
           </h1>
 
-          <p className="text-white text-[12px] max-w-[95%]">
+          <p className="text-gray-400 text-[12px] max-w-[95%]">
             Your journey to finding the perfect property begins here. Explore our listings to find the home that matches your dreams.
           </p>
 
@@ -52,18 +56,18 @@ function Home() {
             </button>
           </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 items-center w-full">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
                 <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">200+</p>
-                  <p className="text-[11px]">Happy customers</p>
+                  <p className="text-[11px] text-gray-400">Happy customers</p>
                 </div>
                 <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">10k+</p>
-                  <p className="text-[11px]">Properties for Clients</p>
+                  <p className="text-[11px] text-gray-400">Properties for Clients</p>
                 </div>
-                <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
+                <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full col-span-2 md:col-span-1">
                   <p className="text-lg font-semibold">16+</p>
-                  <p className="text-[11px]">Years of Experience</p>
+                  <p className="text-[11px] text-gray-400">Years of Experience</p>
                 </div>
               </div>
         </div>
@@ -81,7 +85,7 @@ function Home() {
           <img
             src={hero}
             alt="Hero"
-            className="w-full shadow-lg object-cover transition-all duration-300 ease-in-out rounded-2xl max-h-[500px] h-full"
+            className="w-full shadow-lg object-cover transition-all duration-300 ease-in-out rounded-2xl sm:rounded-none max-h-[500px] h-full"
           />
           {/* CENTER LOGO for small screens: positioned at bottom-left of the image */}
           <div className="sm:hidden absolute left-0 bottom-[-10%] z-20 ">
@@ -92,44 +96,49 @@ function Home() {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-         <div className="px-6 py-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        
-        {/* BOX ITEM */}
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="relative bg-[#1A1A1A] border border-gray-700 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
-          >
-            {/* Arrow at top-right */}
-            <div className="absolute top-3 right-3">
-               <img
-              src="/logo/Vector 431.png"
-              alt="top arrow"
-              className="w-3 h-3 object-contain mb-3"
-            />
-            </div>
+      <section className="px-2 py-2 bg-black/30">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            
+            {/* BOX ITEM */}
+            {services.map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-[#1A1A1A] border border-gray-700 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
+              >
+                {/* Arrow at top-right */}
+                <div className="absolute top-3 right-3">
+                  <img
+                  src="/logo/Vector 431.png"
+                  alt="top arrow"
+                  className="w-3 h-3 object-contain mb-3"
+                />
+                </div>
 
-            {/* Center Image */}
-            <img
-              src={item.img}
-              alt="Icon"
-              className="w-16 h-16 object-contain mb-3"
-            />
+                {/* Center Image */}
+                <img
+                  src={item.img}
+                  alt="Icon"
+                  className="w-13 h-13 object-contain mb-3"
+                />
 
-            {/* Text */}
-            <p className="text-white text-center text-sm">
-              {item.text}
-            </p>
+                {/* Text */}
+                <p className="text-white text-center text-sm">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+
           </div>
-        ))}
+      </section>
 
-      </div>
-    </div>
-      </div>
+      <section className="bg-black/30">
+        <PropertySection />
+      </section>
+      <section className="bg-black/30">
+        <CommentSection/>
+      </section>
     </div>
   )
 }

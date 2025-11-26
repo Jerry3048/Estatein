@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "summary": "Excellent service",
+    "description": "The property was exactly as described. Very satisfied with the service and the communication was excellent.",
+    "img": "/images/users/user1.jpg",
+    "name": "Alice Johnson",
+    "location": "New York, USA"
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "summary": "Very good experience",
+    "description": "Overall a very good experience. The staff were friendly and the property met my expectations.",
+    "img": "/images/users/user2.jpg",
+    "name": "Michael Smith",
+    "location": "Los Angeles, USA"
+  },
+  {
+    "id": 3,
+    "rating": 5,
+    "summary": "Highly recommend",
+    "description": "I highly recommend this agency. They made the process seamless and stress-free.",
+    "img": "/images/users/user3.jpg",
+    "name": "Emma Williams",
+    "location": "Chicago, USA"
+  },
+  {
+    "id": 4,
+    "rating": 3,
+    "summary": "Average experience",
+    "description": "The property was okay but not exactly what I expected. Service was acceptable.",
+    "img": "/images/users/user4.jpg",
+    "name": "James Brown",
+    "location": "Houston, USA"
+  },
+  {
+    "id": 5,
+    "rating": 4,
+    "summary": "Good support",
+    "description": "Support from the team was very good. They answered all my questions quickly.",
+    "img": "/images/users/user5.jpg",
+    "name": "Sophia Davis",
+    "location": "Miami, USA"
+  },
+  {
+    "id": 6,
+    "rating": 5,
+    "summary": "Perfect property",
+    "description": "The property was perfect and everything was as promised. Loved it!",
+    "img": "/images/users/user6.jpg",
+    "name": "Daniel Miller",
+    "location": "Seattle, USA"
+  },
+  {
+    "id": 7,
+    "rating": 4,
+    "summary": "Very satisfied",
+    "description": "I am very satisfied with the service and the property quality.",
+    "img": "/images/users/user7.jpg",
+    "name": "Olivia Wilson",
+    "location": "San Francisco, USA"
+  },
+  {
+    "id": 8,
+    "rating": 3,
+    "summary": "Could be better",
+    "description": "The property was okay but had some minor issues. Service was decent.",
+    "img": "/images/users/user8.jpg",
+    "name": "William Moore",
+    "location": "Boston, USA"
+  },
+  {
+    "id": 9,
+    "rating": 5,
+    "summary": "Exceptional experience",
+    "description": "Everything exceeded my expectations. Excellent communication and property condition.",
+    "img": "/images/users/user9.jpg",
+    "name": "Ava Taylor",
+    "location": "Austin, USA"
+  },
+  {
+    "id": 10,
+    "rating": 4,
+    "summary": "Good value",
+    "description": "The property offered good value for money. Staff were helpful.",
+    "img": "/images/users/user10.jpg",
+    "name": "Ethan Anderson",
+    "location": "Denver, USA"
+  },
+  {
+    "id": 11,
+    "rating": 5,
+    "summary": "Wonderful experience",
+    "description": "Everything went smoothly and the property was in excellent condition.",
+    "img": "/images/users/user11.jpg",
+    "name": "Isabella Thomas",
+    "location": "Philadelphia, USA"
+  },
+  {
+    "id": 12,
+    "rating": 3,
+    "summary": "Okay service",
+    "description": "Service was okay but could be improved. Property met basic expectations.",
+    "img": "/images/users/user12.jpg",
+    "name": "Alexander Jackson",
+    "location": "Dallas, USA"
+  },
+  {
+    "id": 13,
+    "rating": 4,
+    "summary": "Very helpful",
+    "description": "The team was very helpful and responsive. The property was great.",
+    "img": "/images/users/user13.jpg",
+    "name": "Mia White",
+    "location": "Atlanta, USA"
+  },
+  {
+    "id": 14,
+    "rating": 5,
+    "summary": "Exceeded expectations",
+    "description": "The property and service exceeded my expectations. Highly recommended.",
+    "img": "/images/users/user14.jpg",
+    "name": "Benjamin Harris",
+    "location": "San Diego, USA"
+  },
+  {
+    "id": 15,
+    "rating": 4,
+    "summary": "Good support",
+    "description": "Support from the staff was very good. Property as described.",
+    "img": "/images/users/user15.jpg",
+    "name": "Charlotte Martin",
+    "location": "Orlando, USA"
+  },
+  {
+    "id": 16,
+    "rating": 5,
+    "summary": "Perfect service",
+    "description": "The service and property were perfect. Very satisfied with my experience.",
+    "img": "/images/users/user16.jpg",
+    "name": "Henry Lee",
+    "location": "Portland, USA"
+  },
+  {
+    "id": 17,
+    "rating": 4,
+    "summary": "Good experience",
+    "description": "A good experience overall. Property was nice and service was friendly.",
+    "img": "/images/users/user17.jpg",
+    "name": "Amelia Perez",
+    "location": "Las Vegas, USA"
+  },
+  {
+    "id": 18,
+    "rating": 3,
+    "summary": "Average property",
+    "description": "The property was average. Service was okay, nothing outstanding.",
+    "img": "/images/users/user18.jpg",
+    "name": "Jacob Thompson",
+    "location": "Phoenix, USA"
+  },
+  {
+    "id": 19,
+    "rating": 5,
+    "summary": "Highly recommended",
+    "description": "I highly recommend this service. The property and staff were excellent.",
+    "img": "/images/users/user19.jpg",
+    "name": "Harper Garcia",
+    "location": "Charlotte, USA"
+  },
+  {
+    "id": 20,
+    "rating": 4,
+    "summary": "Very happy",
+    "description": "Very happy with the property and service provided. Smooth process.",
+    "img": "/images/users/user20.jpg",
+    "name": "Liam Martinez",
+    "location": "San Antonio, USA"
+  }
+]
