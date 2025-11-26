@@ -25,12 +25,12 @@ export interface PropertyStore {
 
 export interface Comment {
   id: number;
-  rating: number;        // 1-5 stars
-  summary: string;       // short summary
-  description: string;   // full comment text
-  img: string;           // reviewer image
-  name: string;          // reviewer name
-  location: string;      // reviewer location
+  rating: number;     
+  summary: string;      
+  description: string;  
+  img: string;         
+  name: string;         
+  location: string;      
 }
 
 export interface CommentStore {

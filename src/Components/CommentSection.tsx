@@ -31,7 +31,7 @@ function CommentSection() {
   }
 
   return (
-    <div className="w-[90%] mx-auto py-10">
+    <div className="w-[90%] mx-auto py-10 md:py-0">
       <div>
           <img
               src="/logo/Abstract Design (1).png"
@@ -47,7 +47,7 @@ function CommentSection() {
         </div>
 
         <NavLink
-          to="/AllProperties"
+          to="/AllComments"
           className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[120px] hidden md:block"
         >
           View All
@@ -55,7 +55,7 @@ function CommentSection() {
       </div>  
        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {currentComments.map((comment) => (
           <div key={comment.id} className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-5 text-white">
             {/* Rating */}
