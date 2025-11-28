@@ -25,16 +25,17 @@ function AllProperties() {
               </div>
               <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
               <p className="text-sm text-gray-300 mb-4">{item.description}</p>
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-4">
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center">
+
+                <div className="grid grid-cols-2 xl:grid-cols-3 mb-4 w-fit gap-2">
+                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
                       🛏 {item.bedrooms} Beds
                     </p>
 
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center">
+                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
                       🛁 {item.bathrooms} Baths
                     </p>
 
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center col-span-2 lg:col-span-1">
+                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
                       🏡 {item.type}
                     </p>
                 </div>

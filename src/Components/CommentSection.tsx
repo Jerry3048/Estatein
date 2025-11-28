@@ -31,7 +31,7 @@ function CommentSection() {
   }
 
   return (
-    <div className="w-[90%] mx-auto py-10 md:py-0">
+    <div className="w-[90%] mx-auto py-5 md:py-0">
       <div>
           <img
               src="/logo/Abstract Design (1).png"
@@ -39,16 +39,16 @@ function CommentSection() {
               className="w-13 h-13 object-contain"
             />
           <div className="flex justify-between items-center mb-4">
-        <div>
+        <div className="space-y-2">
           <h1 className="text-4xl font-semibold">What Our Clients Say </h1>
-          <p className="text-gray-400 w-full">
+          <p className="text-gray-400 w-[95%]">
            Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs.
           </p>
         </div>
 
         <NavLink
           to="/AllComments"
-          className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[120px] hidden md:block"
+          className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[130px] hidden md:block"
         >
           View All
         </NavLink>

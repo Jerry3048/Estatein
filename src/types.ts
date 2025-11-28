@@ -43,3 +43,21 @@ export interface CommentStore {
   prevPage: () => void;
   setPage: (page: number) => void;
 }
+
+export interface FAQStore {
+  faq: FAQ[];              // list of FAQ items
+  loading: boolean;
+  page: number;
+  ITEMS_PER_PAGE: number;
+  fetchFAQs: () => Promise<void>;
+  nextPage: () => void;
+  prevPage: () => void;
+  setPage: (page: number) => void;
+}
+
+export interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+}
+

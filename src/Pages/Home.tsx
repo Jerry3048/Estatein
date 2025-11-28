@@ -3,6 +3,7 @@ import hero from "/logo/Image.png"
 import centerLogo from "/logo/Sub Container.png"
 import PropertySection from "../Components/PropertySection";
 import CommentSection from "../Components/CommentSection";
+import FAQSection from "../Components/FAQSection";
 
 
 function Home() {
@@ -48,10 +49,10 @@ function Home() {
           </p>
 
           <div className="flex space-x-4">
-            <button className="bg-black/30 border border-gray-700 text-white px-4 py-2 rounded text-[11px]">
+            <button className="bg-black/30 border border-gray-700 text-white px-4 py-2 rounded text-sm">
               Learn More
             </button>
-            <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-[11px]">
+            <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-sm">
               Browse Properties
             </button>
           </div>
@@ -59,15 +60,15 @@ function Home() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
                 <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">200+</p>
-                  <p className="text-[11px] text-gray-400">Happy customers</p>
+                  <p className="text-sm text-gray-400">Happy customers</p>
                 </div>
                 <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">10k+</p>
-                  <p className="text-[11px] text-gray-400">Properties for Clients</p>
+                  <p className="text-sm text-gray-400">Properties for Clients</p>
                 </div>
                 <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full col-span-2 md:col-span-1">
                   <p className="text-lg font-semibold">16+</p>
-                  <p className="text-[11px] text-gray-400">Years of Experience</p>
+                  <p className="text-sm text-gray-400">Years of Experience</p>
                 </div>
               </div>
         </div>
@@ -138,6 +139,9 @@ function Home() {
       </section>
       <section className="bg-black/30">
         <CommentSection/>
+      </section>
+      <section className="bg-black/30">
+        <FAQSection/>
       </section>
     </div>
   )
