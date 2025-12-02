@@ -35,7 +35,7 @@ function FAQSection() {
   return (
     <div className="w-[90%] mx-auto py-5 md:py-0">
       {/* Header */}
-      <div>
+      <div className="">
         <img
           src="/logo/Abstract Design (1).png"
           alt="Icon"
@@ -52,7 +52,7 @@ function FAQSection() {
 
           <NavLink
             to="/AllFAQs"
-            className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[130px] hidden md:block"
+            className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[150px] hidden md:block"
           >
             View All
           </NavLink>
@@ -70,12 +70,12 @@ function FAQSection() {
             <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
 
             {/* Answer */}
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-gray-300">
               {expanded[faq.id]
                 ? faq.answer
-                : truncateWords(faq.answer, 12)}
-
-              {faq.answer.split(" ").length > 12 && (
+                : truncateWords(faq.answer, 10)}
+            </p>
+             {faq.answer.split(" ").length > 10 && (
                 <button
                   onClick={() =>
                     setExpanded((prev) => ({
@@ -83,12 +83,11 @@ function FAQSection() {
                       [faq.id]: !prev[faq.id],
                     }))
                   }
-                  className="text-[#703BF7] ml-2 hover:underline"
+                  className="text-[#703BF7] px-2  py-1 bg-black/30 border border-gray-700 rounded-md mt-4"
                 >
-                  {expanded[faq.id] ? "Show less" : "... Read more"}
+                  {expanded[faq.id] ? "Show less" : " Read more"}
                 </button>
               )}
-            </p>
           </div>
         ))}
       </div>

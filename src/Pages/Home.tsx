@@ -134,13 +134,13 @@ function Home() {
           </div>
       </section>
 
-      <section className="bg-black/30">
+      <section className="bg-black/30 pb-5">
         <PropertySection />
       </section>
-      <section className="bg-black/30">
+      <section className="bg-black/30 pb-5">
         <CommentSection/>
       </section>
-      <section className="bg-black/30">
+      <section className="bg-black/30 pb-5">
         <FAQSection/>
       </section>
     </div>
