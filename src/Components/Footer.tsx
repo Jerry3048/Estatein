@@ -1,7 +1,9 @@
 import logo from "/logo/Logo.png"; 
 import Entericon from "/logo/Send.png";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="">
         <div className=" bg-black/20 p-10"
@@ -112,9 +114,35 @@ function Footer() {
               </div>
             </div>
 
-      <div>
-          
-      </div>
+
+        <div className="w-full bg-[#1A1A1A]  py-4">
+          <div className="w-[90%] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            {/* Left side: Year and Terms */}
+            <div className="text-gray-400 text-sm flex flex-col md:flex-row items-center gap-2">
+              <span>© {currentYear} Estatein. All rights reserved.</span>
+              <a href="/terms" className="hover:text-white">
+                Terms & Conditions
+              </a>
+            </div>
+
+            {/* Right side: Social Media Icons */}
+            <div className="flex gap-2">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
+                <FaFacebookF />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+                <FaTwitter />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+                <FaInstagram />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+                <FaLinkedinIn />
+              </a>
+            </div>
+          </div>
+        </div>
 
     </div>
   )
