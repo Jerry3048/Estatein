@@ -64,7 +64,7 @@ function FAQSection() {
         {currentFAQs.map((faq) => (
           <div
             key={faq.id}
-            className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-5 text-white"
+            className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white"
           >
             {/* Question */}
             <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
@@ -83,7 +83,7 @@ function FAQSection() {
                       [faq.id]: !prev[faq.id],
                     }))
                   }
-                  className="text-[#703BF7] px-2  py-1 bg-black/30 border border-gray-700 rounded-md mt-4"
+                  className="text-[#703BF7] px-2  py-1 bg-black/30 border border-gray-600/30 rounded-md mt-4"
                 >
                   {expanded[faq.id] ? "Show less" : " Read more"}
                 </button>
@@ -92,7 +92,7 @@ function FAQSection() {
         ))}
       </div>
 
-      <hr className="my-4 border-gray-700" />
+      <hr className="my-4 border-gray-600/30" />
 
       {/* Pagination */}
       <div className="flex justify-between items-center gap-4 text-white">

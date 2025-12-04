@@ -4,6 +4,7 @@ import centerLogo from "/logo/Sub Container.png"
 import PropertySection from "../Components/PropertySection";
 import CommentSection from "../Components/CommentSection";
 import FAQSection from "../Components/FAQSection";
+import Footer from "../Components/Footer";
 
 
 function Home() {
@@ -49,7 +50,7 @@ function Home() {
           </p>
 
           <div className="flex space-x-4">
-            <button className="bg-black/30 border border-gray-700 text-white px-4 py-2 rounded text-sm">
+            <button className="bg-black/30 border border-gray-600/30 text-white px-4 py-2 rounded text-sm">
               Learn More
             </button>
             <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-sm">
@@ -58,15 +59,15 @@ function Home() {
           </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
-                <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
+                <div className="bg-[#1A1A1A] border border-gray-600/30 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">200+</p>
                   <p className="text-sm text-gray-400">Happy customers</p>
                 </div>
-                <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full">
+                <div className="bg-[#1A1A1A] border border-gray-600/30 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">10k+</p>
                   <p className="text-sm text-gray-400">Properties for Clients</p>
                 </div>
-                <div className="bg-[#1A1A1A] border border-gray-700 text-white px-4 py-3 rounded w-full col-span-2 md:col-span-1">
+                <div className="bg-[#1A1A1A] border border-gray-600/30 text-white px-4 py-3 rounded w-full col-span-2 md:col-span-1">
                   <p className="text-lg font-semibold">16+</p>
                   <p className="text-sm text-gray-400">Years of Experience</p>
                 </div>
@@ -106,7 +107,7 @@ function Home() {
             {services.map((item, index) => (
               <div
                 key={index}
-                className="relative bg-[#1A1A1A] border border-gray-700 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
+                className="relative bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
               >
                 {/* Arrow at top-right */}
                 <div className="absolute top-3 right-3">
@@ -140,9 +141,12 @@ function Home() {
       <section className="bg-black/30 pb-5">
         <CommentSection/>
       </section>
-      <section className="bg-black/30 pb-5">
+      <section className="bg-black/30 pb-15">
         <FAQSection/>
       </section>
+      <section className="bg-black/30">
+        <Footer/>
+      </section> 
     </div>
   )
 }

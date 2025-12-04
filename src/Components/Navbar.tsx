@@ -54,7 +54,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `hover:text-[#F6FBE9] ${
                     isActive
-                      ? "p-2 px-3 bg-black/30 border border-gray-700 rounded-md"
+                      ? "p-2 px-3 bg-black/30 border border-gray-600/30 rounded-md"
                       : ""
                   }`
                 }
@@ -66,7 +66,7 @@ const Navbar = () => {
 
           {/* Desktop Contact Button */}
           <div className="hidden sm:block">
-            <button className="bg-black/30 border border-gray-700 text-white py-2 px-4 rounded-md">
+            <button className="bg-black/30 border border-gray-600/30 text-white py-2 px-4 rounded-md">
               Contact Us
             </button>
           </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
           {/* MOBILE MENU */}
          {isOpen && (
           <div
-            className={`fixed top-16 right-0 w-[55%] bg-[#1A1A1A] backdrop-blur-lx 
+            className={`fixed top-12 right-0 w-[55%] bg-[#1A1A1A] backdrop-blur-lx 
             text-white p-6 rounded-xl shadow-xl z-50 
             flex flex-col items-start space-y-4 transition duration-300`}
           >

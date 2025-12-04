@@ -19,7 +19,7 @@ function AllProperties() {
         <h1 className="text-3xl font-bold text-white mb-6">All Properties</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((item: Property) => (
-            <div key={item.id} className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-5 text-white">
+            <div key={item.id} className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white">
               <div className="flex justify-center mb-4">
                 <img src={item.img} alt={item.name} className="w-full h-44 object-cover rounded-lg" />
               </div>
@@ -27,15 +27,15 @@ function AllProperties() {
               <p className="text-sm text-gray-300 mb-4">{item.description}</p>
 
                 <div className="grid grid-cols-2 xl:grid-cols-3 mb-4 w-fit gap-2">
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
+                    <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
                       🛏 {item.bedrooms} Beds
                     </p>
 
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
+                    <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
                       🛁 {item.bathrooms} Baths
                     </p>
 
-                    <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
+                    <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
                       🏡 {item.type}
                     </p>
                 </div>

@@ -28,7 +28,7 @@ function AllFAQs() {
           {faq.map((item: FAQ) => (
             <div
               key={item.id}
-              className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-4 text-white"
+              className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-4 text-white"
             >
               {/* Question */}
               <h4 className="text-lg font-semibold mb-2">{item.question}</h4>

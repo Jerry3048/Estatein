@@ -57,7 +57,7 @@ function CommentSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {currentComments.map((comment) => (
-          <div key={comment.id} className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-5 text-white">
+          <div key={comment.id} className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white">
             {/* Rating */}
             <p className="text-yellow-400 text-lg">
               {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
@@ -96,7 +96,7 @@ function CommentSection() {
           </div>
         ))}
       </div>
-      <hr className="my-4 border-gray-700" />
+      <hr className="my-4 border-gray-600/30" />
 
       {/* Pagination */}
       <div className="flex justify-between items-center gap-4 text-white">

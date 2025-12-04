@@ -28,7 +28,7 @@ function AllComments() {
           {comments.map((comment: Comment) => (
             <div
               key={comment.id}
-              className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-3 text-white"
+              className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-3 text-white"
             >
               {/* Star Rating */}
                <p className="text-yellow-400 text-lg">

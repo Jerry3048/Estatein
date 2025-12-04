@@ -63,7 +63,7 @@ function PropertySection() {
           {currentProperties.map((item) => (
             <div
               key={item.id}
-              className="bg-[#1A1A1A] border border-gray-700 rounded-xl p-5 text-white"
+              className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white"
             >
               {/* Image */}
               <div className="flex justify-center mb-4">
@@ -97,15 +97,15 @@ function PropertySection() {
             </p>
 
             <div className="grid grid-cols-2 xl:grid-cols-3 mb-4 w-fit gap-2">
-                <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
+                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
                   🛏 {item.bedrooms} Beds
                 </p>
 
-                <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center w-fit">
+                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
                   🛁 {item.bathrooms} Baths
                 </p>
 
-                <p className="border rounded-2xl px-2 border-gray-700 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
+                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
                   🏡 {item.type}
                 </p>
             </div>
@@ -121,7 +121,7 @@ function PropertySection() {
             </div>
           ))}
         </div>
-        <hr className="my-4 border-gray-700" />
+        <hr className="my-4 border-gray-600/30" />
   
         {/* Pagination */}
         <div className="flex justify-between items-center  text-white">
