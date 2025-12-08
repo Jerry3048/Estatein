@@ -31,7 +31,7 @@ function CommentSection() {
   }
 
   return (
-    <div className="w-[90%] mx-auto py-5 md:py-0">
+    <div className="w-[95%] mx-auto py-5 md:py-0">
       <div>
           <img
               src="/logo/Abstract Design (1).png"
@@ -102,7 +102,7 @@ function CommentSection() {
       <div className="flex justify-between items-center gap-4 text-white">
         <p className="text-sm">{page + 1} of {totalPages}</p>
         <NavLink
-          to="/AllProperties"
+          to="/AllComments"
           className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[120px]  md:hidden"
         >
           View All

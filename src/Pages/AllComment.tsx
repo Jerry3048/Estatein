@@ -2,6 +2,7 @@ import Navbar from "../Components/Navbar";
 import { useEffect } from "react";
 import { useCommentStore } from "../Store/useCommentStore";
 import type { Comment } from "../types";
+import  Footer from "../Components/Footer";
 
 function AllComments() {
   const { comments, loading, fetchComments } = useCommentStore();
@@ -65,6 +66,7 @@ function AllComments() {
         </div>
 
       </div>
+      <Footer/>
     </div>
   );
 }

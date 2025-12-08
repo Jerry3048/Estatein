@@ -58,7 +58,7 @@ function Home() {
             </button>
           </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
                 <div className="bg-[#1A1A1A] border border-gray-600/30 text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">200+</p>
                   <p className="text-sm text-gray-400">Happy customers</p>
@@ -76,7 +76,7 @@ function Home() {
 
         {/* RIGHT SECTION */}
         <div
-          className="flex-1 relative flex justify-center items-center z-10 order-first sm:order-last m-7 sm:m-0 bg-purple-800/5"
+          className="flex-1 relative flex justify-center items-center z-10 order-first sm:order-last m-7 sm:m-0 bg-purple-800/5 mb-10 sm:mb-0"
           style={{
             backgroundImage: "url('/logo/Abstract Design.png')",
             backgroundPosition: "center",

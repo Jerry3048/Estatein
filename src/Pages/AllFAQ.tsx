@@ -2,6 +2,7 @@ import Navbar from "../Components/Navbar";
 import { useEffect } from "react";
 import { useFAQStore } from "../Store/useFAQStore";
 import type { FAQ } from "../types";
+import  Footer from "../Components/Footer";
 
 function AllFAQs() {
   const { faq, loading, fetchFAQs } = useFAQStore();
@@ -42,6 +43,7 @@ function AllFAQs() {
         </div>
 
       </div>
+      <Footer/>
     </div>
   );
 }

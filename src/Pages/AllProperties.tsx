@@ -2,6 +2,7 @@ import Navbar from "../Components/Navbar.tsx";
 import { useEffect } from "react";
 import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types.ts";
+import  Footer from "../Components/Footer";
 
 function AllProperties() {
   const { properties, loading, fetchProperties } = usePropertyStore();
@@ -47,6 +48,7 @@ function AllProperties() {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
