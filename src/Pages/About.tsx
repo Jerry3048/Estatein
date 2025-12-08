@@ -56,8 +56,8 @@ function About() {
   return (
     <div>
         <Navbar />
-        <section className="relative flex flex-col md:flex-row bg-black/30 py-6 px-6 md:px-7 lg:px-10 lg:gap-12 gap-3">
-          <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first">
+        <section className="relative flex flex-col md:flex-row bg-black/30 py-6 px-6 md:px-7 lg:px-10 lg:gap-12 md:gap-3">
+          <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first ">
            <img
               src="/logo/Abstract Design (1).png"
               alt="Icon"
@@ -67,7 +67,7 @@ function About() {
             Our Journey
           </h1>
 
-          <p className="text-gray-400 text-[20px] max-w-[95%]">
+          <p className="text-gray-400 text-[15px] max-w-[95%]">
             Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary. Over the years, we've expanded our reach, forged valuable partnerships, and gained the trust of countless clients.
           </p>
 
@@ -88,9 +88,9 @@ function About() {
         </div>
 
         
-        <div className="flex-1 relative order-first md:order-last justify-center items-center flex mx-auto mb-10 sm:mb-0">
+        <div className="flex-1 relative order-first md:order-last justify-center items-center flex mx-auto md:mb-10 mb-5">
           {/* Padding wrapper */}
-          <div className="p-8 sm:p-12 relative z-10 border border-gray-600/30 rounded-sm flex justify-center items-center"
+          <div className="p-4 sm:p-12 relative z-10 border border-gray-600/30 rounded-sm flex justify-center items-center"
           style={{
             backgroundImage: "url('/logo/Abstract Design.png')",
           }}>
@@ -108,7 +108,7 @@ function About() {
       </div>
     </section>
 
-    <section className="bg-black/30 py-6 px-2 md:px-7 lg:px-10 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0">
+    <section className="bg-black/30 md:py-6 py-3 px-2 md:px-7 lg:px-10 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0">
         {/* LEFT SIDE — 1 PART WIDTH */}
         <div className="flex-1 flex flex-col justify-center px-5 space-y-6 z-10 ">
           <img
@@ -119,7 +119,7 @@ function About() {
 
           <h1 className="text-white md:text-4xl text-3xl">Our Values</h1>
 
-          <p className="text-gray-400 text-[20px] max-w-[95%]">
+          <p className="text-gray-400 text-[15px] max-w-[95%]">
             Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.
           </p>
         </div>
@@ -133,7 +133,7 @@ function About() {
                 <div
                   key={item.id}
                   className={`
-                    p-6 space-y-4 border-gray-700/40 border-b 
+                    p-3 space-y-4 border-gray-700/40 border-b 
                     ${index < 2 ? "sm:border-b " : ""}
                     ${index % 2 === 0 ? "sm:border-r" : ""}  
                   `}
@@ -152,6 +152,14 @@ function About() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <img
+          src="/logo/Abstract Design (1).png"
+          alt="Icon"
+          className="w-13 h-13 object-contain"
+        />
       </section>
 
   </div>
