@@ -102,7 +102,7 @@ function About() {
             <img
               src={hero}
               alt="Hero"
-              className="w-full h-full object-cover rounded-2xl sm:rounded-none max-h-[700px] xl:max-h-[300px] min-w-[300px]"
+              className="w-full h-full object-cover rounded-2xl sm:rounded-none max-h-[700px] xl:max-h-[300px]"
             />
           </div>
       </div>
