@@ -45,7 +45,7 @@ function Home() {
             Discover Your Dream Property with Estatein
           </h1>
 
-          <p className="text-gray-400 text-[12px] max-w-[95%]">
+          <p className="text-gray-400 text-[20px] max-w-[95%]">
             Your journey to finding the perfect property begins here. Explore our listings to find the home that matches your dreams.
           </p>
 

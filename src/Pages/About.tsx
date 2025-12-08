@@ -56,7 +56,7 @@ function About() {
   return (
     <div>
         <Navbar />
-        <section className="relative flex flex-col md:flex-row bg-black/30 py-6 px-6 md:px-12 lg:px-20 lg:gap-12 gap-3">
+        <section className="relative flex flex-col md:flex-row bg-black/30 py-6 px-6 md:px-7 lg:px-10 lg:gap-12 gap-3">
           <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first">
            <img
               src="/logo/Abstract Design (1).png"
@@ -108,7 +108,7 @@ function About() {
       </div>
     </section>
 
-    <section className="bg-black/30 py-6 px-2 md:px-12 lg:px-20 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0">
+    <section className="bg-black/30 py-6 px-2 md:px-7 lg:px-10 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0">
         {/* LEFT SIDE — 1 PART WIDTH */}
         <div className="flex-1 flex flex-col justify-center px-5 space-y-6 z-10 ">
           <img
