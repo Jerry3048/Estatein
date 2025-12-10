@@ -61,3 +61,26 @@ export interface FAQ {
   answer: string;
 }
 
+export interface ValueItem {
+  id: number;
+  title: string;
+  description: string;
+  icon: IconType; 
+}
+type IconType = "star" | "graduation" | "users" | "shield";
+
+export interface Step {
+  id: number;
+  step: string;
+  title: string;
+  description: string;
+}
+
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+}
+
+
