@@ -2,7 +2,8 @@ import Navbar from "../Components/Navbar"
 import hero from "/logo/Image (1).png"
 import { FaStar, FaUsers, FaShieldAlt,FaGraduationCap, FaTwitter } from "react-icons/fa";
 import Entericon from "/logo/Send.png";
-import type { ValueItem,Step,TeamMember } from "../types";
+import type { ValueItem,Step,TeamMember, AchievementItem } from "../types";
+import Footer from "../Components/Footer";
 
 
 const valuesData:ValueItem[] = [
@@ -33,6 +34,24 @@ const valuesData:ValueItem[] = [
     description:
       "We are dedicated to providing you with the highest level of service, professionalism",
     icon: "shield",
+  },
+];
+
+const Achievements = [
+  {
+    id: 1,
+    title: "3+ Years of Excellence",
+    description:"With over 3 years in the industry, we've amassed a wealth of knowledge and experience."
+  },
+  {
+    id: 2,
+    title: "Happy Clients",
+    description:"Our greatest achievement is the satisfaction of our clients. Their success stories fuel our passion for what we do."
+  },
+  {
+    id: 3,
+    title: "Industry Recognition",
+    description:"We've earned the respect of our peers and industry leaders, with accolades and awards that reflect our commitment to excellence."
   },
 ];
 
@@ -79,25 +98,25 @@ const teamData: TeamMember[] = [
   {
     id: 1,
     name: "John Williams",
-    role: "Lead Realtor",
+    role: "Founder & CEO",
     image: "/team/member1.jpg",
   },
   {
     id: 2,
     name: "Sarah Johnson",
-    role: "Property Consultant",
+    role: "Chief Real Estate Officer",
     image: "/team/member2.jpg",
   },
   {
     id: 3,
     name: "Michael Brown",
-    role: "Client Relations Manager",
+    role: "Head of Property Management",
     image: "/team/member3.jpg",
   },
   {
     id: 4,
     name: "Emily Carter",
-    role: "Investment Specialist",
+    role: "Legal Counsel",
     image: "/team/member4.jpg",
   },
 ];
@@ -161,7 +180,7 @@ function About() {
             <img
               src={hero}
               alt="Hero"
-              className="w-full h-full object-cover rounded-2xl sm:rounded-none max-h-[700px] xl:max-h-[300px] sm:min-w-[300px]"
+              className="w-full h-[300px] object-cover rounded-2xl sm:rounded-none max-h-[700px] xl:max-h-[500px] sm:min-w-[300px]"
             />
           </div>
       </div>
@@ -184,7 +203,7 @@ function About() {
         </div>
 
         {/* RIGHT SIDE — 2 PARTS WIDTH */}
-        <div className="border-7 border-neutral-800/30 rounded-3xl h-fit flex-2">
+        <div className="border-7 border-neutral-800/50 rounded-3xl h-fit flex-2">
           <div className="flex-2 border border-neutral-700/30 rounded-2xl p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
   
@@ -210,6 +229,39 @@ function About() {
   
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-black/30 md:py-6 py-3 px-2 md:px-7 lg:px-10 lg:gap-10">
+         <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 ">
+          <img
+            src="/logo/Abstract Design (1).png"
+            alt="Icon"
+            className="w-13 h-13 object-contain"
+          />
+
+          <h1 className="text-white md:text-4xl text-3xl">Our Achievements</h1>
+
+          <p className="text-gray-400 text-[14px] max-w-[95%]">
+           Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-3 w-[95%] mx-auto mt-8">
+            {Achievements.map((item: AchievementItem) => (
+              <div
+                key={item.id}
+                className="bg-[#121212]  border-7 border-neutral-800/50 rounded-3xl"
+              >
+                <div className=" rounded-2xl border border-gray-700/40 p-5 space-y-4 h-full">
+
+                <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+                </div>
+              </div>
+            ))}
         </div>
       </section>
 
@@ -287,7 +339,7 @@ function About() {
 
                 {/* Floating Twitter Icon */}
                 <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#703BF7] p-1 rounded-full shadow-md cursor-pointer hover:bg-purple-600">
-                  <FaTwitter className="text-white w-7 h-3" />
+                  <FaTwitter className="text-white w-9 h-5" />
                 </div>
               </div>
 
@@ -312,7 +364,9 @@ function About() {
           ))}
       </div>
     </section>
-
+    <section className="bg-black/30">
+        <Footer/>
+      </section> 
   </div>
   )
 }

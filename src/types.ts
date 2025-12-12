@@ -7,10 +7,14 @@ export interface Property {
   bathrooms: number;
   type: string;
   price: string;
+  location: string;    
+  yearBuilt: number;   
 }
+
 
 export interface PropertyStore {
   properties: Property[];
+  filteredProperties: Property[];
   loading: boolean;
   error: string | null;
 
@@ -21,6 +25,13 @@ export interface PropertyStore {
   nextPage: () => void;
   prevPage: () => void;
   setPage: (page: number) => void;
+  filterProperties: (filters: {
+    location?: string;
+    propertyType?: string;
+    priceRange?: string;
+    rooms?: number;
+    buildYear?: number;
+  }) => void;
 }
 
 export interface Comment {
@@ -83,4 +94,9 @@ export interface TeamMember {
   image: string;
 }
 
+export interface AchievementItem {
+  id: number;
+  title: string;
+  description: string;
+}
 

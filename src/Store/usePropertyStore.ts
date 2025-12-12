@@ -2,8 +2,9 @@ import { create } from "zustand";
 import axios from "axios";
 import type { Property, PropertyStore } from "../types";
 
-export const usePropertyStore = create<PropertyStore>((set) => ({
+export const usePropertyStore = create<PropertyStore>((set, get) => ({
   properties: [],
+  filteredProperties: [], // new: filtered list
   loading: false,
   error: null,
 
@@ -15,7 +16,11 @@ export const usePropertyStore = create<PropertyStore>((set) => ({
 
     try {
       const res = await axios.get<Property[]>("/data/Properties.json");
-      set({ properties: res.data, loading: false });
+      set({ 
+        properties: res.data, 
+        filteredProperties: res.data, // initialize filtered properties
+        loading: false 
+      });
     } catch (err) {
       console.error(err);
       set({ error: "Failed to load property data", loading: false });
@@ -25,7 +30,7 @@ export const usePropertyStore = create<PropertyStore>((set) => ({
   nextPage: () =>
     set((state) => {
       const maxPage =
-        Math.ceil(state.properties.length / state.ITEMS_PER_PAGE) - 1;
+        Math.ceil(state.filteredProperties.length / state.ITEMS_PER_PAGE) - 1;
 
       return { page: Math.min(state.page + 1, maxPage) };
     }),
@@ -35,5 +40,35 @@ export const usePropertyStore = create<PropertyStore>((set) => ({
       return { page: Math.max(state.page - 1, 0) };
     }),
 
-  setPage: (page: number) => set({ page })
+  setPage: (page: number) => set({ page }),
+
+  // --- New: Filter properties ---
+  filterProperties: (filters: {
+    location?: string;
+    propertyType?: string;
+    priceRange?: string;
+    rooms?: number;
+    buildYear?: number;
+  }) => {
+    const { properties } = get();
+    const filtered = properties.filter((p) => {
+      const priceNum = Number(p.price.replace(/[^0-9]/g, ""));
+      const [minPrice, maxPrice] = filters.priceRange
+        ? filters.priceRange.split("-").map(Number)
+        : [0, Infinity];
+
+      return (
+        (!filters.location || p.location === filters.location) &&
+        (!filters.propertyType || p.type === filters.propertyType) &&
+        (!filters.rooms || p.bedrooms === filters.rooms) &&
+        (!filters.buildYear || p.yearBuilt === filters.buildYear) &&
+        (!filters.priceRange ||
+          (maxPrice
+            ? priceNum >= minPrice && priceNum <= maxPrice
+            : priceNum >= minPrice))
+      );
+    });
+
+    set({ filteredProperties: filtered, page: 0 }); // reset page to 0
+  },
 }));

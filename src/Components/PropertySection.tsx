@@ -96,19 +96,12 @@ function PropertySection() {
               )}  
             </p>
 
-            <div className="grid grid-cols-2 xl:grid-cols-3 mb-4 w-fit gap-2">
-                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
-                  🛏 {item.bedrooms} Beds
-                </p>
-
-                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center w-fit">
-                  🛁 {item.bathrooms} Baths
-                </p>
-
-                <p className="border rounded-2xl px-2 border-gray-600/30 whitespace-nowrap text-center col-span-2 lg:col-span-1 w-fit">
-                  🏡 {item.type}
-                </p>
-            </div>
+             <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-4 w-full">
+                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full text-xs sm:text-sm wrap-break-words">🛏 {item.bedrooms}</p>
+                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full text-xs sm:text-sm wrap-break-words">🛁 {item.bathrooms}</p>
+                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full col-span-2 lg:col-span-1 text-xs sm:text-sm wrap-break-words">🏡 {item.type}</p>
+              </div>
+  
   
               {/* Price + Button */}
               <div className="flex justify-between items-center">

@@ -4,6 +4,7 @@ import AllProperties from "./Pages/AllProperties";
 import AllComments from "./Pages/AllComment";
 import AllFAQs from "./Pages/AllFAQ";
 import About from "./Pages/About";
+import Properties from "./Pages/Properties";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/AllComments" element={<AllComments />} />
         <Route path="/AllFAQs" element={<AllFAQs />} />
         <Route path="/About" element={<About />} />
+        <Route path="/properties" element={<Properties />} />
 
       </Routes>
     </BrowserRouter>
