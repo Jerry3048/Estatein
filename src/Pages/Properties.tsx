@@ -4,6 +4,7 @@ import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types";
 import { FiArrowLeft, FiArrowRight, FiMapPin, FiHome, FiCalendar } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
+import PropertyCard from "../Components/Propertycard.tsx";
 import Footer from "../Components/Footer.tsx";
 
 function PropertySearchSection() {
@@ -250,55 +251,21 @@ function PropertySearchSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {currentProperties.length === 0 ? (
-                      <div className="col-span-full text-center py-10">
-                        <h3 className="text-white text-xl font-semibold mb-2">
-                          No properties found
-                        </h3>
-                        <p className="text-gray-400 text-sm">
-                          Try adjusting your search or filters
-                        </p>
-                      </div>
-                    ) : (
-                      currentProperties.map((item) => (
-                        <div
-                          key={item.id}
-                          className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white"
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.name}
-                            className="w-full h-40 object-cover rounded-lg mb-2"
-                          />
-          
-                          <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
-          
-                          <p className="text-gray-300 text-sm mb-2">
-                            {item.description}
-                          </p>
-          
-                          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-4 w-full">
-                            <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center text-xs sm:text-sm">
-                              🛏 {item.bedrooms}
-                            </p>
-                            <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center text-xs sm:text-sm">
-                              🛁 {item.bathrooms}
-                            </p>
-                            <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center col-span-2 lg:col-span-1 text-xs sm:text-sm">
-                              🏡 {item.type}
-                            </p>
-                          </div>
-          
-                          <div className="flex justify-between items-center">
-                            <span className="text-lg font-bold">{item.price}</span>
-                            <div className="flex gap-2">
-                              <button className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm">View property</button>
-                            </div>
-                          </div>
-                        </div>
-                      ))
-                    )}
-                  </div>
+                  {currentProperties.length === 0 ? (
+                    <div className="col-span-full text-center py-10">
+                      <h3 className="text-white text-xl font-semibold mb-2">
+                        No properties found
+                      </h3>
+                      <p className="text-gray-400 text-sm">
+                        Try adjusting your search or filters
+                      </p>
+                    </div>
+                  ) : (
+                    currentProperties.map((item) => (
+                      <PropertyCard key={item.id} property={item} />
+                    ))
+                  )}
+                </div>
               </div>
         
                 <hr className="my-4 border-gray-600/30" />
@@ -487,19 +454,19 @@ function PropertySearchSection() {
               </div>
 
               {/* Agreement */}
-              <div className="sm:col-span-2 flex items-start gap-3">
-                <input type="checkbox" className="mt-1" />
+              <div className="sm:col-span-2 flex items-center gap-3">
+                <input type="checkbox" className="mt-0.5" />
                 <p className="text-gray-400 text-sm">
-                  I agree with <span className="text-white underline">Terms</span> and{" "}
+                  I agree with the <span className="text-white underline">Terms</span> and{" "}
                   <span className="text-white underline">Policy</span>
                 </p>
               </div>
 
               {/* Submit Button */}
-              <div className="sm:col-span-2 justify-end flex">
+              <div className="sm:col-span-2 flex items-center justify-end">
                 <button
                   type="submit"
-                  className="w-full sm:w-fit bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white p-3 rounded-lg font-medium"
+                  className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
                 >
                   Send Your Message
                 </button>

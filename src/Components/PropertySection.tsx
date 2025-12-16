@@ -1,12 +1,12 @@
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types";
 import { NavLink } from "react-router";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import PropertyCard from "../Components/Propertycard.tsx";
 
 function PropertySection() {
   const {properties,loading,page,ITEMS_PER_PAGE,fetchProperties,nextPage,prevPage,} = usePropertyStore();
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     fetchProperties();
@@ -24,14 +24,6 @@ function PropertySection() {
     page * ITEMS_PER_PAGE,
     page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
   );
-
-  // Word limiter
- function truncateWords(text: string, limit: number): string {
-  const words = text.split(" ");
-  return words.length <= limit
-    ? text
-    : words.slice(0, limit).join(" ");
-}
 
   return (
    <div className="w-[95%] mx-auto py-10 md:py-4">
@@ -59,61 +51,12 @@ function PropertySection() {
        </div>
       <div className="px-2 py-4">
         {/* Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {currentProperties.map((item) => (
-            <div
-              key={item.id}
-              className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white"
-            >
-              {/* Image */}
-              <div className="flex justify-center mb-4">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-40 object-cover rounded-lg"
-                />
-              </div>
-  
-              <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
-  
-            <p className="text-sm text-gray-300 mb-4">
-              {expanded[item.id]
-                ? item.description
-                : truncateWords(item.description, 8)}
-
-              {item.description.split(" ").length > 8 && (
-                <button
-                  onClick={() =>
-                    setExpanded((prev) => ({
-                      ...prev,
-                      [item.id]: !prev[item.id],
-                    }))
-                  }
-                  className="text-[#703BF7] ml-2 hover:underline"
-                >
-                  {expanded[item.id] ? "Show less" : "... Read more"}
-                </button>
-              )}  
-            </p>
-
-             <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-4 w-full">
-                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full text-xs sm:text-sm wrap-break-words">🛏 {item.bedrooms}</p>
-                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full text-xs sm:text-sm wrap-break-words">🛁 {item.bathrooms}</p>
-                <p className="border rounded-2xl px-3 py-1 border-gray-600/30 text-center w-full col-span-2 lg:col-span-1 text-xs sm:text-sm wrap-break-words">🏡 {item.type}</p>
-              </div>
-  
-  
-              {/* Price + Button */}
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-bold">{item.price}</span>
-  
-                <button className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm">
-                  View Property
-                </button>
-              </div>
-            </div>
-          ))}
+            <PropertyCard key={item.id} property={item} />
+        ))}
         </div>
+
         <hr className="my-4 border-gray-600/30" />
   
         {/* Pagination */}
