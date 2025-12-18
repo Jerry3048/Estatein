@@ -3,7 +3,7 @@ import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types";
 import { NavLink } from "react-router";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import PropertyCard from "../Components/Propertycard.tsx";
+import PropertyCard from "../Components/PropertyCard";
 
 function PropertySection() {
   const {properties,loading,page,ITEMS_PER_PAGE,fetchProperties,nextPage,prevPage,} = usePropertyStore();

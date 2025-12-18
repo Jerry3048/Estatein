@@ -4,7 +4,7 @@ import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types";
 import { FiArrowLeft, FiArrowRight, FiMapPin, FiHome, FiCalendar } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
-import PropertyCard from "../Components/Propertycard.tsx";
+import PropertyCard from "../Components/PropertyCard";
 import Footer from "../Components/Footer.tsx";
 import { FiFilter } from "react-icons/fi";
 

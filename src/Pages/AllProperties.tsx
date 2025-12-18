@@ -2,7 +2,7 @@ import Navbar from "../Components/Navbar.tsx";
 import { useEffect } from "react";
 import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import type { Property } from "../types.ts";
-import PropertyCard from "../Components/Propertycard.tsx";
+import PropertyCard from "../Components/PropertyCard";
 import  Footer from "../Components/Footer";
 
 function AllProperties() {
