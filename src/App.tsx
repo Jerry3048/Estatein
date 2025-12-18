@@ -5,6 +5,7 @@ import AllComments from "./Pages/AllComment";
 import AllFAQs from "./Pages/AllFAQ";
 import About from "./Pages/About";
 import Properties from "./Pages/Properties";
+import PropertyDetails from "./Pages/PropertyDetails.tsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/AllFAQs" element={<AllFAQs />} />
         <Route path="/About" element={<About />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/property/:name" element={<PropertyDetails />} />
 
       </Routes>
     </BrowserRouter>

@@ -6,6 +6,8 @@ import { FiArrowLeft, FiArrowRight, FiMapPin, FiHome, FiCalendar } from "react-i
 import { IoBedOutline } from "react-icons/io5";
 import PropertyCard from "../Components/Propertycard.tsx";
 import Footer from "../Components/Footer.tsx";
+import { FiFilter } from "react-icons/fi";
+
 
 function PropertySearchSection() {
   const {
@@ -34,7 +36,7 @@ function PropertySearchSection() {
   const [selectedPriceLabel, setSelectedPriceLabel] = useState("");
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 999999999]);
   
-
+  const [showFilters, setShowFilters] = useState(false);
   const [filtered, setFiltered] = useState<Property[]>([]);
 
   const priceOptions = [
@@ -111,7 +113,7 @@ function PropertySearchSection() {
                 </p> 
             </div>
             <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%]">
-              <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-b-none">
+              <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-b-none flex">
                 <input
                   type="text"
                   placeholder="Search For A Property"
@@ -119,15 +121,25 @@ function PropertySearchSection() {
                   value={searchTerm}
                   onChange={e => setSearchTerm(e.target.value)}
                 />
+                  <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center gap-2 px-4 py-2 bg-black/70 text-white rounded-lg border border-gray-600 md:hidden"
+              >
+                <FiFilter />
+              </button>
               </div>
             </div>
         </div>
 
          <div className="bg-black/30">
               <div className="pt-8 w-[95%] mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-5 mb-6">
+                {/* Filters Container */}
+                <div
+                  className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-0 ${showFilters ? "block" : "hidden"}
+                    md:block bg-neutral-900 md:bg-transparent rounded-2xl md:rounded-none p-4 md:p-0 mb-6`}
+                >
                     {/* Location */}
-                <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tr-none">
+             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tr-none">
                     <div className="relative">
                       <FiMapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
         
