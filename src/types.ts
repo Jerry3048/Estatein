@@ -2,13 +2,15 @@ export interface Property {
   id: number;
   name: string;
   img: string;
+  images: string[];
   description: string;
   bedrooms: number;
   bathrooms: number;
   type: string;
   price: string;
   location: string;    
-  yearBuilt: number;   
+  yearBuilt: number; 
+  keyFeatures: string[];  
 }
 
 
