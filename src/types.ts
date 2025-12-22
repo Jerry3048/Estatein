@@ -7,7 +7,7 @@ export interface Property {
   bedrooms: number;
   bathrooms: number;
   type: string;
-  price: string;
+  price: number;
   location: string;    
   yearBuilt: number; 
   keyFeatures: string[];  

@@ -52,7 +52,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
   }) => {
     const { properties } = get();
     const filtered = properties.filter((p) => {
-      const priceNum = Number(p.price.replace(/[^0-9]/g, ""));
+      const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const [minPrice, maxPrice] = filters.priceRange
         ? filters.priceRange.split("-").map(Number)
         : [0, Infinity];

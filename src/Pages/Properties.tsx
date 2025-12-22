@@ -64,9 +64,9 @@ function PropertySearchSection() {
       const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
       const matchesYearBuilt = yearBuilt ? p.yearBuilt === Number(yearBuilt) : true;
 
-      const priceNumber = Number(p.price.replace(/[$,]/g, ""));
+     const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const matchesPrice =
-        priceNumber >= priceRange[0] && priceNumber <= priceRange[1];
+        priceNum >= priceRange[0] && priceNum <= priceRange[1];
 
       return (
         matchesSearch &&

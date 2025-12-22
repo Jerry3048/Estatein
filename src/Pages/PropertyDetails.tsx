@@ -59,7 +59,7 @@ function PropertyDetails() {
             {/* Price */}
             <div className="flex md:flex-col items-center md:items-start">
               <p className="text-xs text-gray-400">Price</p>
-              <p className="text-2xl font-semibold">{property?.price}</p>
+              <p className="text-2xl font-semibold">${(property?.price ?? 0) * 1.2}</p>
             </div>
           </div>
         </div>

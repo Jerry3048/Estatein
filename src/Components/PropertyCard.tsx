@@ -70,7 +70,7 @@ function PropertyCard({ property }: PropertyCardProps) {
 
       {/* Price + Button */}
       <div className="flex justify-between items-center">
-        <span className="text-lg font-bold">{property.price}</span>
+        <span className="text-lg font-bold">${(property?.price ?? 0) * 1.2}</span>
 
          <NavLink
           to={`/property/${slugify(property.name)}`}
