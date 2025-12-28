@@ -2,7 +2,7 @@ import Navbar from "../Components/Navbar";
 import { useParams } from "react-router";
 import { FiMapPin, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { usePropertyStore } from "../Store/usePropertyStore";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBed, FaBath, FaHome, FaBolt  } from "react-icons/fa";
 import FAQSection from "../Components/FAQSection";
 import Footer from "../Components/Footer";
@@ -17,24 +17,42 @@ function PropertyDetails() {
   const property = properties.find((p) => slugify(p.name) === name);
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [step, setStep] = useState(window.innerWidth < 768 ? 1 : 2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setStep(window.innerWidth < 768 ? 1 : 2);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (!property) {
+    return (
+      <div className="bg-black/30 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-semibold text-white mb-4">Property Not Found</h1>
+          <p className="text-gray-400">The property you're looking for doesn't exist.</p>
+        </div>
+      </div>
+    );
+  }
 
   const images = property?.images || [];
   
   // Responsive: show 1 image on small screens, 2 on md+
   const visibleImages = images.slice(
     currentIndex,
-    currentIndex + (window.innerWidth < 768 ? 1 : 2)
+    currentIndex + step
   );
 
   const nextImages = () => {
-    const step = window.innerWidth < 768 ? 1 : 2;
     if (currentIndex + step < images.length) {
       setCurrentIndex(currentIndex + step);
     }
   };
 
   const prevImages = () => {
-    const step = window.innerWidth < 768 ? 1 : 2;
     if (currentIndex - step >= 0) {
       setCurrentIndex(currentIndex - step);
     }
@@ -74,7 +92,7 @@ function PropertyDetails() {
                 key={index}
                 src={img}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-20 w-30 md:w-full object-cover rounded-lg cursor-pointer border ${
+                className={`h-30 w-30 md:w-full object-cover rounded-lg cursor-pointer border ${
                   index === currentIndex ? "border-[#703BF7]" : "border-gray-600/30"
                 }`}
               />
@@ -88,7 +106,7 @@ function PropertyDetails() {
                 <img
                   key={index}
                   src={img}
-                  className="w-full h-[350px] object-cover rounded-xl"
+                  className="w-full h-[450px] object-cover rounded-xl"
                 />
               ))}
             </div>
@@ -117,7 +135,7 @@ function PropertyDetails() {
   
               <button
                 onClick={nextImages}
-                disabled={currentIndex >= images.length - (window.innerWidth < 768 ? 1 : 2)}
+                disabled={currentIndex >= images.length - step}
                 className="p-2 rounded-full border border-gray-600 disabled:opacity-30 bg-[#1A1A1A]"
               >
                 <FiChevronRight size={15} />

@@ -73,7 +73,7 @@ function PropertyCard({ property }: PropertyCardProps) {
         <span className="text-lg font-bold">${(property?.price ?? 0) * 1.2}</span>
 
          <NavLink
-          to={`/property/${slugify(property.name)}`}
+          to={`/properties/${slugify(property.name)}`}
           className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm"
         >
           View Property

@@ -11,20 +11,20 @@ function Home() {
  
 
    const services = [
-    {
-      img: "/logo/servicecontainer/Icon Container (1).png",
+ {
+      img: "/logo/servicecontainer/Icon Container (3).png",
       text: "Find Your Dream Home",
     },
     {
-      img: "/logo/servicecontainer/Icon Container.png",
+      img: "/logo/servicecontainer/Icon Container (4).png",
       text: "Unlock Property Value",
     },
     {
-      img: "/logo/servicecontainer/Icon Container (2).png",
+      img: "/logo/servicecontainer/Icon Container (5).png",
       text: "Effortless Property Management",
     },
     {
-      img: "/logo/servicecontainer/Icon Container (3).png",
+      img: "/logo/servicecontainer/Icon Container (6).png",
       text: "Smart Investment. Informed Decision",
     },
   ];
