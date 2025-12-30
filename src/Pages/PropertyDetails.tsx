@@ -211,7 +211,7 @@ function PropertyDetails() {
                 <input
                   type="text"
                   placeholder="Enter First Name"
-                  className="w-full bg-transparent border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                 />
               </div>
 
@@ -220,7 +220,7 @@ function PropertyDetails() {
                 <input
                   type="text"
                   placeholder="Enter Last Name"
-                  className="w-full bg-transparent border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                 />
               </div>
             </div>
@@ -232,7 +232,7 @@ function PropertyDetails() {
                 <input
                   type="email"
                   placeholder="Enter your Email"
-                  className="w-full bg-transparent border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                 />
               </div>
 
@@ -241,7 +241,7 @@ function PropertyDetails() {
                 <input
                   type="tel"
                   placeholder="Enter Phone Number"
-                  className="w-full bg-transparent border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                 />
               </div>
             </div>
@@ -263,7 +263,7 @@ function PropertyDetails() {
               <textarea
                 rows={4}
                 placeholder="Enter your Message here..."
-                className="w-full bg-transparent border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7]"
               />
             </div>
 

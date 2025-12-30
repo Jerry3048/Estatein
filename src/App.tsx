@@ -7,6 +7,7 @@ import About from "./Pages/About";
 import Properties from "./Pages/Properties";
 import PropertyDetails from "./Pages/PropertyDetails.tsx";
 import Service from "./Pages/Service";
+import Contact from "./Pages/Contact";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/properties" element={<Properties />} />
         <Route path="/properties/:name" element={<PropertyDetails />} />
         <Route path="/Service" element={<Service />} />
-
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   )

@@ -65,11 +65,24 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Contact Button */}
-          <div className="hidden sm:block">
-            <button className="bg-black/30 border border-gray-600/30 text-white py-2 px-4 rounded-md">
-              Contact Us
-            </button>
+         <div className="hidden sm:block">
+            <NavLink to="/Contact">
+              {({ isActive }) => (
+                <button
+                  className={`py-2 px-4 rounded-md border transition
+                    ${
+                      isActive
+                        ? "bg-[#703BF7] text-white border-[#703BF7]"
+                        : "bg-black/30 text-white border-gray-600/30 hover:bg-[#703BF7] hover:border-[#703BF7]"
+                    }
+                  `}
+                >
+                  Contact Us
+                </button>
+              )}
+            </NavLink>
           </div>
+
 
           {/* MOBILE MENU BUTTON */}
           <div className="sm:hidden">
@@ -102,7 +115,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `text-[17px] ${
-                      isActive ? "text-[#703BF7] font-semibold" : "hover:text-purple-500"
+                      isActive ? "text-[#703BF7] font-semibold" : ""
                     }`
                   }
                 >
@@ -111,9 +124,21 @@ const Navbar = () => {
               ))}
 
               {/* Purple Contact Button */}
-              <button className=" bg-[#703BF7] hover:bg-purple-600 text-white  rounded-md font-semibold">
-                Contact Us
-              </button>
+              <NavLink to="/Contact">
+              {({ isActive }) => (
+                <button
+                  className={`
+                    ${
+                      isActive
+                        ? "text-[#703BF7] font-semibold"
+                        : ""
+                    }
+                  `}
+                >
+                  Contact Us
+                </button>
+              )}
+            </NavLink>
             </div>
           </div>
         )}

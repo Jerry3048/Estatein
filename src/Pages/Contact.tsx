@@ -1,0 +1,266 @@
+import Navbar from "../Components/Navbar"
+import { FaEnvelope, FaPhone, FaDirections } from "react-icons/fa";
+import { FiMapPin } from "react-icons/fi";
+import Footer from "../Components/Footer";
+function Contact() {
+    const services1 = [
+    {
+      img: "/logo/servicecontainer/Icon Container (3).png",
+      text: "Find Your Dream Home",
+    },
+    {
+      img: "/logo/servicecontainer/Icon Container (4).png",
+      text: "Unlock Property Value",
+    },
+    {
+      img: "/logo/servicecontainer/Icon Container (5).png",
+      text: "Effortless Property Management",
+    },
+    {
+      img: "/logo/servicecontainer/Icon Container (6).png",
+      text: "Smart Investment. Informed Decision",
+    },
+  ]  
+  return (
+    <div className="">
+        <Navbar/>
+         <div className="bg-linear-to-r from-neutral-600/20 to-black/60 p-10  space-y-6">
+                <h1 className="text-white md:text-4xl text-3xl">
+              Get in Touch with Estatein
+            </h1>
+
+            <p className="text-gray-400 text-[14px] max-w-[95%]">
+                Welcome to Estatein's Contact Us page. We're here to assist you with any inquiries, requests, or feedback you may have. Whether you're looking to buy or sell a property, explore investment opportunities, or simply want to connect, we're just a message away. Reach out to us, and let's start a conversation.
+            </p> 
+        </div>
+
+         <section className="px-2 py-2 bg-black/30 border-t-5 border-b-5 border-gray-600/30 ">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            
+            {/* BOX ITEM */}
+            {services1.map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
+              >
+                {/* Arrow at top-right */}
+                <div className="absolute top-3 right-3">
+                  <img
+                  src="/logo/Vector 431.png"
+                  alt="top arrow"
+                  className="w-3 h-3 object-contain"
+                />
+                </div>
+
+                {/* Center Image */}
+                <img
+                  src={item.img}
+                  alt="Icon"
+                  className="w-13 h-13 object-contain mb-3"
+                />
+
+                {/* Text */}
+                <p className="text-white text-center text-sm">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-black/30 px-5">
+            <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
+                <img
+                src="/logo/Abstract Design (1).png"
+                alt="Icon"
+                className="w-13 h-13 object-contain"
+                />
+
+                <h1 className="text-white md:text-4xl text-3xl">Let's Connect</h1>
+
+                <p className="text-gray-400 text-[14px] max-w-[95%]">
+                We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with Estatein. Whether you're a prospective client, partner, or simply curious about our services, we're here to answer your questions and provide the assistance you need.
+                </p>
+            </div>
+
+           <form className="space-y-5 border border-gray-600/30 p-4 rounded-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* First & Last Name */}           
+                <div>
+                  <label className="text-sm mb-1 block">First Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter First Name"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  />
+                </div>
+  
+                <div>
+                  <label className="text-sm mb-1 block">Last Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Last Name"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  />
+                </div>
+  
+              {/* Email & Phone */}
+                <div>
+                  <label className="text-sm mb-1 block">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your Email"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  />
+                </div>
+  
+                <div>
+                  <label className="text-sm mb-1 block">Phone</label>
+                  <input
+                    type="tel"
+                    placeholder="Enter Phone Number"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  />
+                </div>
+  
+              {/* Inquiry Type & Source */}
+                <div>
+                  <label className="text-sm mb-1 block">Inquiry Type</label>
+                  <select
+                    className="w-full bg-gray-600 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  >
+                     <option value="" hidden>Select Inquiry Type</option>
+                    <option value="buying">Buying Property</option>
+                    <option value="selling">Selling Property</option>
+                    <option value="renting">Renting</option>
+                    <option value="management">Property Management</option>
+                    <option value="investment">Investment</option>
+                  </select>
+                </div>
+  
+                <div>
+                  <label className="text-sm mb-1 block">How Did You Hear About Us?</label>
+                  <select
+                    className="w-full bg-gray-600 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  >
+                    <option value="" hidden>Select Option</option>
+                    <option value="social">Social Media</option>
+                    <option value="google">Google Search</option>
+                    <option value="friend">Friend / Referral</option>
+                    <option value="ads">Online Ads</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="text-sm mb-1 block">Message</label>
+              <textarea
+                rows={4}
+                placeholder="Enter your Message here..."
+                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7]"
+              />
+            </div>
+
+            {/* Agreement */}
+              <div className="sm:col-span-2 flex items-center gap-3">
+                <input type="checkbox" className="mt-0.5" />
+                <p className="text-gray-400 text-sm">
+                  I agree with the <span className="text-white underline">Terms</span> and{" "}
+                  <span className="text-white underline">Policy</span>
+                </p>
+              </div>
+
+              {/* Submit Button */}
+              <div className="sm:col-span-2 flex items-center justify-end">
+                <button
+                  type="submit"
+                  className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
+                >
+                  Send Your Message
+                </button>
+              </div>
+          </form>
+        </section>
+
+        <section className="bg-black/30 p-5">
+            <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
+                <img
+                src="/logo/Abstract Design (1).png"
+                alt="Icon"
+                className="w-13 h-13 object-contain"
+                />
+
+                <h1 className="text-white md:text-4xl text-3xl">Discover Our Office Location</h1>
+
+                <p className="text-gray-400 text-[14px] max-w-[95%]">
+                Estatein is here to serve you across multiple locations. Whether you're looking to meet our team, discuss real estate opportunities, or simply drop by for a chat, we have offices conveniently located to serve your needs. Explore the categories below to find the Estatein office nearest to you
+                </p>
+            </div>
+            <div className="border border-gray-600/30 rounded-xl p-6 bg-[#1A1A1A] space-y-5">
+      
+              {/* Title */}
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-1">
+                  Main Headquarters
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  123 Estatein Plaza, City Center, Metropolis
+                </p>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Our main headquarters serve as the heart of Estatein. Located in the
+                bustling city center, this is where our core team of experts operates,
+                driving the excellence and innovation that define us.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-3 md:flex gap-5">
+                {/* Email */}
+                <a
+                  href="mailto:info@estatein.com"
+                  className="flex items-center gap-3 text-gray-300 hover:text-[#703BF7] transition bg-black p-2 px-4 rounded-full w-full  border border-gray-600/70 md:w-fit justify-center"
+                >
+                  <FaEnvelope/>
+                  <span>info@estatein.com</span>
+                </a>
+
+                {/* Phone */}
+                <a
+                  href="tel:+11234567890"
+                  className="flex items-center gap-3 text-gray-300 hover:text-[#703BF7] transition bg-black p-2 px-4 rounded-full w-full border border-gray-600/70 md:w-fit justify-center"
+                >
+                  <FaPhone />
+                  <span>+1 (123) 456-7890</span>
+                </a>
+
+                {/* City */}
+                <div className="flex items-center gap-3 text-gray-300 bg-black  px-4 rounded-full w-full border border-gray-600/70 h-10 md:w-fit justify-center">
+                  <FiMapPin />
+                  <span>Metropolis</span>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-[#703BF7] hover:bg-[#5c2fe0] transition rounded-lg text-white font-medium w-full justify-center mt-4 lg:w-fit"
+              >
+                <FaDirections />
+                Get Direction
+              </a>
+            </div>
+        </section>
+        <section className="bg-black/30">
+         <Footer/>
+        </section> 
+    </div>
+  )
+}
+
+export default Contact
