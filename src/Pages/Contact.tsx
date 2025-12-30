@@ -5,20 +5,20 @@ import Footer from "../Components/Footer";
 function Contact() {
     const services1 = [
     {
-      img: "/logo/servicecontainer/Icon Container (3).png",
-      text: "Find Your Dream Home",
+      img: "/logo/servicecontainer/Icon Container (17).png",
+      text: "info@estatein.com",
     },
     {
-      img: "/logo/servicecontainer/Icon Container (4).png",
-      text: "Unlock Property Value",
+      img: "/logo/servicecontainer/Icon Container (16).png",
+      text: "+1 (123) 456-7890",
     },
     {
-      img: "/logo/servicecontainer/Icon Container (5).png",
-      text: "Effortless Property Management",
+      img: "/logo/servicecontainer/Icon Container (15).png",
+      text: "Main Headquarters",
     },
     {
-      img: "/logo/servicecontainer/Icon Container (6).png",
-      text: "Smart Investment. Informed Decision",
+      img: "/logo/servicecontainer/Icon Container (14).png",
+      text: "Social Media",
     },
   ]  
   return (
