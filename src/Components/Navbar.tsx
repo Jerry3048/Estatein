@@ -41,8 +41,8 @@ const Navbar = () => {
       <div className="max-w-[90%] mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 text-white text-[20px] font-bold">
-            <img src={logo} alt="logo" className="h-10" />
+          <div className="flex items-center space-x-2 text-white text-[20px] font-bold ">
+            <img src={logo} alt="logo" className="h-9 w-30" />
           </div>
 
           {/* Desktop Nav */}

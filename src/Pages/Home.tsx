@@ -5,6 +5,7 @@ import PropertySection from "../Components/PropertySection";
 import CommentSection from "../Components/CommentSection";
 import FAQSection from "../Components/FAQSection";
 import Footer from "../Components/Footer";
+import { Link } from "react-router";
 
 
 function Home() {
@@ -53,9 +54,11 @@ function Home() {
             <button className="bg-black/30 border border-gray-600/30 text-white px-4 py-2 rounded text-sm">
               Learn More
             </button>
-            <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-sm">
-              Browse Properties
-            </button>
+           <Link to = "/Properties">
+              <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-sm">
+                Browse Properties
+              </button>
+           </Link>
           </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center text-center md:text-left w-full">
