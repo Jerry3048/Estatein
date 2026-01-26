@@ -1,6 +1,7 @@
 import logo from "/logo/Logo.png"; 
 import Entericon from "/logo/Send.png";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,7 @@ function Footer() {
             </div>
     
              <button className="bg-[#703BF7] text-white px-3 py-2 rounded text-sm sm:w-[30%] w-full">
-               Explore Properties
+               <Link to = "/AllProperties">Explore Properties</Link>
             </button>
           </div>  
         </div>
@@ -128,16 +129,16 @@ function Footer() {
 
             {/* Right side: Social Media Icons */}
             <div className="flex gap-2">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
                 <FaFacebookF />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaTwitter />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-pink-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaInstagram />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white rounded-full w-8 h-8 bg-black items-center justify-center flex">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaLinkedinIn />
               </a>
             </div>

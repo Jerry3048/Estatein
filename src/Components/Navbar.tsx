@@ -55,7 +55,7 @@ const Navbar = () => {
                   `hover:text-[#F6FBE9] ${
                     isActive
                       ? "p-2 px-3 bg-black/30 border border-gray-600/30 rounded-md"
-                      : ""
+                      : " text-white border-gray-600/30 hover:bg-[#703BF7] hover:border-[#703BF7] p-2 px-3 rounded-md"
                   }`
                 }
               >

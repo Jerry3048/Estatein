@@ -4,8 +4,8 @@ export interface Property {
   img: string;
   images: string[];
   description: string;
-  bedrooms: number;
-  bathrooms: number;
+  bedrooms: number ;
+  bathrooms: number | string;
   type: string;
   price: number;
   location: string;    
@@ -58,7 +58,7 @@ export interface CommentStore {
 }
 
 export interface FAQStore {
-  faq: FAQ[];              // list of FAQ items
+  faq: FAQ[];      
   loading: boolean;
   page: number;
   ITEMS_PER_PAGE: number;

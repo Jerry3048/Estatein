@@ -30,6 +30,7 @@ function PropertySearchSection() {
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
   const [preferedNoOfRooms, setPreferedNoOfRooms] = useState("");
+  const [preferedNoOfBathRooms, setPreferedNoOfBathRooms] = useState("");
   const [Budget, setBudget] = useState("");
 
   // NEW: Price range controlled through dropdown
@@ -400,8 +401,8 @@ function PropertySearchSection() {
                 <label className="text-gray-300 text-sm">No. of Bathrooms</label>
                 <select
                       className="p-3 rounded-lg bg-black/70 text-gray-400 focus:outline-none border w-full border-gray-600/70"
-                      value={bedrooms}
-                     onChange={(e) => setPreferedNoOfRooms(e.target.value)}
+                      value={preferedNoOfBathRooms}
+                     onChange={(e) => setPreferedNoOfBathRooms(e.target.value)}
                     >
                       <option value="" disabled hidden>Number of Bathrooms</option>
                       {uniqueBedrooms.map((b, idx) => (

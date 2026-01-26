@@ -532,7 +532,7 @@
     "name": "Luxury Penthouse Suite",
     "description": "A premium penthouse with panoramic city views and top-tier finishes.",
     "bedrooms": 4,
-    "bathrooms": 4,
+    "bathrooms":"shared",
     "type": "Penthouse",
     "price": 550000,
     "location": "Eko Atlantic, Lagos",

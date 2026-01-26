@@ -126,29 +126,66 @@ function Contact() {
               {/* Inquiry Type & Source */}
                 <div>
                   <label className="text-sm mb-1 block">Inquiry Type</label>
+
                   <select
-                    className="w-full bg-gray-600 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                   >
-                     <option value="" hidden>Select Inquiry Type</option>
-                    <option value="buying">Buying Property</option>
-                    <option value="selling">Selling Property</option>
-                    <option value="renting">Renting</option>
-                    <option value="management">Property Management</option>
-                    <option value="investment">Investment</option>
+                    <option value="" hidden className="bg-gray-600 ">
+                      Select Inquiry Type
+                    </option>
+
+                    <option value="buying" className="bg-gray-600">
+                      Buying Property
+                    </option>
+
+                    <option value="selling" className="bg-gray-600">
+                      Selling Property
+                    </option>
+
+                    <option value="renting" className="bg-gray-600">
+                      Renting
+                    </option>
+
+                    <option value="management" className="bg-gray-600">
+                      Property Management
+                    </option>
+
+                    <option value="investment" className="bg-gray-600">
+                      Investment
+                    </option>
                   </select>
                 </div>
   
-                <div>
+
+                 <div>
                   <label className="text-sm mb-1 block">How Did You Hear About Us?</label>
+
                   <select
-                    className="w-full bg-gray-600 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                    className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
                   >
-                    <option value="" hidden>Select Option</option>
-                    <option value="social">Social Media</option>
-                    <option value="google">Google Search</option>
-                    <option value="friend">Friend / Referral</option>
-                    <option value="ads">Online Ads</option>
-                    <option value="other">Other</option>
+                    <option value="" hidden className="bg-gray-600 ">
+                      Select Option
+                    </option>
+
+                    <option value="social" className="bg-gray-600">
+                      Social Media
+                    </option>
+
+                    <option value="google" className="bg-gray-600">
+                    Google Search
+                    </option>
+
+                    <option value="friend" className="bg-gray-600">
+                      Friend / Referral
+                    </option>
+
+                    <option value="ads" className="bg-gray-600">
+                      Online Ads
+                    </option>
+
+                    <option value="other" className="bg-gray-600">
+                      Other
+                    </option>
                   </select>
                 </div>
             </div>

@@ -19,6 +19,21 @@ function PropertyCard({ property }: PropertyCardProps) {
     return words.length <= limit ? text : words.slice(0, limit).join(" ");
   }
 
+  const getProfitMultiplier = (price:number) => {
+    if (price < 50000) {
+    return 1.12;
+    }
+    else if (price < 200000) {
+    return 1.2;
+    }
+    else {
+    return 1.05;
+    }
+   };
+ 
+   const price = property?.price ?? 0;
+   const finalPrice = price * getProfitMultiplier(price);
+
   return (
     <div className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white">
       {/* Image */}
@@ -70,15 +85,18 @@ function PropertyCard({ property }: PropertyCardProps) {
 
       {/* Price + Button */}
       <div className="flex justify-between items-center">
-        <span className="text-lg font-bold">${(property?.price ?? 0) * 1.2}</span>
+        <span className="text-lg font-bold">
+        ${finalPrice.toFixed(2)}
+        </span>
 
-         <NavLink
-          to={`/properties/${slugify(property.name)}`}
-          className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm"
+
+        <NavLink
+        to={`/properties/${slugify(property.name)}`}
+        className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm"
         >
-          View Property
+        View Property
         </NavLink>
-      </div>
+        </div>
     </div>
   );
 }
