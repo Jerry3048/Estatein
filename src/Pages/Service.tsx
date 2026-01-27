@@ -113,7 +113,7 @@ const services4 = [
                 Welcome to Estatein, where your real estate aspirations meet expert guidance. Explore our comprehensive range of services, each designed to cater to your unique needs and dreams.
             </p> 
         </div>
-        <section className="px-2 py-2 bg-black/30 border-t-5 border-b-5 border-gray-600/30 ">
+        <section className="px-2 py-2 bg-black/30 border-t-5 border-b-5 border-gray-600/30" id="whatweoffer">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             
             {/* BOX ITEM */}
@@ -147,7 +147,7 @@ const services4 = [
           </div>
         </section>
 
-        <section className="bg-black/30 p-4 space-y-6">
+        <section className="bg-black/30 p-4 space-y-6" id="valuation">
            <div className="space-y-4">
                 <img
                   src="/logo/Abstract Design (1).png"
@@ -225,7 +225,7 @@ const services4 = [
              </div>
         </section>
 
-        <section className="bg-black/30 p-4 space-y-6">
+        <section className="bg-black/30 p-4 space-y-6" id="Management">
            <div className="space-y-4">
                 <img
                   src="/logo/Abstract Design (1).png"
@@ -306,7 +306,7 @@ const services4 = [
           </div>
         </section>
 
-        <section className="bg-black/30 p-4 space-y-6">
+        <section className="bg-black/30 p-4 space-y-6" id="marketing">
            <img
                   src="/logo/Abstract Design (1).png"
                   alt="Icon"

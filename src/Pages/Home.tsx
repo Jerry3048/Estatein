@@ -33,7 +33,7 @@ function Home() {
   return (
     <div className="">
       <Navbar />
-      <section className="relative flex flex-col sm:flex-row">
+      <section className="relative flex flex-col sm:flex-row" id= "hero">
 
         {/* CENTER FLOATING IMAGE */}
         <div className="hidden sm:block absolute left-[52%] top-1/3 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -103,7 +103,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="px-2 py-2 bg-black/30">
+      <section className="px-2 py-2 bg-black/30" id="features">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             
             {/* BOX ITEM */}
@@ -138,13 +138,13 @@ function Home() {
           </div>
       </section>
 
-      <section className="bg-black/30 pb-5">
+      <section className="bg-black/30 pb-5" id="properties">
         <PropertySection />
       </section>
-      <section className="bg-black/30 pb-5">
+      <section className="bg-black/30 pb-5" id="testimonials">
         <CommentSection/>
       </section>
-      <section className="bg-black/30 pb-15">
+      <section className="bg-black/30 pb-15" id="faq">
         <FAQSection/>
       </section>
       <section className="bg-black/30">

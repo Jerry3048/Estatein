@@ -103,7 +103,7 @@ function PropertySearchSection() {
   return (
    <div>
     <Navbar/>
-        <div className="relative">
+        <div className="relative" id="Categories">
             <div className="bg-linear-to-r from-neutral-600/20 to-black/60 p-10  space-y-6 border-b border-gray-600">
                     <h1 className="text-white md:text-4xl text-3xl">
                     Find Your Dream Property
@@ -308,7 +308,7 @@ function PropertySearchSection() {
               </div>
           </div>
 
-        <section className="bg-black/30 p-5 pb-20">
+        <section className="bg-black/30 p-5 pb-20" id="Portfolio">
           <div className="  ">
              <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 mb-6">
                   <img
