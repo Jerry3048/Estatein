@@ -6,9 +6,12 @@ import CommentSection from "../Components/CommentSection";
 import FAQSection from "../Components/FAQSection";
 import Footer from "../Components/Footer";
 import { Link } from "react-router";
+import useScrollToHash from "../hooks/useLocation";
+
 
 
 function Home() {
+  useScrollToHash();
  
 
    const services = [
@@ -51,11 +54,13 @@ function Home() {
           </p>
 
           <div className="flex space-x-4">
-            <button className="bg-black/30 border border-gray-600/30 text-white px-4 py-2 rounded text-sm">
-              Learn More
-            </button>
+            <Link to="/Studentarea">
+              <button className="bg-black/30 border border-gray-600/30 text-white px-4 py-2 rounded text-sm hover:bg-[#9677df]">
+                School Area
+              </button>
+            </Link>
            <Link to = "/Properties">
-              <button className="bg-[#703BF7] text-white px-4 py-2 rounded text-sm">
+              <button className="bg-[#703BF7] hover:bg-[#9677df] text-white px-4 py-2 rounded text-sm">
                 Browse Properties
               </button>
            </Link>

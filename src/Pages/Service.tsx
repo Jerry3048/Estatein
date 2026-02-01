@@ -1,7 +1,9 @@
 import Navbar from "../Components/Navbar"
 import Footer from "../Components/Footer";
+import useScrollToHash from "../hooks/useLocation";
 
 function Service() {
+  useScrollToHash();
        const services1 = [
     {
       img: "/logo/servicecontainer/Icon Container (3).png",

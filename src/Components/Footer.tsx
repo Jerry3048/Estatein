@@ -20,7 +20,7 @@ function Footer() {
               </p>
             </div>
     
-             <button className="bg-[#703BF7] text-white px-3 py-2 rounded text-sm sm:w-[30%] w-full">
+             <button className="bg-[#703BF7] hover:bg-[#9677df] text-white px-3 py-2 rounded text-sm sm:w-[30%] w-full">
                <Link to = "/AllProperties">Explore Properties</Link>
             </button>
           </div>  
@@ -49,19 +49,19 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/">Home</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <a href="#hero" className="hover:text-white cursor-pointer">Hero Section</a>
+                        <Link to="/#hero" className="hover:text-white cursor-pointer">Hero Section</Link>
                     </li>
                     <li>
-                      <a href="#features" className="hover:text-white cursor-pointer">Features</a>
+                      <Link to="/#features" className="hover:text-white cursor-pointer">Features</Link>
                     </li>
                     <li>
-                      <a href="#properties" className="hover:text-white cursor-pointer">Properties</a>
+                      <Link to="/#properties" className="hover:text-white cursor-pointer">Properties</Link>
                     </li>
                     <li>
-                      <a href="#testimonials" className="hover:text-white cursor-pointer">Testimonials</a>
+                      <Link to="/#testimonials" className="hover:text-white cursor-pointer">Testimonials</Link>
                     </li>
                     <li>
-                      <a href="#faq" className="hover:text-white cursor-pointer">FAQ</a>
+                      <Link to="/#faq" className="hover:text-white cursor-pointer">FAQ</Link>
                     </li>
                   </ul>
                   <hr className="my-4 border-gray-600/30 md:hidden" />
@@ -72,19 +72,19 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/About">About Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <a href="#Journey" className="hover:text-white cursor-pointer">Our Story</a>
+                        <Link to="/About#Journey" className="hover:text-white cursor-pointer">Our Story</Link>
                     </li>
                     <li>
-                      <a href="#Values" className="hover:text-white cursor-pointer">Our Values</a>
+                      <Link to="/About#Values" className="hover:text-white cursor-pointer">Our Values</Link>
                     </li>
                     <li>
-                      <a href="#Achievements" className="hover:text-white cursor-pointer">Our Achievements</a>
+                      <Link to="/About#Achievements" className="hover:text-white cursor-pointer">Our Achievements</Link>
                     </li>
                     <li>
-                      <a href="#Process" className="hover:text-white cursor-pointer">How it work</a>
+                      <Link to="/About#Process" className="hover:text-white cursor-pointer">How it work</Link>
                     </li>
                     <li>
-                      <a href="#Team" className="hover:text-white cursor-pointer">Our Team</a>
+                      <Link to="/About#Team" className="hover:text-white cursor-pointer">Our Team</Link>
                     </li>
                   </ul>
                   <hr className="my-4 border-gray-600/30 md:hidden" />
@@ -95,10 +95,10 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Properties">Properties</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <a href="#Categories" className="hover:text-white cursor-pointer">Categories</a>
+                        <Link to="/Properties#Categories" className="hover:text-white cursor-pointer">Categories</Link>
                     </li>
                     <li>
-                      <a href="#Portfolio" className="hover:text-white cursor-pointer">Portfolio</a>
+                      <Link to="/Properties#Portfolio" className="hover:text-white cursor-pointer">Portfolio</Link>
                     </li>
                   </ul>
                   <hr className="my-4 border-gray-600/30 md:hidden" />
@@ -107,13 +107,13 @@ function Footer() {
                     <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                     <ul className="space-y-5 text-sm">
                       <li>
-                          <a href="#Contactinfo" className="hover:text-white cursor-pointer">Contact info</a>
+                          <Link to="/Contact#Contactinfo" className="hover:text-white cursor-pointer">Contact info</Link>
                       </li>
                       <li>
-                          <a href="#Contactform" className="hover:text-white cursor-pointer">Contact Form</a>
+                          <Link to="/Contact#Contactform" className="hover:text-white cursor-pointer">Contact Form</Link>
                       </li>
                       <li>
-                        <a href="#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</a>
+                        <Link to="/Contact#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</Link>
                       </li>
                     </ul>
                     <hr className="my-4 border-gray-600/30 md:hidden" />
@@ -125,16 +125,16 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Service">Services</Link></h3>
                   <ul className="space-y-5 text-sm">
                      <li>
-                      <a href="#whatweoffer" className="hover:text-white cursor-pointer">What We Offer</a>
+                      <Link to="/Service#whatweoffer" className="hover:text-white cursor-pointer">What We Offer</Link>
                     </li>
                     <li>
-                        <a href="#valuation" className="hover:text-white cursor-pointer">Valuation Mastery</a>
+                        <Link to="/Service#valuation" className="hover:text-white cursor-pointer">Valuation Mastery</Link>
                     </li> 
                     <li>
-                      <a href="#Management" className="hover:text-white cursor-pointer">Property Management</a>
+                      <Link to="/Service#Management" className="hover:text-white cursor-pointer">Property Management</Link>
                     </li>
                     <li>
-                      <a href="#marketing" className="hover:text-white cursor-pointer">Strategic Marketing</a>
+                      <Link to="/Service#marketing" className="hover:text-white cursor-pointer">Strategic Marketing</Link>
                     </li>
                   </ul>
                   <hr className="my-4 border-gray-600/30 md:hidden" />
@@ -145,13 +145,13 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                       <li>
-                          <a href="#Contactinfo" className="hover:text-white cursor-pointer">Contact info</a>
+                          <Link to="/Contact#Contactinfo" className="hover:text-white cursor-pointer">Contact info</Link>
                       </li>
                       <li>
-                          <a href="#Contactform" className="hover:text-white cursor-pointer">Contact Form</a>
+                          <Link to="/Contact#Contactform" className="hover:text-white cursor-pointer">Contact Form</Link>
                       </li>
                       <li>
-                        <a href="#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</a>
+                        <Link to="/Contact#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</Link>
                       </li>
                     </ul>
                   <hr className="my-4 border-gray-600/30 md:hidden" />

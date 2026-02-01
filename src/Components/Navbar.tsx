@@ -54,8 +54,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `hover:text-[#F6FBE9] ${
                     isActive
-                      ? "p-2 px-3 bg-black/30 border border-gray-600/30 rounded-md"
-                      : " text-white border-gray-600/30 hover:bg-[#703BF7] hover:border-[#703BF7] p-2 px-3 rounded-md"
+                      ? "p-2 px-3 bg-[#703BF7] border border-gray-600/30 rounded-md"
+                      : " text-white border-gray-600/30 hover:bg-[#9677df] hover:border-[#703BF7] p-2 px-3 rounded-md"
                   }`
                 }
               >
@@ -73,7 +73,7 @@ const Navbar = () => {
                     ${
                       isActive
                         ? "bg-[#703BF7] text-white border-[#703BF7]"
-                        : "bg-black/30 text-white border-gray-600/30 hover:bg-[#703BF7] hover:border-[#703BF7]"
+                        : "bg-black/30 text-white border-gray-600/30 hover:bg-[#9677df] hover:border-[#703BF7]"
                     }
                   `}
                 >

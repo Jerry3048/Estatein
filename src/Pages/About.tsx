@@ -4,6 +4,9 @@ import { FaStar, FaUsers, FaShieldAlt,FaGraduationCap, FaTwitter } from "react-i
 import Entericon from "/logo/Send.png";
 import type { ValueItem,Step,TeamMember, AchievementItem } from "../types";
 import Footer from "../Components/Footer";
+import useScrollToHash from "../hooks/useLocation";
+
+
 
 
 const valuesData:ValueItem[] = [
@@ -131,6 +134,7 @@ const iconMap = {
 };
 
 function About() {
+  useScrollToHash();
   return (
     <div>
         <Navbar />

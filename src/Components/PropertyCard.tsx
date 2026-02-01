@@ -92,7 +92,7 @@ function PropertyCard({ property }: PropertyCardProps) {
 
         <NavLink
         to={`/properties/${slugify(property.name)}`}
-        className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm"
+        className="bg-[#703BF7] text-white px-3 py-1 rounded text-sm hover:bg-[#9677df]"
         >
         View Property
         </NavLink>

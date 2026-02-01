@@ -7,7 +7,7 @@ import {
   FiArrowRight,
   FiMapPin,
   FiHome,
-  FiCalendar,
+  // FiCalendar,
 } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
 import PropertyCard from "../Components/PropertyCard";
@@ -16,7 +16,7 @@ import { FiFilter } from "react-icons/fi";
 import useScrollToHash from "../hooks/useLocation";
 import { NavLink } from "react-router";
 
-function PropertySearchSection() {
+function Studentarea() {
   useScrollToHash();
   const {
     properties,
@@ -33,7 +33,7 @@ function PropertySearchSection() {
   const [location, setLocation] = useState("");
   const [type, setType] = useState("");
   const [bedrooms, setBedrooms] = useState("");
-  const [yearBuilt, setYearBuilt] = useState("");
+  // const [yearBuilt, setYearBuilt] = useState("");
 
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
@@ -51,12 +51,12 @@ function PropertySearchSection() {
   const [filtered, setFiltered] = useState<Property[]>([]);
 
   const priceOptions = [
-    { label: "Any Price", range: [0, 999999999] },
-    { label: "Below $100k", range: [0, 100000] },
-    { label: "$100k - $300k", range: [100000, 300000] },
-    { label: "$300k - $600k", range: [300000, 600000] },
-    { label: "$600k - $1M", range: [600000, 1000000] },
-    { label: "Above $1M", range: [1000000, 999999999] },
+    { label: "Budget", range: [0, 999999999] },
+    { label: "Below ₦150k", range: [0, 150000] },
+    { label: "₦150k - ₦250k", range: [150000, 250000] },
+    { label: "₦250k - ₦350k", range: [250000, 350000] },
+    { label: "₦350k - ₦500k", range: [350000, 500000] },
+    { label: "Above ₦500k", range: [500000, 999999999] },
   ];
 
   useEffect(() => {
@@ -73,9 +73,9 @@ function PropertySearchSection() {
       const matchesLocation = location ? p.location === location : true;
       const matchesType = type ? p.type === type : true;
       const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
-      const matchesYearBuilt = yearBuilt
-        ? p.yearBuilt === Number(yearBuilt)
-        : true;
+      // const matchesYearBuilt = yearBuilt
+      //   ? p.yearBuilt === Number(yearBuilt)
+      //   : true;
 
       const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const matchesPrice =
@@ -86,7 +86,7 @@ function PropertySearchSection() {
         matchesLocation &&
         matchesType &&
         matchesBedrooms &&
-        matchesYearBuilt &&
+        // matchesYearBuilt &&
         matchesPrice
       );
     });
@@ -98,7 +98,7 @@ function PropertySearchSection() {
     location,
     type,
     bedrooms,
-    yearBuilt,
+    // yearBuilt,
     priceRange,
     properties,
     setPage,
@@ -119,9 +119,9 @@ function PropertySearchSection() {
   const uniqueBedrooms = Array.from(
     new Set(properties.map((p) => p.bedrooms)),
   ).sort((a, b) => a - b);
-  const uniqueYears = Array.from(
-    new Set(properties.map((p) => p.yearBuilt)),
-  ).sort((a, b) => a - b);
+  // const uniqueYears = Array.from(
+  //   new Set(properties.map((p) => p.yearBuilt)),
+  // ).sort((a, b) => a - b);
 
   if (loading) {
     return (
@@ -135,7 +135,7 @@ function PropertySearchSection() {
       <div className="relative" id="Categories">
         <div className="bg-linear-to-r from-neutral-600/20 to-black/60 p-10  space-y-6 border-b border-gray-600">
           <h1 className="text-white md:text-4xl text-3xl">
-            Find Your Dream Property
+            Find Student Accomodation
           </h1>
 
           <p className="text-gray-400 text-[14px] max-w-[95%]">
@@ -145,10 +145,10 @@ function PropertySearchSection() {
             your life. With categories to suit every dreamer, your journey
           </p>
           <NavLink
-            to="/Studentarea"
+            to="/Properties"
             className="inline-block mt-3 bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-2 rounded-lg text-sm font-medium"
           >
-            🎓 Student Area
+            General Area
           </NavLink>
         </div>
         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%]">
@@ -174,8 +174,8 @@ function PropertySearchSection() {
         <div className="pt-8 w-[95%] mx-auto">
           {/* Filters Container */}
           <div
-            className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-0 ${showFilters ? "block" : "hidden"}
-                    md:block bg-neutral-900 md:bg-transparent rounded-2xl md:rounded-none p-4 md:p-0 mb-6`}
+            className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 
+                      ${showFilters ? "block" : "hidden"} md:block bg-neutral-900 md:bg-transparent rounded-2xl md:rounded-none p-4 md:p-0 mb-6 max-w-6xl mx-auto items-center justify-center`}
           >
             {/* Location */}
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tr-none">
@@ -219,12 +219,11 @@ function PropertySearchSection() {
                   <option value="" disabled hidden>
                     Property Type
                   </option>
-                  <option value="__all__">All Types</option>
-                  {uniqueTypes.map((t, idx) => (
-                    <option key={idx} value={t}>
-                      {t}
-                    </option>
-                  ))}
+                  <option value="__all__">Any Type</option>
+                  <option value="Self Contain">Self Contain</option>
+                  <option value="Shared">Shared</option>
+                  <option value="Single Room">Single Room</option>
+                  <option value="Mini Flat">Mini Flat</option>
                 </select>
               </div>
             </div>
@@ -244,17 +243,16 @@ function PropertySearchSection() {
                   <option value="" disabled hidden>
                     Number of Rooms
                   </option>
-                  <option value="__all__">All Bedrooms</option>
-                  {uniqueBedrooms.map((b, idx) => (
-                    <option key={idx} value={b}>
-                      {b}
-                    </option>
-                  ))}
+                  <option value="__all__">Any</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">shared</option>
                 </select>
               </div>
             </div>
 
-            {/* Year Built */}
+            {/* Year Built
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-t-none">
               <div className="relative">
                 <FiCalendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
@@ -278,7 +276,7 @@ function PropertySearchSection() {
                   ))}
                 </select>
               </div>
-            </div>
+            </div> */}
 
             {/* PRICE RANGE - SELECT */}
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tl-none">
@@ -586,4 +584,4 @@ function PropertySearchSection() {
   );
 }
 
-export default PropertySearchSection;
+export default Studentarea;
