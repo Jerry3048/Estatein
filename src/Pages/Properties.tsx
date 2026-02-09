@@ -7,7 +7,6 @@ import {
   FiArrowRight,
   FiMapPin,
   FiHome,
-  FiCalendar,
 } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
 import PropertyCard from "../Components/PropertyCard";
@@ -33,7 +32,7 @@ function PropertySearchSection() {
   const [location, setLocation] = useState("");
   const [type, setType] = useState("");
   const [bedrooms, setBedrooms] = useState("");
-  const [yearBuilt, setYearBuilt] = useState("");
+  const [area, setArea] = useState("");
 
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
@@ -52,11 +51,11 @@ function PropertySearchSection() {
 
   const priceOptions = [
     { label: "Any Price", range: [0, 999999999] },
-    { label: "Below $100k", range: [0, 100000] },
-    { label: "$100k - $300k", range: [100000, 300000] },
-    { label: "$300k - $600k", range: [300000, 600000] },
-    { label: "$600k - $1M", range: [600000, 1000000] },
-    { label: "Above $1M", range: [1000000, 999999999] },
+    { label: "Below ₦100k", range: [0, 100000] },
+    { label: "₦100k - ₦300k", range: [100000, 300000] },
+    { label: "₦300k - ₦600k", range: [300000, 600000] },
+    { label: "₦600k - ₦1M", range: [600000, 1000000] },
+    { label: "Above ₦1M", range: [1000001, 999999999] },
   ];
 
   useEffect(() => {
@@ -70,12 +69,10 @@ function PropertySearchSection() {
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.description.toLowerCase().includes(searchTerm.toLowerCase());
 
-      const matchesLocation = location ? p.location === location : true;
+      const matchesLocation = location ? p.location.state === location : true;
       const matchesType = type ? p.type === type : true;
       const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
-      const matchesYearBuilt = yearBuilt
-        ? p.yearBuilt === Number(yearBuilt)
-        : true;
+      const matchesArea = area ? p.location.area === area : true;
 
       const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const matchesPrice =
@@ -86,7 +83,7 @@ function PropertySearchSection() {
         matchesLocation &&
         matchesType &&
         matchesBedrooms &&
-        matchesYearBuilt &&
+        matchesArea &&
         matchesPrice
       );
     });
@@ -98,7 +95,7 @@ function PropertySearchSection() {
     location,
     type,
     bedrooms,
-    yearBuilt,
+    area,
     priceRange,
     properties,
     setPage,
@@ -113,15 +110,23 @@ function PropertySearchSection() {
 
   // Dropdown unique options
   const uniqueLocations = Array.from(
-    new Set(properties.map((p) => p.location)),
+    new Set(
+      properties.map(
+        (p) => `${p.location.state}`,
+      ),
+    ),
   );
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
   const uniqueBedrooms = Array.from(
     new Set(properties.map((p) => p.bedrooms)),
   ).sort((a, b) => a - b);
-  const uniqueYears = Array.from(
-    new Set(properties.map((p) => p.yearBuilt)),
-  ).sort((a, b) => a - b);
+  const uniqueAreas = Array.from(
+    new Set(
+      properties
+        .filter((p) => (location ? p.location.state === location : true))
+        .map((p) => p.location.area),
+    ),
+  );
 
   if (loading) {
     return (
@@ -188,6 +193,7 @@ function PropertySearchSection() {
                   onChange={(e) => {
                     const val = e.target.value;
                     setLocation(val === "__all__" ? "" : val);
+                    setArea("");
                   }}
                 >
                   <option value="" disabled hidden>
@@ -197,6 +203,33 @@ function PropertySearchSection() {
                   {uniqueLocations.map((loc, idx) => (
                     <option key={idx} value={loc}>
                       {loc}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Area */}
+            <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-t-none">
+              <div className="relative">
+                <FiMapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+
+                <select
+                  className="p-2 pl-10 rounded-lg bg-black/70 text-white focus:outline-none border w-full border-gray-600/70 rounded-t-none"
+                  value={area}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setArea(val === "__all__" ? "" : val);
+                  }}
+                  disabled={!location}
+                >
+                  <option value="" disabled hidden>
+                    Area
+                  </option>
+                  <option value="__all__">All Areas</option>
+                  {uniqueAreas.map((a, idx) => (
+                    <option key={idx} value={a}>
+                      {a}
                     </option>
                   ))}
                 </select>
@@ -254,31 +287,6 @@ function PropertySearchSection() {
               </div>
             </div>
 
-            {/* Year Built */}
-            <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-t-none">
-              <div className="relative">
-                <FiCalendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-
-                <select
-                  className="p-2 pl-10 rounded-lg bg-black/70 text-white focus:outline-none border w-full border-gray-600/70 rounded-t-none"
-                  value={yearBuilt}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    setYearBuilt(val === "__all__" ? "" : val);
-                  }}
-                >
-                  <option value="" disabled hidden>
-                    Year Built
-                  </option>
-                  <option value="__all__">All Years</option>
-                  {uniqueYears.map((y, idx) => (
-                    <option key={idx} value={y}>
-                      {y}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
 
             {/* PRICE RANGE - SELECT */}
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tl-none">

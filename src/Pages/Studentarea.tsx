@@ -1,13 +1,13 @@
 import Navbar from "../Components/Navbar";
 import { useEffect, useState } from "react";
 import { usePropertyStore } from "../Store/usePropertyStore.ts";
+import { useAreaMapStore } from "../Store/useAreaMapStore.ts";
 import type { Property } from "../types";
 import {
   FiArrowLeft,
   FiArrowRight,
   FiMapPin,
   FiHome,
-  // FiCalendar,
 } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
 import PropertyCard from "../Components/PropertyCard";
@@ -31,9 +31,11 @@ function Studentarea() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
+  const [selectedUniversity, setUniversity] = useState("");
+  // const [availableLocations, setAvailableLocations] = useState<string[]>([]);
+  const { areaMaps, loading: areaLoading, fetchAreaMaps } = useAreaMapStore();
   const [type, setType] = useState("");
   const [bedrooms, setBedrooms] = useState("");
-  // const [yearBuilt, setYearBuilt] = useState("");
 
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
@@ -61,7 +63,8 @@ function Studentarea() {
 
   useEffect(() => {
     fetchProperties();
-  }, [fetchProperties]);
+    fetchAreaMaps();
+  }, [fetchProperties, fetchAreaMaps]);
 
   // Filtering
   useEffect(() => {
@@ -70,12 +73,18 @@ function Studentarea() {
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.description.toLowerCase().includes(searchTerm.toLowerCase());
 
-      const matchesLocation = location ? p.location === location : true;
+    const matchesUniversity = selectedUniversity
+      ? areaMaps
+          .find((u) => u.id === selectedUniversity)
+          ?.areas.includes(p.location.area)
+      : true;
+
+    const matchesLocation = location
+      ? p.location.area === location
+      : true;
+
       const matchesType = type ? p.type === type : true;
       const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
-      // const matchesYearBuilt = yearBuilt
-      //   ? p.yearBuilt === Number(yearBuilt)
-      //   : true;
 
       const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const matchesPrice =
@@ -83,10 +92,10 @@ function Studentarea() {
 
       return (
         matchesSearch &&
+        matchesUniversity &&
         matchesLocation &&
         matchesType &&
         matchesBedrooms &&
-        // matchesYearBuilt &&
         matchesPrice
       );
     });
@@ -98,10 +107,11 @@ function Studentarea() {
     location,
     type,
     bedrooms,
-    // yearBuilt,
     priceRange,
     properties,
     setPage,
+    areaMaps,
+    selectedUniversity
   ]);
 
   // Pagination
@@ -113,17 +123,24 @@ function Studentarea() {
 
   // Dropdown unique options
   const uniqueLocations = Array.from(
-    new Set(properties.map((p) => p.location)),
+    new Set(
+      properties.map(
+        (p) => `${p.location.area}, ${p.location.city}, ${p.location.state}`,
+      ),
+    ),
   );
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
   const uniqueBedrooms = Array.from(
     new Set(properties.map((p) => p.bedrooms)),
   ).sort((a, b) => a - b);
-  // const uniqueYears = Array.from(
-  //   new Set(properties.map((p) => p.yearBuilt)),
-  // ).sort((a, b) => a - b);
+
 
   if (loading) {
+    return (
+      <p className="text-center text-white py-10">Loading properties...</p>
+    );
+  }
+   if (areaLoading) {
     return (
       <p className="text-center text-white py-10">Loading properties...</p>
     );
@@ -174,31 +191,62 @@ function Studentarea() {
         <div className="pt-8 w-[95%] mx-auto">
           {/* Filters Container */}
           <div
-            className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 
+            className={`md:grid md:grid-cols-3 lg:grid-cols-5 
                       ${showFilters ? "block" : "hidden"} md:block bg-neutral-900 md:bg-transparent rounded-2xl md:rounded-none p-4 md:p-0 mb-6 max-w-6xl mx-auto items-center justify-center`}
           >
-            {/* Location */}
+            {/* University (select) */}
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tr-none">
               <div className="relative">
                 <FiMapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
 
                 <select
                   className="p-2 pl-10 rounded-lg bg-black/70 text-white focus:outline-none border w-full border-gray-600/70 rounded-tr-none"
+                  value={selectedUniversity}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    const v = val === "__all__" ? "" : val;
+                    setUniversity(v);
+                    setLocation("");
+                  }}
+                >
+                  <option value="" disabled hidden>
+                    University
+                  </option>
+                  <option value="__all__">All Universities</option>
+                  {areaMaps.map((u) => (
+                    <option key={u.id} value={u.id}>
+                      {u.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Area (populated from selected university) */}
+            <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-t-none">
+              <div className="relative">
+                <FiMapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+
+                <select
+                  className="p-2 pl-10 rounded-lg bg-black/70 text-white focus:outline-none border w-full border-gray-600/70 rounded-t-none"
                   value={location}
                   onChange={(e) => {
                     const val = e.target.value;
                     setLocation(val === "__all__" ? "" : val);
                   }}
+                  disabled={!selectedUniversity}
                 >
                   <option value="" disabled hidden>
-                    Location
+                    Area
                   </option>
-                  <option value="__all__">All Locations</option>
-                  {uniqueLocations.map((loc, idx) => (
-                    <option key={idx} value={loc}>
-                      {loc}
-                    </option>
-                  ))}
+                  <option value="__all__">All Areas</option>
+                  {areaMaps
+                    .find((u) => u.id === selectedUniversity)
+                    ?.areas.map((a, idx) => (
+                      <option key={idx} value={a}>
+                        {a}
+                      </option>
+                    ))}
                 </select>
               </div>
             </div>
@@ -221,7 +269,6 @@ function Studentarea() {
                   </option>
                   <option value="__all__">Any Type</option>
                   <option value="Self Contain">Self Contain</option>
-                  <option value="Shared">Shared</option>
                   <option value="Single Room">Single Room</option>
                   <option value="Mini Flat">Mini Flat</option>
                 </select>
@@ -252,31 +299,7 @@ function Studentarea() {
               </div>
             </div>
 
-            {/* Year Built
-            <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-t-none">
-              <div className="relative">
-                <FiCalendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-
-                <select
-                  className="p-2 pl-10 rounded-lg bg-black/70 text-white focus:outline-none border w-full border-gray-600/70 rounded-t-none"
-                  value={yearBuilt}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    setYearBuilt(val === "__all__" ? "" : val);
-                  }}
-                >
-                  <option value="" disabled hidden>
-                    Year Built
-                  </option>
-                  <option value="__all__">All Years</option>
-                  {uniqueYears.map((y, idx) => (
-                    <option key={idx} value={y}>
-                      {y}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div> */}
+            
 
             {/* PRICE RANGE - SELECT */}
             <div className="border-7 border-neutral-800/90 rounded-2xl bg-neutral-700/90 rounded-tl-none">
@@ -291,7 +314,7 @@ function Studentarea() {
                 }}
               >
                 <option value="" disabled hidden>
-                  Price Range
+                  Budget
                 </option>
                 {priceOptions.map((opt, idx) => (
                   <option key={idx} value={opt.label}>

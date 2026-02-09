@@ -9,13 +9,18 @@
       "/images/property1-3.jpg",
       "/images/property1-4.jpg"
     ],
+    "videoUrl": "/videos/property1-tour.mp4",
     "name": "Luxury Detached Duplex",
     "description": "A modern duplex with premium finishing and excellent security.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Detached Duplex",
     "price": 180000,
-    "location": "Lekki Phase 2, Lagos",
+    "location": {
+        "area": "Lekki Phase 2",
+        "city": "Lekki",
+        "state": "Lagos"
+      },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Expansive living room with natural lighting",
@@ -35,13 +40,18 @@
       "/images/property2-3.jpg",
       "/images/property2-4.jpg"
     ],
+    "videoUrl": "/videos/property2-tour.mp4",
     "name": "Modern Apartment",
     "description": "A beautiful apartment perfect for families looking for comfort.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Apartment",
     "price": 95000,
-    "location": "Gwarinpa, Abuja",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "Balcony with city view",
@@ -61,13 +71,18 @@
       "/images/property3-3.jpg",
       "/images/property3-4.jpg"
     ],
+    "videoUrl": "/videos/property3-tour.mp4",
     "name": "Townhouse Villa",
     "description": "A luxurious townhouse villa with spacious interiors.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Townhouse",
     "price": 300000,
-    "location": "Banana Island, Lagos",
+    "location": {
+        "area": "Ikoyi",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Rooftop terrace with panoramic view",
@@ -87,13 +102,18 @@
       "/images/property4-3.jpg",
       "/images/property4-4.jpg"
     ],
+    "videoUrl": "/videos/property4-tour.mp4",
     "name": "Executive Bungalow",
     "description": "A well-built bungalow in a serene neighborhood.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 120000,
-    "location": "Bodija, Ibadan",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2010,
     "keyFeatures": [
       "Spacious garden area",
@@ -113,13 +133,18 @@
       "/images/property5-3.jpg",
       "/images/property5-4.jpg"
     ],
+    "videoUrl": "/videos/property5-tour.mp4",
     "name": "Mini Flat",
     "description": "An affordable mini flat for young professionals.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Mini Flat",
     "price": 40000,
-    "location": "Yaba, Lagos",
+    "location": {
+        "area": "Wuse 2",
+        "city": "Abuja",
+        "state": "FCT"
+      },
     "yearBuilt": 2015,
     "keyFeatures": [
       "Open-plan living area",
@@ -139,13 +164,18 @@
       "/images/property6-3.jpg",
       "/images/property6-4.jpg"
     ],
+    "videoUrl": "/videos/property6-tour.mp4",
     "name": "Waterfront Duplex",
     "description": "A duplex with breathtaking waterfront views.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Duplex",
     "price": 250000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+        "area": "Lekki Phase 1",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Panoramic waterfront view",
@@ -165,13 +195,18 @@
       "/images/property7-3.jpg",
       "/images/property7-4.jpg"
     ],
+    "videoUrl": "/videos/property7-tour.mp4",
     "name": "Studio Apartment",
     "description": "A compact studio near commercial zones.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 30000,
-    "location": "Wuse 2, Abuja",
+    "location": {
+        "area": "Yaba",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2014,
     "keyFeatures": [
       "Smart open-plan design",
@@ -191,13 +226,18 @@
       "/images/property8-3.jpg",
       "/images/property8-4.jpg"
     ],
+    "videoUrl": "/videos/property8-tour.mp4",
     "name": "Classic Family Home",
     "description": "A traditional family home with modern upgrades.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 160000,
-    "location": "Abeokuta GRA, Ogun",
+    "location": {
+        "area": "Gwarinpa",
+        "city": "Abuja",
+        "state": "FCT"
+      },
     "yearBuilt": 2008,
     "keyFeatures": [
       "Large family lounge",
@@ -217,13 +257,18 @@
       "/images/property9-3.jpg",
       "/images/property9-4.jpg"
     ],
+    "videoUrl": "/videos/property9-tour.mp4",
     "name": "Luxury Penthouse",
     "description": "A penthouse with a stunning skyline view.",
     "bedrooms": 3,
     "bathrooms": 3,
     "type": "Penthouse",
     "price": 500000,
-    "location": "Eko Atlantic, Lagos",
+    "location": {
+        "area": "Eko Atlantic",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Skyline balcony with city view",
@@ -243,13 +288,18 @@
       "/images/property10-3.jpg",
       "/images/property10-4.jpg"
     ],
+    "videoUrl": "/videos/property10-tour.mp4",
     "name": "Serviced Apartment",
     "description": "A fully serviced apartment with 24/7 amenities.",
     "bedrooms": 2,
     "bathrooms": 2,
     "type": "Serviced Apartment",
     "price": 110000,
-    "location": "Mabushi, Abuja",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2017,
     "keyFeatures": [
       "24/7 maintenance and security",
@@ -269,13 +319,18 @@
       "/images/property11-3.jpg",
       "/images/property11-4.jpg"
     ],
+    "videoUrl": "/videos/property11-tour.mp4",
     "name": "Eco-Friendly Villa",
     "description": "A sustainable villa with solar panels and rainwater harvesting system.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Villa",
     "price": 200000,
-    "location": "Ikeja, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Solar-powered electricity",
@@ -295,13 +350,18 @@
       "/images/property12-3.jpg",
       "/images/property12-4.jpg"
     ],
+    "videoUrl": "/videos/property12-tour.mp4",
     "name": "Beachfront Bungalow",
     "description": "A cozy bungalow right on the beach with stunning sunset views.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 150000,
-    "location": "Lekki, Lagos",
+    "location": {
+        "area": "Lekki",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Direct access to the beach",
@@ -321,13 +381,18 @@
       "/images/property13-3.jpg",
       "/images/property13-4.jpg"
     ],
+    "videoUrl": "/videos/property13-tour.mp4",
     "name": "Urban Loft",
     "description": "A stylish urban loft with industrial design and city views.",
     "bedrooms": 2,
     "bathrooms": 2,
     "type": "Loft",
     "price": 85000,
-    "location": "Yaba, Lagos",
+    "location": {
+        "area": "Yaba",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "High ceilings with exposed beams",
@@ -347,13 +412,18 @@
       "/images/property14-3.jpg",
       "/images/property14-4.jpg"
     ],
+    "videoUrl": "/videos/property14-tour.mp4",
     "name": "Mountain View Cottage",
     "description": "A peaceful cottage with scenic mountain views.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Cottage",
     "price": 120000,
-    "location": "Obudu, Cross River",
+    "location": {
+        "area": "Obudu",
+        "city": "Cross River",
+        "state": "Cross River"
+      },
     "yearBuilt": 2016,
     "keyFeatures": [
       "Panoramic mountain views",
@@ -373,13 +443,18 @@
       "/images/property15-3.jpg",
       "/images/property15-4.jpg"
     ],
+    "videoUrl": "/videos/property15-tour.mp4",
     "name": "City Center Apartment",
     "description": "A modern apartment located in the heart of the city.",
     "bedrooms": 2,
     "bathrooms": 1,
     "type": "Apartment",
     "price": 75000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+        "area": "Mokola",
+        "city": "Ibadan",
+        "state": "Oyo"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Close to business districts",
@@ -399,13 +474,18 @@
       "/images/property16-3.jpg",
       "/images/property16-4.jpg"
     ],
+    "videoUrl": "/videos/property16-tour.mp4",
     "name": "Suburban Family Home",
     "description": "A spacious family home in a quiet suburban neighborhood.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 140000,
-    "location": "Ojodu, Lagos",
+    "location": {
+        "area": "Ojodu",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2015,
     "keyFeatures": [
       "Large backyard for children and pets",
@@ -425,13 +505,18 @@
       "/images/property17-3.jpg",
       "/images/property17-4.jpg"
     ],
+    "videoUrl": "/videos/property17-tour.mp4",
     "name": "Luxury Townhouse",
     "description": "A modern townhouse with luxury finishes and smart home features.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Townhouse",
     "price": 320000,
-    "location": "Ikoyi, Lagos",
+    "location": {
+        "area": "Lekki Phase 1",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Smart home automation",
@@ -451,13 +536,18 @@
       "/images/property18-3.jpg",
       "/images/property18-4.jpg"
     ],
+    "videoUrl": "/videos/property18-tour.mp4",
     "name": "Cozy Studio",
     "description": "A compact studio perfect for young professionals or students.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 35000,
-    "location": "Garki, Abuja",
+    "location": {
+        "area": "Wuse 2",
+        "city": "Abuja",
+        "state": "FCT"
+      },
     "yearBuilt": 2016,
     "keyFeatures": [
       "Efficient use of space",
@@ -477,13 +567,18 @@
       "/images/property19-3.jpg",
       "/images/property19-4.jpg"
     ],
+    "videoUrl": "/videos/property19-tour.mp4",
     "name": "Riverside Villa",
     "description": "A luxurious villa located along a serene riverbank.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Villa",
     "price": 400000,
-    "location": "Asaba, Delta",
+    "location": {
+        "area": "Asaba",
+        "city": "Delta",
+        "state": "Delta"
+      },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Private river access",
@@ -503,13 +598,18 @@
       "/images/property20-3.jpg",
       "/images/property20-4.jpg"
     ],
+    "videoUrl": "/videos/property20-tour.mp4",
     "name": "Modern Duplex",
     "description": "A stylish duplex with contemporary design elements.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Duplex",
     "price": 220000,
-    "location": "Ajah, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Open-plan living and dining",
@@ -529,13 +629,18 @@
       "/images/property21-3.jpg",
       "/images/property21-4.jpg"
     ],
+    "videoUrl": "/videos/property21-tour.mp4",
     "name": "Luxury Penthouse Suite",
     "description": "A premium penthouse with panoramic city views and top-tier finishes.",
     "bedrooms": 4,
     "bathrooms":"shared",
     "type": "Penthouse",
     "price": 550000,
-    "location": "Eko Atlantic, Lagos",
+    "location": {
+        "area": "Eko Atlantic",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Rooftop terrace with infinity pool",
@@ -555,13 +660,18 @@
       "/images/property22-3.jpg",
       "/images/property22-4.jpg"
     ],
+    "videoUrl": "/videos/property22-tour.mp4",
     "name": "Serene Bungalow",
     "description": "A tranquil bungalow surrounded by lush greenery.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 130000,
-    "location": "Ibadan, Oyo",
+    "location": {
+        "area": "Ibadan",
+        "city": "Oyo",
+        "state": "Oyo"
+      },
     "yearBuilt": 2014,
     "keyFeatures": [
       "Private garden with trees",
@@ -581,13 +691,18 @@
       "/images/property23-3.jpg",
       "/images/property23-4.jpg"
     ],
+    "videoUrl": "/videos/property23-tour.mp4",
     "name": "Modern Townhouse",
     "description": "A stylish townhouse with ample space and modern finishes.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Townhouse",
     "price": 280000,
-    "location": "Lekki Phase 1, Lagos",
+    "location": {
+        "area": "Lekki",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Private swimming pool",
@@ -607,13 +722,18 @@
       "/images/property24-3.jpg",
       "/images/property24-4.jpg"
     ],
+    "videoUrl": "/videos/property24-tour.mp4",
     "name": "Compact Studio Apartment",
     "description": "A functional studio apartment ideal for young professionals.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 32000,
-    "location": "Wuse 2, Abuja",
+    "location": {
+        "area": "Garki",
+        "city": "Abuja",
+        "state": "FCT"
+      },
     "yearBuilt": 2017,
     "keyFeatures": [
       "Efficient open-plan layout",
@@ -633,13 +753,18 @@
       "/images/property25-3.jpg",
       "/images/property25-4.jpg"
     ],
+    "videoUrl": "/videos/property25-tour.mp4",
     "name": "Family Duplex",
     "description": "A spacious duplex perfect for families with children.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Duplex",
     "price": 260000,
-    "location": "Ajah, Lagos",
+    "location": {
+        "area": "Ajah",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Large garden area",
@@ -659,13 +784,18 @@
       "/images/property26-3.jpg",
       "/images/property26-4.jpg"
     ],
+    "videoUrl": "/videos/property26-tour.mp4",
     "name": "Beachfront Villa",
     "description": "A luxurious villa with direct beach access and stunning views.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Villa",
     "price": 380000,
-    "location": "Lekki, Lagos",
+    "location": {
+        "area": "Lekki",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Private swimming pool",
@@ -685,13 +815,18 @@
       "/images/property27-3.jpg",
       "/images/property27-4.jpg"
     ],
+    "videoUrl": "/videos/property27-tour.mp4",
     "name": "Urban Loft Apartment",
     "description": "A chic loft in the heart of the city with modern amenities.",
     "bedrooms": 2,
     "bathrooms": 2,
     "type": "Loft",
     "price": 90000,
-    "location": "Yaba, Lagos",
+    "location": {
+        "area": "Yaba",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "High ceilings",
@@ -711,13 +846,18 @@
       "/images/property28-3.jpg",
       "/images/property28-4.jpg"
     ],
+    "videoUrl": "/videos/property28-tour.mp4",
     "name": "Suburban Bungalow",
     "description": "A quiet bungalow in a family-friendly neighborhood.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 115000,
-    "location": "Ojodu, Lagos",
+    "location": {
+        "area": "Ojodu",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2015,
     "keyFeatures": [
       "Private garden",
@@ -737,13 +877,18 @@
       "/images/property29-3.jpg",
       "/images/property29-4.jpg"
     ],
+    "videoUrl": "/videos/property29-tour.mp4",
     "name": "Riverside Duplex",
     "description": "A serene duplex overlooking a peaceful river.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Duplex",
     "price": 230000,
-    "location": "Asaba, Delta",
+    "location": {
+        "area": "Asaba",
+        "city": "Delta",
+        "state": "Delta"
+      },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Private river view",
@@ -763,13 +908,18 @@
       "/images/property30-3.jpg",
       "/images/property30-4.jpg"
     ],
+    "videoUrl": "/videos/property30-tour.mp4",
     "name": "Modern Family Home",
     "description": "A contemporary home designed for family comfort and convenience.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 180000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Open-plan living and dining",
@@ -789,13 +939,18 @@
       "/images/property31-3.jpg",
       "/images/property31-4.jpg"
     ],
+    "videoUrl": "/videos/property31-tour.mp4",
     "name": "Luxury Waterfront Villa",
     "description": "A high-end villa offering stunning waterfront views and modern amenities.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Villa",
     "price": 420000,
-    "location": "Lekki Phase 1, Lagos",
+    "location": {
+        "area": "Lekki Phase 1",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Infinity pool overlooking the water",
@@ -815,13 +970,18 @@
       "/images/property32-3.jpg",
       "/images/property32-4.jpg"
     ],
+    "videoUrl": "/videos/property32-tour.mp4",
     "name": "Contemporary Townhouse",
     "description": "A modern townhouse with stylish interiors and family-friendly layout.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Townhouse",
     "price": 290000,
-    "location": "Banana Island, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -841,13 +1001,18 @@
       "/images/property33-3.jpg",
       "/images/property33-4.jpg"
     ],
+    "videoUrl": "/videos/property33-tour.mp4",
     "name": "Compact Studio Loft",
     "description": "A cozy loft studio perfect for urban living.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 28000,
-    "location": "Yaba, Lagos",
+    "location": {
+        "area": "Yaba",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2016,
     "keyFeatures": [
       "Open-plan living space",
@@ -867,13 +1032,18 @@
       "/images/property34-3.jpg",
       "/images/property34-4.jpg"
     ],
+    "videoUrl": "/videos/property34-tour.mp4",
     "name": "Elegant Family Home",
     "description": "A spacious home designed for comfort and family living.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 175000,
-    "location": "GRA, Port Harcourt",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "Large living and dining areas",
@@ -893,13 +1063,18 @@
       "/images/property35-3.jpg",
       "/images/property35-4.jpg"
     ],
+    "videoUrl": "/videos/property35-tour.mp4",
     "name": "Modern Duplex",
     "description": "A stylish duplex with contemporary design and finishes.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Duplex",
     "price": 240000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+          "area": "GRA",
+          "city": "Port Harcourt",
+          "state": "Rivers"
+        },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Open-plan living and dining",
@@ -919,13 +1094,18 @@
       "/images/property36-3.jpg",
       "/images/property36-4.jpg"
     ],
+    "videoUrl": "/videos/property36-tour.mp4",
     "name": "Seaside Bungalow",
     "description": "A serene bungalow located near the coast, perfect for relaxation.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 140000,
-    "location": "Lekki, Lagos",
+     "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2015,
     "keyFeatures": [
       "Private garden",
@@ -945,13 +1125,18 @@
       "/images/property37-3.jpg",
       "/images/property37-4.jpg"
     ],
+    "videoUrl": "/videos/property37-tour.mp4",
     "name": "Urban Penthouse",
     "description": "A luxurious penthouse offering city skyline views and top finishes.",
     "bedrooms": 3,
     "bathrooms": 3,
     "type": "Penthouse",
     "price": 480000,
-    "location": "Ikoyi, Lagos",
+     "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -971,13 +1156,18 @@
       "/images/property38-3.jpg",
       "/images/property38-4.jpg"
     ],
+    "videoUrl": "/videos/property38-tour.mp4",
     "name": "Cozy Mini Flat",
     "description": "An affordable mini flat ideal for young professionals or students.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Mini Flat",
     "price": 35000,
-    "location": "Yaba, Lagos",
+     "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2016,
     "keyFeatures": [
       "Open-plan living area",
@@ -997,13 +1187,18 @@
       "/images/property39-3.jpg",
       "/images/property39-4.jpg"
     ],
+    "videoUrl": "/videos/property39-tour.mp4",
     "name": "Elegant Townhouse",
     "description": "A beautiful townhouse with modern finishes and spacious rooms.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Townhouse",
     "price": 270000,
-    "location": "Lekki Phase 2, Lagos",
+    "location": {
+          "area": "GRA",
+          "city": "Port Harcourt",
+          "state": "Rivers"
+        },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -1023,13 +1218,18 @@
       "/images/property40-3.jpg",
       "/images/property40-4.jpg"
     ],
+    "videoUrl": "/videos/property40-tour.mp4",
     "name": "Family Duplex",
     "description": "A spacious duplex ideal for growing families with ample living space.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Duplex",
     "price": 300000,
-    "location": "Ajah, Lagos",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Large garden area",
@@ -1049,13 +1249,18 @@
       "/images/property41-3.jpg",
       "/images/property41-4.jpg"
     ],
+    "videoUrl": "/videos/property41-tour.mp4",
     "name": "Modern Executive Bungalow",
     "description": "A stylish bungalow designed with modern finishes and comfort in mind.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 150000,
-    "location": "GRA, Enugu",
+     "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Spacious living room",
@@ -1075,13 +1280,18 @@
       "/images/property42-3.jpg",
       "/images/property42-4.jpg"
     ],
+    "videoUrl": "/videos/property42-tour.mp4",
     "name": "Luxury Townhouse",
     "description": "A high-end townhouse with elegant design and spacious interiors.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Townhouse",
     "price": 320000,
-    "location": "Banana Island, Lagos",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -1101,13 +1311,18 @@
       "/images/property43-3.jpg",
       "/images/property43-4.jpg"
     ],
+    "videoUrl": "/videos/property43-tour.mp4",
     "name": "Compact Studio Apartment",
     "description": "A modern studio apartment perfect for city living and professionals.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 32000,
-    "location": "Wuse 2, Abuja",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2017,
     "keyFeatures": [
       "Open-plan living area",
@@ -1127,13 +1342,18 @@
       "/images/property44-3.jpg",
       "/images/property44-4.jpg"
     ],
+    "videoUrl": "/videos/property44-tour.mp4",
     "name": "Family Duplex",
     "description": "A spacious duplex designed to accommodate growing families comfortably.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Duplex",
     "price": 310000,
-    "location": "Ajah, Lagos",
+    "location": {
+        "area": "GRA",
+        "city": "Port Harcourt",
+        "state": "Rivers"
+      },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Multiple living rooms",
@@ -1153,13 +1373,18 @@
       "/images/property45-3.jpg",
       "/images/property45-4.jpg"
     ],
+    "videoUrl": "/videos/property45-tour.mp4",
     "name": "Luxury Penthouse Apartment",
     "description": "A high-rise penthouse offering panoramic city views and top-notch amenities.",
     "bedrooms": 3,
     "bathrooms": 3,
     "type": "Penthouse",
     "price": 520000,
-    "location": "Ikoyi, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -1179,13 +1404,18 @@
       "/images/property46-3.jpg",
       "/images/property46-4.jpg"
     ],
+    "videoUrl": "/videos/property46-tour.mp4",
     "name": "Seaside Bungalow",
     "description": "A charming bungalow located close to the beach for serene living.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 145000,
-    "location": "Lekki, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2016,
     "keyFeatures": [
       "Terrace with sea view",
@@ -1205,13 +1435,18 @@
       "/images/property47-3.jpg",
       "/images/property47-4.jpg"
     ],
+    "videoUrl": "/videos/property47-tour.mp4",
     "name": "Compact Mini Flat",
     "description": "An affordable mini flat designed for students and young professionals.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Mini Flat",
     "price": 30000,
-    "location": "Yaba, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "Open-plan living area",
@@ -1231,13 +1466,18 @@
       "/images/property48-3.jpg",
       "/images/property48-4.jpg"
     ],
+    "videoUrl": "/videos/property48-tour.mp4",
     "name": "Elegant Townhouse",
     "description": "A beautifully designed townhouse with modern finishes and spacious rooms.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Townhouse",
     "price": 280000,
-    "location": "Lekki Phase 2, Lagos",
+    "location": {
+        "area": "Banana Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Private rooftop terrace",
@@ -1257,13 +1497,18 @@
       "/images/property49-3.jpg",
       "/images/property49-4.jpg"
     ],
+    "videoUrl": "/videos/property49-tour.mp4",
     "name": "Luxury Duplex",
     "description": "A high-end duplex with spacious interiors and modern amenities.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Duplex",
     "price": 350000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Multiple living rooms",
@@ -1283,13 +1528,18 @@
       "/images/property50-3.jpg",
       "/images/property50-4.jpg"
     ],
+    "videoUrl": "/videos/property50-tour.mp4",
     "name": "Modern Family Home",
     "description": "A spacious and modern home designed for family living.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 180000,
-    "location": "GRA, Port Harcourt",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2019,
     "keyFeatures": [
       "Large living and dining areas",
@@ -1309,13 +1559,18 @@
       "/images/property1-3.jpg",
       "/images/property1-4.jpg"
     ],
+    "videoUrl": "/videos/property51-tour.mp4",
     "name": "Luxury Detached Duplex",
     "description": "A modern duplex with premium finishing and excellent security.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Detached Duplex",
     "price": 180000,
-    "location": "Lekki Phase 2, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2020,
     "keyFeatures": [
       "Expansive living room with natural lighting",
@@ -1335,13 +1590,18 @@
       "/images/property2-3.jpg",
       "/images/property2-4.jpg"
     ],
+    "videoUrl": "/videos/property52-tour.mp4",
     "name": "Modern Apartment",
     "description": "A beautiful apartment perfect for families looking for comfort.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Apartment",
     "price": 95000,
-    "location": "Gwarinpa, Abuja",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2018,
     "keyFeatures": [
       "Balcony with city view",
@@ -1361,13 +1621,18 @@
       "/images/property3-3.jpg",
       "/images/property3-4.jpg"
     ],
+    "videoUrl": "/videos/property53-tour.mp4",
     "name": "Townhouse Villa",
     "description": "A luxurious townhouse villa with spacious interiors.",
     "bedrooms": 5,
     "bathrooms": 4,
     "type": "Townhouse",
     "price": 300000,
-    "location": "Banana Island, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+      },
     "yearBuilt": 2022,
     "keyFeatures": [
       "Rooftop terrace with panoramic view",
@@ -1387,13 +1652,18 @@
       "/images/property4-3.jpg",
       "/images/property4-4.jpg"
     ],
+    "videoUrl": "/videos/property54-tour.mp4",
     "name": "Executive Bungalow",
     "description": "A well-built bungalow in a serene neighborhood.",
     "bedrooms": 3,
     "bathrooms": 2,
     "type": "Bungalow",
     "price": 120000,
-    "location": "Bodija, Ibadan",
+    "location":{
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+    },
     "yearBuilt": 2010,
     "keyFeatures": [
       "Spacious garden area",
@@ -1413,13 +1683,18 @@
       "/images/property5-3.jpg",
       "/images/property5-4.jpg"
     ],
+    "videoUrl": "/videos/property55-tour.mp4",
     "name": "Mini Flat",
     "description": "An affordable mini flat for young professionals.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Mini Flat",
     "price": 40000,
-    "location": "Yaba, Lagos",
+    "location":{
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+    },
     "yearBuilt": 2015,
     "keyFeatures": [
       "Open-plan living area",
@@ -1439,13 +1714,18 @@
       "/images/property6-3.jpg",
       "/images/property6-4.jpg"
     ],
+    "videoUrl": "/videos/property56-tour.mp4",
     "name": "Waterfront Duplex",
     "description": "A duplex with breathtaking waterfront views.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Duplex",
     "price": 250000,
-    "location": "Victoria Island, Lagos",
+    "location": {
+        "area": "Victoria Island",
+        "city": "Lagos",
+        "state": "Lagos"
+    },
     "yearBuilt": 2021,
     "keyFeatures": [
       "Panoramic waterfront view",
@@ -1465,13 +1745,18 @@
       "/images/property7-3.jpg",
       "/images/property7-4.jpg"
     ],
+    "videoUrl": "/videos/property57-tour.mp4",
     "name": "Studio Apartment",
     "description": "A compact studio near commercial zones.",
     "bedrooms": 1,
     "bathrooms": 1,
     "type": "Studio",
     "price": 30000,
-    "location": "Wuse 2, Abuja",
+    "location": {
+        "area": "Wuse 2",
+        "city": "Abuja",
+        "state": "Abuja"
+      },
     "yearBuilt": 2014,
     "keyFeatures": [
       "Smart open-plan design",
@@ -1491,13 +1776,18 @@
       "/images/property8-3.jpg",
       "/images/property8-4.jpg"
     ],
+    "videoUrl": "/videos/property58-tour.mp4",
     "name": "Classic Family Home",
     "description": "A traditional family home with modern upgrades.",
     "bedrooms": 4,
     "bathrooms": 3,
     "type": "Family Home",
     "price": 160000,
-    "location": "Abeokuta GRA, Ogun",
+    "location": {
+        "area": "Abeokuta GRA",
+        "city": "Abeokuta",
+        "state": "Ogun"
+    },
     "yearBuilt": 2008,
     "keyFeatures": [
       "Large family lounge",
@@ -1517,13 +1807,18 @@
       "/images/property9-3.jpg",
       "/images/property9-4.jpg"
     ],
+    "videoUrl": "/videos/property59-tour.mp4",
     "name": "Luxury Penthouse",
     "description": "A penthouse with a stunning skyline view.",
     "bedrooms": 3,
     "bathrooms": 3,
     "type": "Penthouse",
     "price": "$500,000",
-    "location": "Eko Atlantic, Lagos",
+    "location": {
+        "area": "Eko Atlantic",
+        "city": "Lagos",
+        "state": "Lagos"
+    },
     "yearBuilt": 2023,
     "keyFeatures": [
       "Skyline balcony with city view",
@@ -1543,13 +1838,18 @@
       "/images/property10-3.jpg",
       "/images/property10-4.jpg"
     ],
+    "videoUrl": "/videos/property60-tour.mp4",
     "name": "Serviced Apartment",
     "description": "A fully serviced apartment with 24/7 amenities.",
     "bedrooms": 2,
     "bathrooms": 2,
     "type": "Serviced Apartment",
     "price": 110000,
-    "location": "Mabushi, Abuja",
+    "location": {
+        "area": "Mabushi",
+        "city": "Abuja",
+        "state": "Abuja"
+    },
     "yearBuilt": 2017,
     "keyFeatures": [
       "24/7 maintenance and security",

@@ -86,7 +86,7 @@ function PropertyCard({ property }: PropertyCardProps) {
       {/* Price + Button */}
       <div className="flex justify-between items-center">
         <span className="text-lg font-bold">
-        ${finalPrice.toFixed(2)}
+        ₦{finalPrice.toFixed(2)}
         </span>
 
 

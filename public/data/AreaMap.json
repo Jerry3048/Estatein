@@ -1,0 +1,37 @@
+[
+  {
+    "id": "OAU",
+    "name": "Obafemi Awolowo University",
+    "city": "Ife",
+    "state": "Osun",
+    "areas": [
+      "Parakin",
+      "Moore",
+      "Mayfair",
+      "Ododuwa",
+      "Ibadan Road",
+      "Moremi Estate"
+    ]
+  },
+  {
+    "id": "UNILAG",
+    "name": "University of Lagos",
+    "city": "Lagos",
+    "state": "Lagos",
+    "areas": [
+      "Akoka",
+      "Yaba",
+      "Bariga"
+    ]
+  },
+  {
+    "id": "UI",
+    "name": "University of Ibadan",
+    "city": "Ibadan",
+    "state": "Oyo",
+    "areas": [
+      "Agbowo",
+      "Samonda"
+    ]
+  }
+]

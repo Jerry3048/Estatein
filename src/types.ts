@@ -8,9 +8,14 @@ export interface Property {
   bathrooms: number | string;
   type: string;
   price: number;
-  location: string;    
+  location: {
+    area: string;
+    city: string;
+    state: string;
+  };
   yearBuilt: number; 
-  keyFeatures: string[];  
+  keyFeatures: string[]; 
+  videoUrl?: string; 
 }
 
 
@@ -72,6 +77,14 @@ export interface FAQ {
   id: number;
   question: string;
   answer: string;
+}
+
+export interface AreaMap {
+  id: string;
+  name: string;
+  city: string;
+  state: string;
+  areas: string[];
 }
 
 export interface ValueItem {

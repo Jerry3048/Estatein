@@ -57,8 +57,15 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
         ? filters.priceRange.split("-").map(Number)
         : [0, Infinity];
 
+      const locationMatch =
+        !filters.location ||
+        (p.location &&
+          ([p.location.area, p.location.city, p.location.state] as string[]).some(
+            (v) => v === filters.location
+          ));
+
       return (
-        (!filters.location || p.location === filters.location) &&
+        locationMatch &&
         (!filters.propertyType || p.type === filters.propertyType) &&
         (!filters.rooms || p.bedrooms === filters.rooms) &&
         (!filters.buildYear || p.yearBuilt === filters.buildYear) &&

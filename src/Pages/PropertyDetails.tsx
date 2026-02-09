@@ -38,6 +38,18 @@ function PropertyDetails() {
     );
   }
 
+   const getProfitMultiplier = (price:number) => {
+    if (price < 50000) {
+    return 1.12;
+    }
+    else if (price < 200000) {
+    return 1.2;
+    }
+    else {
+    return 1.05;
+    }
+   };
+
   const images = property?.images || [];
   
   // Responsive: show 1 image on small screens, 2 on md+
@@ -57,7 +69,7 @@ function PropertyDetails() {
       setCurrentIndex(currentIndex - step);
     }
   };
-
+const finalPrice = property?.price ? property.price * getProfitMultiplier(property.price) : 0;
   return (
     <div className="bg-black/30">
       <Navbar />
@@ -71,13 +83,13 @@ function PropertyDetails() {
             {/* Location */}
             <p className="text-sm border border-gray-600/30 rounded-sm px-2 py-1 inline-flex items-center gap-2">
               <FiMapPin />
-              {property?.location}
+              {property && [property.location.area, property.location.city, property.location.state].join(", ")}
             </p>
 
             {/* Price */}
             <div className="flex md:flex-col items-center md:items-start">
               <p className="text-xs text-gray-400">Price</p>
-              <p className="text-2xl font-semibold">${(property?.price ?? 0) * 1.2}</p>
+              <p className="text-2xl font-semibold">₦{finalPrice.toFixed(2)}</p>
             </div>
           </div>
         </div>
@@ -143,6 +155,27 @@ function PropertyDetails() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        {/* Property Video Section */}
+       {property?.videoUrl && (
+          <div className="px-4 pb-10">
+            <div className="p-5 border border-gray-600/30 rounded-xl bg-[#1A1A1A]">
+              <h2 className="text-2xl font-semibold mb-4">
+                Property Video Tour
+              </h2>
+
+              <div className="relative w-full h-[70vh] aspect-video rounded-xl overflow-hidden border border-gray-600/30 bg-black">
+                <video
+                  src={property.videoUrl}
+                  controls
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="md:flex justify-between gap-6 w-[97%] mx-auto mb-10 md:flex-row flex-col space-y-6 md:space-y-0">
