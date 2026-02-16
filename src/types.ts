@@ -115,3 +115,9 @@ export interface AchievementItem {
   description: string;
 }
 
+export interface User {
+  uid: string;
+  email: string;
+  isAdmin: boolean;
+}
+
