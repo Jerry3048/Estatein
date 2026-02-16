@@ -28,8 +28,6 @@ function Admindashboard() {
     navigate("/");
   };
 
-  // form-related state and handlers have been moved to a dedicated page
-
   // navigate to editing page when the user wants to add/edit a property
   const handleEdit = (property: Property) => {
     navigate("/property-form", { state: { property } });
@@ -52,7 +50,6 @@ function Admindashboard() {
     }
   };
 
-  // no cancel needed in dashboard now
   return (
     <div className="">
       <Navbar/>
