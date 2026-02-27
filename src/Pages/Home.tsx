@@ -46,7 +46,7 @@ function Home() {
         {/* LEFT SECTION */}
         <div className="flex-1 bg-black/30 flex flex-col justify-center px-8 py-10 space-y-6 z-10 order-last md:order-first">
           <h1 className="text-white md:text-4xl text-3xl">
-            Discover Your Dream Property with Estatein
+            Discover Your Dream Property with RewaCity
           </h1>
 
           <p className="text-gray-400 text-[15px] max-w-[95%]">

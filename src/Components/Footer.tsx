@@ -16,7 +16,7 @@ function Footer() {
             <div className="space-y-3">
               <h1 className="text-3xl font-semibold">Start Your Real Estate Journey Today</h1>
               <p className="text-gray-400 w-[90%]">
-                Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.
+                Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, RewaCity is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.
               </p>
             </div>
     
@@ -166,7 +166,7 @@ function Footer() {
             
             {/* Left side: Year and Terms */}
             <div className="text-gray-400 text-sm flex flex-col md:flex-row items-center gap-2">
-              <span>© {currentYear} Estatein. All rights reserved.</span>
+              <span>© {currentYear} RewaCity. All rights reserved.</span>
               <a href="/terms" className="hover:text-white">
                 Terms & Conditions
               </a>

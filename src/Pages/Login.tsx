@@ -70,7 +70,7 @@ function Login() {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="admin@estatein.com"
+              placeholder="admin@RewaCity.com"
               className="w-full px-4 py-2 border border-gray-300 text-black rounded-lg focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition"
             />
           </div>
@@ -108,7 +108,7 @@ function Login() {
 
         <div className="mt-10 p-4 bg-gray-100 rounded-lg text-center text-sm text-gray-700 space-y-1">
           <p className="font-semibold mb-2">Demo Credentials:</p>
-          <p>Email: admin@estatein.com</p>
+          <p>Email: admin@RewaCity.com</p>
           <p>Password: admin123</p>
         </div>
       </div>

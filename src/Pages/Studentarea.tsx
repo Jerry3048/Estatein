@@ -156,7 +156,7 @@ function Studentarea() {
           </h1>
 
           <p className="text-gray-400 text-[14px] max-w-[95%]">
-            Welcome to Estatein, where your dream property awaits in every
+            Welcome to RewaCity, where your dream property awaits in every
             corner of our beautiful world. Explore our curated selection of
             properties, each offering a unique story and a chance to redefine
             your life. With categories to suit every dreamer, your journey
