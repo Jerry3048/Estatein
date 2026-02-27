@@ -17,7 +17,7 @@ function Contact() {
     },
     {
       img: "/logo/servicecontainer/Icon Container (15).png",
-      text: "Main Headquarters",
+      text: "Location",
     },
     {
       img: "/logo/servicecontainer/Icon Container (14).png",

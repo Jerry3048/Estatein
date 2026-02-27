@@ -49,9 +49,6 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/">Home</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <Link to="/#hero" className="hover:text-white cursor-pointer">Hero Section</Link>
-                    </li>
-                    <li>
                       <Link to="/#features" className="hover:text-white cursor-pointer">Features</Link>
                     </li>
                     <li>

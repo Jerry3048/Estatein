@@ -7,10 +7,22 @@ import FAQSection from "../Components/FAQSection";
 import Footer from "../Components/Footer";
 import { Link } from "react-router";
 import useScrollToHash from "../hooks/useLocation";
+import { useEffect } from "react";
+import { useThemeStore } from "../Store/useThemeStore.ts";
 
 
 
 function Home() {
+   const theme = useThemeStore((state) => state.theme);
+
+    useEffect(() => {
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }, [theme]);
+
   useScrollToHash();
  
 

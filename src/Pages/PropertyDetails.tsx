@@ -4,7 +4,6 @@ import { FiMapPin, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { usePropertyStore } from "../Store/usePropertyStore";
 import { useState, useEffect } from "react";
 import { FaBed, FaBath, FaHome, FaBolt  } from "react-icons/fa";
-import FAQSection from "../Components/FAQSection";
 import Footer from "../Components/Footer";
 
 const slugify = (text: string) =>
@@ -88,7 +87,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
 
             {/* Price */}
             <div className="flex md:flex-col items-center md:items-start">
-              <p className="text-xs text-gray-400">Price</p>
+              <p className="text-xs text-gray-400 hidden md:flex">Price</p>
               <p className="text-2xl font-semibold">₦{finalPrice}</p>
             </div>
           </div>
@@ -321,7 +320,6 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
           </form>
         </div>
       </section>
-      <FAQSection/>
       <div className="pt-5"><Footer/></div>
     </div>
   );

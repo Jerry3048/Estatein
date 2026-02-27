@@ -3,9 +3,13 @@ import text from "/logo/Text.png";
 import logo from "/logo/Logo.png";
 import Hanburger from "/logo/Icon.png";
 import { useState } from "react";
+import { useThemeStore } from "../Store/useThemeStore.ts";
+import { FiSun, FiMoon } from "react-icons/fi";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useThemeStore();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -26,14 +30,26 @@ const Navbar = () => {
       >
         <div className="flex justify-center lg:ml-[40%] sm:ml-[20%] items-center">
           <img src={text} alt="Logo" className="h-5 mr-2 w-[70%]" />
-          <NavLink to="#" className="underline text-sm hidden sm:block">
+          <NavLink to="/Service" className="underline text-sm hidden sm:block">
             Learn More
           </NavLink>
         </div>
 
-        <button className="bg-gray-500 w-5 h-5 rounded-full flex justify-center items-center">
-          X
-        </button>
+        <button
+          onClick={toggleTheme}
+          className="flex items-center gap-2 px-1 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-all duration-300"
+        >
+          {theme === "dark" ? (
+            <>
+              <FiSun size={20} />
+            </>
+          ) : (
+            <>
+              <FiMoon size={20} />
+            </>
+          )}
+      </button>
+
       </div>
       <hr className="h-px bg-gray-600 border-0 w-full" />
 

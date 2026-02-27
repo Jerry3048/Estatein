@@ -165,7 +165,7 @@ function Studentarea() {
             to="/Properties"
             className="inline-block mt-3 bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-2 rounded-lg text-sm font-medium"
           >
-            General Area
+            General Residence
           </NavLink>
         </div>
         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%]">
