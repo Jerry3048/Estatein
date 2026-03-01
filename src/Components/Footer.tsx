@@ -7,12 +7,15 @@ function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <div className="">
-        <div className=" bg-black/20 p-10"
+        <div className="relative py-10 px-5 bg-cover"
             style={{
               backgroundImage: "url('/logo/CTA.png')",
             }}
         >
-            <div className="sm:flex justify-between items-center space-y-6 sm:space-y-0">
+            {/* overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+
+            <div className="relative sm:flex justify-between items-center space-y-6 sm:space-y-0">
             <div className="space-y-3">
               <h1 className="text-3xl font-semibold text-white">Start Your Real Estate Journey Today</h1>
               <p className="dark:text-gray-400 text-gray-100 w-[90%]">
@@ -28,7 +31,7 @@ function Footer() {
         <hr className=" dark:border-gray-600/30 border-gray-900 border" />
 
 
-        <div className="p-8 lg:flex space-y-10 lg:space-y-0 justify-between">
+        <div className="py-8 px-4 lg:flex space-y-10 lg:space-y-0 justify-between">
           <div className="mr-[5%]  space-y-4">
             <p className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
               <img src={logo} alt="logo" className="h-10 mr-1" /><span className="text-black dark:text-white">RewaCity</span></p>
