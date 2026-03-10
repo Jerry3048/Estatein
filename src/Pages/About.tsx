@@ -138,7 +138,7 @@ function About() {
   return (
     <div>
         <Navbar />
-        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-6 px-6 md:px-7 lg:px-10 lg:gap-12 md:gap-3" id="Journey">
+        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-6 px-2 lg:gap-10 md:gap-3" id="Journey">
           <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first ">
            <img
               src="/logo/Abstract Design (1).png"
@@ -172,7 +172,7 @@ function About() {
         
         <div className="flex-1 relative order-first md:order-last justify-center items-center flex mx-auto md:mb-10 mb-5">
           {/* Padding wrapper */}
-          <div className="p-4 sm:p-12 relative z-10 border border-gray-600/30 rounded-sm flex justify-center items-center"
+          <div className="p-4 sm:p-6 relative z-10 border border-gray-600/30 rounded-sm flex justify-center items-center"
           style={{
             backgroundImage: "url('/logo/Abstract Design.png')",
           }}>
@@ -190,9 +190,9 @@ function About() {
       </div>
     </section>
 
-    <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 md:px-4 lg:px-10 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
+    <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
         {/* LEFT SIDE — 1 PART WIDTH */}
-        <div className="flex-1 flex flex-col justify-center px-5 space-y-6 z-10 ">
+        <div className="flex-1 flex flex-col justify-center space-y-6 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
             alt="Icon"
@@ -237,7 +237,7 @@ function About() {
       </section>
 
       <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10" id="Achievements">
-         <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 ">
+         <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
             alt="Icon"
@@ -251,7 +251,7 @@ function About() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-3 w-[98%] md:w-[97%] mx-auto mt-8">
+        <div className="grid md:grid-cols-3 gap-2 mx-auto mt-8">
             {Achievements.map((item: AchievementItem) => (
               <div
                 key={item.id}
@@ -269,7 +269,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 md:px-7 lg:gap-10" id="Process">
+      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10" id="Process">
          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -312,7 +312,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 md:px-7 lg:px-10 lg:gap-10 space-y-5" id="Team">
+      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10 space-y-5" id="Team">
           <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -327,7 +327,7 @@ function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mx-auto">
           {teamData.map((member: TeamMember) => (
             <div
               key={member.id}

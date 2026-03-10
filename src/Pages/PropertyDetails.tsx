@@ -75,7 +75,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
 
       <div className="mx-auto">
         {/* Name, Location & Price Section */}
-        <div className="md:flex gap-3 items-center px-4 py-6 whitespace-nowrap">
+        <div className="md:flex gap-3 items-center px-2 py-6 whitespace-nowrap">
           <h1 className="text-2xl font-semibold mb-1 text-gray-900 dark:text-white">{property?.name}</h1>
 
           <div className="flex justify-between md:items-center w-full mt-4 md:mt-0">
@@ -94,7 +94,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
         </div>
       </div>
 
-      <section className="px-4 pb-10 ">
+      <section className="px-2 pb-10 ">
         <div className="p-5 border border-gray-600/30 rounded-xl">
           {/* Thumbnail Row */}
           <div className="flex gap-3 overflow-x-auto mb-6 p-2 border border-gray-600/30 rounded-xl bg-black/20">
@@ -159,7 +159,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
       <section>
         {/* Property Video Section */}
        {property?.videoUrl && (
-          <div className="px-4 pb-10 ">
+          <div className="px-2 pb-10 ">
             <div className="p-5 border border-gray-600/30 rounded-xl">
               <h2 className="text-2xl text-gray-900 dark:text-white font-semibold mb-4">
                 Property Video Tour
@@ -177,7 +177,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
         )}
       </section>
 
-      <section className="md:flex justify-between gap-6 w-[97%] mx-auto mb-10 md:flex-row flex-col space-y-6 md:space-y-0">
+      <section className="md:flex justify-between gap-6 w-[99%] mx-auto mb-10 md:flex-row flex-col space-y-6 md:space-y-0">
       <div className="px-4 py-10 border border-gray-600/30 rounded-xl flex-1 h-fit dark:bg-[#1A1A1A] bg-white">
           {/* Description */}
           <div className="mb-8">
@@ -217,8 +217,8 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
       </div>
       </section>
 
-      <section className="md:flex justify-between w-[97%] mx-auto">
-        <div className="flex-1 flex flex-col  px-5 space-y-3 z-10 mb-6 ">
+      <section className="md:flex justify-between w-[99%] mx-auto">
+        <div className="flex-1 flex flex-col space-y-3 z-10 mb-6 ">
           <img
             src="/logo/Abstract Design (1).png"
             alt="Icon"

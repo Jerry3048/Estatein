@@ -27,7 +27,7 @@ function Contact() {
   return (
     <div className="">
       <Navbar />
-      <div className="bg-linear-to-r dark:from-neutral-600/20 from-gray-300/50 dark:to-black/60 to-gray-400 p-10  space-y-6">
+      <div className="bg-linear-to-r dark:from-neutral-600/20 from-gray-300/50 dark:to-black/60 to-gray-400 p-5 py-10  space-y-6">
         <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
           Get in Touch with RewaCity
         </h1>
@@ -75,7 +75,7 @@ function Contact() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 px-5" id="Contactform">
+      <section className="bg-gray-300 dark:bg-black/30 px-2" id="Contactform">
         <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
           <img
             src="/logo/Abstract Design (1).png"
@@ -94,7 +94,7 @@ function Contact() {
           </p>
         </div>
 
-        <form className="space-y-5 border border-gray-600/30 p-4 rounded-xl dark:bg-[#121212] bg-white">
+        <form className="space-y-5 border border-gray-600/30 p-2 rounded-xl dark:bg-[#121212] bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* First & Last Name */}
             <div>
@@ -230,7 +230,7 @@ function Contact() {
         </form>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 p-5" id="Ouroffices">
+      <section className="bg-gray-300 dark:bg-black/30 p-2" id="Ouroffices">
         <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
           <img
             src="/logo/Abstract Design (1).png"

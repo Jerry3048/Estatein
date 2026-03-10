@@ -144,7 +144,7 @@ function Studentarea() {
     <div>
       <Navbar />
       <div className="relative" id="Categories">
-        <div className="bg-linear-to-r dark:from-neutral-600/20 from-gray-300/50 dark:to-black/60 to-gray-400 p-10  space-y-6 border-b border-gray-600">
+        <div className="bg-linear-to-r dark:from-neutral-600/20 from-gray-300/50 dark:to-black/60 to-gray-400 p-5 py-10 space-y-6 border-b border-gray-600">
           <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
             Find Student Accomodation
           </h1>
@@ -182,7 +182,7 @@ function Studentarea() {
       </div>
 
       <div className="bg-gray-300 dark:bg-black/30">
-        <div className="pt-8 w-[95%] mx-auto">
+        <div className="pt-8 w-[99%] mx-auto">
           {/* Filters Container */}
           <div
             className={`md:grid md:grid-cols-3 lg:grid-cols-5 
@@ -321,7 +321,7 @@ function Studentarea() {
 
           {/* Properties */}
           <div>
-            <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 mb-6">
+            <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
               <img
                 src="/logo/Abstract Design (1).png"
                 alt="Icon"
@@ -339,7 +339,7 @@ function Studentarea() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               {currentProperties.length === 0 ? (
                 <div className="col-span-full text-center py-10">
                   <h3 className="text-gray-900 dark:text-white text-xl font-semibold mb-2">
@@ -386,9 +386,9 @@ function Studentarea() {
         </div>
       </div>
 
-       <section className="bg-gray-300 dark:bg-black/30 p-5 pb-20" id="Portfolio">
+       <section className="bg-gray-300 dark:bg-black/30 p-2 pb-20" id="Portfolio">
         <div className="  ">
-          <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 mb-6">
+          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
             <img
               src="/logo/Abstract Design (1).png"
               alt="Icon"

@@ -27,7 +27,7 @@ function PropertySection() {
 
   return (
    <div className="w-[99%] mx-auto py-10 md:py-4">
-     <div className="p-2">
+     <div className="">
           <img
               src="/logo/Abstract Design (1).png"
               alt="Icon"
@@ -49,9 +49,9 @@ function PropertySection() {
         </NavLink>
       </div>  
        </div>
-      <div className="px-2 py-4">
+      <div className=" py-4">
         {/* Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {currentProperties.map((item) => (
             <PropertyCard key={item.id} property={item} />
         ))}
