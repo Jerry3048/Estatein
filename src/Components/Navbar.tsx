@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-6 items-center text-gray-800 2xl:text-[18px] sm:text-[15px] dark:text-white">
+          <div className="hidden md:flex lg:space-x-6 space-x-3 items-center text-gray-800 2xl:text-[18px] sm:text-[15px] dark:text-white">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}

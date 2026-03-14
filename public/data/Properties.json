@@ -1813,7 +1813,7 @@
     "bedrooms": 3,
     "bathrooms": 3,
     "type": "Penthouse",
-    "price": "$500,000",
+    "price": 500000,
     "location": {
         "area": "Eko Atlantic",
         "city": "Lagos",

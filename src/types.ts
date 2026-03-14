@@ -8,6 +8,7 @@ export interface Property {
   bathrooms: number | string;
   type: string;
   price: number;
+  createdBy: number; 
   location: {
     area: string;
     city: string;

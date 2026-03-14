@@ -22,10 +22,10 @@ function AllFAQs() {
   return (
     <div className="bg-gray-300 dark:bg-black/30">
       <Navbar />
-      <div className="w-[95%] mx-auto px-4 py-3">
+      <div className="w-[98%] mx-auto px-2 py-3">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Frequently Asked Questions</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {faq.map((item: FAQ) => (
             <div
               key={item.id}

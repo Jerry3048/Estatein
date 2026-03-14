@@ -107,7 +107,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="px-2 py-2 bg-gray-300 dark:bg-black/30" id="features">
+      <section className="px-4 py-2 bg-gray-300 dark:bg-black/30" id="features">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             
             {/* BOX ITEM */}

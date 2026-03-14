@@ -69,7 +69,7 @@ const stepsData: Step[] = [
     id: 2,
     step: "Step 02",
     title: "Narrowing Down Your Choices",
-    description:"Once you've found properties that catch your eye, save them to your account or make a shortlist. This allows you to compare and revisit your favorites as you make your decision."
+    description:"Once you've found properties that catch your eye,make a shortlist. This allows you to compare and revisit your favorites as you make your decision."
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ const stepsData: Step[] = [
     id: 4,
     step: "Step 04",
     title: "See It for Yourself",
-    description:"Arrange viewings of the properties you're interested in. We'll coordinate with the property owners and accompany you to ensure you get a firsthand look at your potential new home."
+    description:"Arrange viewings of the properties you're interested in. We'll coordinate with the property owners and accompany you to get a firsthand look at your potential new home."
   },
   {
     id: 5,
@@ -138,7 +138,7 @@ function About() {
   return (
     <div>
         <Navbar />
-        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-6 px-2 lg:gap-10 md:gap-3" id="Journey">
+        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-6 px-4 lg:gap-10 md:gap-3" id="Journey">
           <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first ">
            <img
               src="/logo/Abstract Design (1).png"
@@ -190,7 +190,7 @@ function About() {
       </div>
     </section>
 
-    <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
+    <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
         {/* LEFT SIDE — 1 PART WIDTH */}
         <div className="flex-1 flex flex-col justify-center space-y-6 z-10 ">
           <img
@@ -236,7 +236,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10" id="Achievements">
+      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10" id="Achievements">
          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -269,7 +269,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10" id="Process">
+      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10" id="Process">
          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -284,11 +284,11 @@ function About() {
           </p>
         </div>
 
-         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-[99%] mx-auto mt-8">
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 mx-auto mt-8">
           {stepsData.map((item) => (
               <div
                 key={item.id}
-                className="mx-auto ">
+                className="mx-auto">
                   <p className="text-gray-900 dark:text-white font-semibold text-sm border-l border-[#703BF7] p-2">{item.step}</p>
 
                   <div className="relative border dark:bg-[#121212] bg-white border-gray-700/40 p-4 rounded-md rounded-l-none rounded-b-md space-y-3 mx-auto justify-center">
@@ -312,7 +312,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-2 lg:gap-10 space-y-5" id="Team">
+      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10 space-y-5" id="Team">
           <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"

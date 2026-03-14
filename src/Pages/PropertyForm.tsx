@@ -37,9 +37,8 @@ function PropertyForm() {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState<Partial<Property>>(initialFormState);
 
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
   useEffect(() => {
-    // require login
-    const user = localStorage.getItem("user");
     if (!user) {
       navigate("/login");
       return;
@@ -54,7 +53,7 @@ function PropertyForm() {
       setFormData(p);
       setEditingId(p.id);
     }
-  }, [fetchProperties, navigate, location.state]);
+  }, [fetchProperties, navigate, location.state, user]);
 
   const handleInputChange = (
     e: React.ChangeEvent<

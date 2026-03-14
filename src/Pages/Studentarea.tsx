@@ -181,8 +181,8 @@ function Studentarea() {
         </div>
       </div>
 
-      <div className="bg-gray-300 dark:bg-black/30">
-        <div className="pt-8 w-[98%] mx-auto">
+      <div className="bg-gray-300 dark:bg-black/30 px-4">
+        <div className="pt-8 mx-auto">
           {/* Filters Container */}
           <div
             className={`md:grid md:grid-cols-3 lg:grid-cols-5 
@@ -386,7 +386,7 @@ function Studentarea() {
         </div>
       </div>
 
-       <section className="bg-gray-300 dark:bg-black/30 p-2 pb-20" id="Portfolio">
+       <section className="bg-gray-300 dark:bg-black/30 py-2 px-4 pb-20" id="Portfolio">
         <div className="  ">
           <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
             <img
