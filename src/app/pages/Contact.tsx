@@ -4,10 +4,66 @@ import { FiMapPin } from "react-icons/fi";
 import Footer from "../../shared/components/Layout/Footer";
 import useScrollToHash from "../../shared/hooks/useScrollToHash";
 import { useState } from "react";
+import axios from "axios";
 
 function Contact() {
-   const [agreed, setAgreed] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [inquiryType, setInquiryType] = useState("");
+  const [source, setSource] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useScrollToHash();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const fullName = `${firstName} ${lastName}`.trim();
+
+    const payload = {
+      companyId: "69b4712ce95a2df514b1c789",
+      pipelineId: "69b49c7541d35d158e336621",
+      title: `Contact Inquiry from ${fullName}`,
+      name: fullName,
+      email: email,
+      phone: phone,
+      note: message,
+      customData: [
+        { label: "Inquiry Type", value: inquiryType },
+        { label: "Source", value: source },
+      ],
+    };
+
+    try {
+      await axios.post("https://api.sabiflow.com/api/crm/deals/guest", payload);
+      alert("Message sent successfully!");
+      // Reset form
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setInquiryType("");
+      setSource("");
+      setMessage("");
+      setAgreed(false);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const services1 = [
     {
       img: "/logo/servicecontainer/Icon Container (17).png",
@@ -96,7 +152,7 @@ function Contact() {
           </p>
         </div>
 
-        <form className="space-y-5 border border-gray-600/30 p-4 rounded-xl dark:bg-[#121212] bg-white">
+        <form onSubmit={handleSubmit} className="space-y-5 border border-gray-600/30 p-4 rounded-xl dark:bg-[#121212] bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* First & Last Name */}
             <div>
@@ -105,6 +161,8 @@ function Contact() {
                 type="text"
                 placeholder="Enter First Name"
                 required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
@@ -115,6 +173,8 @@ function Contact() {
                 type="text"
                 placeholder="Enter Last Name"
                 required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
@@ -126,6 +186,8 @@ function Contact() {
                 type="email"
                 placeholder="Enter your Email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
@@ -135,6 +197,8 @@ function Contact() {
               <input
                 type="tel"
                 placeholder="Enter Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
@@ -143,7 +207,12 @@ function Contact() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">Inquiry Type</label>
 
-              <select required className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white">
+              <select 
+                required 
+                value={inquiryType}
+                onChange={(e) => setInquiryType(e.target.value)}
+                className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
+              >
                 <option value="" hidden className=" ">
                   Select Inquiry Type
                 </option>
@@ -175,7 +244,12 @@ function Contact() {
                 How Did You Hear About Us?
               </label>
 
-              <select required className="w-full dark:bg-black/70 bg-gray-300 dark:text-white text-gray-900 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
+              <select 
+                required 
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                className="w-full dark:bg-black/70 bg-gray-300 dark:text-white text-gray-900 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+              >
                 <option value="" hidden className=" ">
                   Select Option
                 </option>
@@ -208,7 +282,10 @@ function Contact() {
             <label className=" text-gray-700 dark:text-gray-300 text-sm mb-1 block">Message</label>
             <textarea
               rows={4}
+              required
               placeholder="Enter your Message here..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7] dark:placeholder-gray-400 placeholder-gray-900/70 text-gray-900 dark:text-white"
             />
           </div>
@@ -234,14 +311,14 @@ function Contact() {
           <div className="sm:col-span-2 flex items-center justify-end">
             <button
                 type="submit"
-                disabled={!agreed}
+                disabled={!agreed || isSubmitting}
                 className={`px-4 py-3 rounded-lg font-medium transition
-                  ${agreed 
+                  ${agreed && !isSubmitting
                     ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
                     : "bg-gray-400 cursor-not-allowed text-gray-200"
                   }`}
               >
-                Send Your Message
+                {isSubmitting ? "Sending..." : "Send Your Message"}
             </button>
           </div>
         </form>

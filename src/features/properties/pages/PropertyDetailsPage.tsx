@@ -5,6 +5,7 @@ import { usePropertyStore } from "../store/usePropertyStore";
 import { useState, useEffect } from "react";
 import { FaBed, FaBath, FaHome, FaBolt  } from "react-icons/fa";
 import Footer from "../../../shared/components/Layout/Footer";
+import axios from "axios";
 
 const slugify = (text: string) =>
   text.toLowerCase().replace(/\s+/g, "-");
@@ -12,11 +13,84 @@ const slugify = (text: string) =>
 function PropertyDetails() {
   const { name } = useParams();
   const { properties } = usePropertyStore();
-
   const property = properties.find((p) => slugify(p.name) === name);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [step, setStep] = useState(window.innerWidth < 768 ? 1 : 2);
+
+  // FORM STATES
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [agreed, setAgreed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions");
+      return;
+    }
+
+    if (!property) return;
+
+    setIsSubmitting(true);
+
+    const fullName = `${firstName} ${lastName}`.trim();
+
+    const payload = {
+      companyId: "69b4712ce95a2df514b1c789",
+      pipelineId: "69b49c7541d35d158e336621",
+      title: `Inquiry for ${property.name}`,
+      name: fullName,
+      email: email,
+      phone: phone,
+      address: `${property.location.area}, ${property.location.city}, ${property.location.state}`,
+      note: message,
+      customData: [
+        {
+          label: "Property",
+          value: property.name,
+        },
+        {
+          label: "Property Type",
+          value: property.type,
+        },
+        {
+          label: "Preferred Location",
+          value: `${property.location.area}, ${property.location.city}`,
+        },
+          {
+          label: "Final Price",
+          value: `₦${finalPrice}`
+        },
+      ]
+    };
+
+    try {
+     await axios.post("https://api.sabiflow.com/api/crm/deals/guest", payload);
+      alert("Message sent successfully!");
+      // reset form
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setAgreed(false);
+
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -235,14 +309,16 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
         <div className=" p-6 dark:bg-[#1A1A1A] bg-white border border-gray-600/30 rounded-xl text-white flex-2">
           <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Send Us a Message</h2>
 
-          <form className="space-y-5 dark:bg-[#1A1A1A] bg-white">
+          <form onSubmit={handleSubmit} className="space-y-5 dark:bg-[#1A1A1A] bg-white">
             {/* First & Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">First Name</label>
                 <input
                   type="text"
-                  placeholder="Enter First Name"
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
@@ -252,6 +328,8 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="text"
                   placeholder="Enter Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
@@ -264,6 +342,8 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="email"
                   placeholder="Enter your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
@@ -273,6 +353,8 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="tel"
                   placeholder="Enter Phone Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
@@ -295,29 +377,43 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
               <textarea
                 rows={4}
                 placeholder="Enter your Message here..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
             {/* Agreement */}
             <div className="sm:col-span-2 flex items-center gap-3">
-              <input type="checkbox" className="mt-0.5" />
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
               <p className="text-gray-900 dark:text-white text-sm">
                 I agree with the{" "}
-                <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
-                <span className="text-gray-900 dark:text-white underline">Policy</span>
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                  Terms & Conditions
+                </a>
               </p>
-             </div>
+            </div>
 
               {/* Submit Button */}
-              <div className="sm:col-span-2 flex items-center justify-end">
-                <button
+            <div className="sm:col-span-2 flex items-center justify-end">
+              <button
                   type="submit"
-                  className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
+                  disabled={!agreed || isSubmitting}
+                  className={`px-4 py-3 rounded-lg font-medium transition
+                    ${agreed && !isSubmitting
+                      ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
+                      : "bg-gray-400 cursor-not-allowed text-gray-200"
+                    }`}
                 >
-                  Send Your Message
-                </button>
-              </div>
+                  {isSubmitting ? "Sending..." : "Send Your Message"}
+              </button>
+            </div>
           </form>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import Navbar from "../../shared/components/Layout/Navbar";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { usePropertyStore } from "../../features/properties/store/usePropertyStore";
 import { useAreaMapStore } from "../../features/map/store/useAreaMapStore";
 import type { Property } from "../../types";
@@ -26,6 +27,62 @@ function Studentarea() {
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
   const [Budget, setBudget] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [bedroomsContact, setBedroomsContact] = useState("");
+  const [preferredContact, setPreferredContact] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const payload = {
+      companyId: "69b4712ce95a2df514b1c789",
+      pipelineId: "69b49c7541d35d158e336621",
+      title: `Student Inquiry from ${name}`,
+      name: name,
+      email: email,
+      phone: phone,
+      address: preferedLocation,
+      note: message,
+      customData: [
+        { label: "Budget", value: Budget },
+        { label: "Property Type", value: preferedType },
+        { label: "Preferred Location", value: preferedLocation },
+        { label: "Bedrooms", value: bedroomsContact },
+        { label: "Preferred Contact", value: preferredContact },
+      ],
+    };
+
+    try {
+      await axios.post("https://api.sabiflow.com/api/crm/deals/guest", payload);
+      alert("Message sent successfully!");
+      // Reset form
+      setName("");
+      setEmail("");
+      setPhone("");
+      setPreferedLocation("");
+      setPreferedType("");
+      setBedroomsContact("");
+      setBudget("");
+      setPreferredContact("");
+      setMessage("");
+      setAgreed(false);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // NEW: Price range controlled through dropdown
   const [selectedPriceLabel, setSelectedPriceLabel] = useState("");
@@ -394,7 +451,7 @@ function Studentarea() {
             </p>
           </div>
 
-          <form className="grid dark:bg-[#1A1A1A] bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
+          <form onSubmit={handleSubmit} className="grid dark:bg-[#1A1A1A] bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
             {/* Name */}
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Name</label>
@@ -402,6 +459,8 @@ function Studentarea() {
                 type="text"
                 placeholder="Enter Full Name"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -413,6 +472,8 @@ function Studentarea() {
                 type="email"
                 placeholder="Enter your Email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -424,6 +485,8 @@ function Studentarea() {
                 type="tel"
                 placeholder="Enter Phone Number"
                 required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -472,6 +535,8 @@ function Studentarea() {
                 placeholder="Enter Number of Bedrooms"
                 required
                 min={1}
+                value={bedroomsContact}
+                onChange={(e) => setBedroomsContact(e.target.value)}
                 className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -483,12 +548,7 @@ function Studentarea() {
                 required
                 className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={Budget}
-                onChange={(e) => {
-                  const label = e.target.value;
-                  setBudget(label);
-                  const opt = priceOptions.find((o) => o.label === label);
-                  if (opt) setPriceRange(opt.range as [number, number]);
-                }}
+                onChange={(e) => setBudget(e.target.value)}
               >
                 <option value="" disabled hidden>
                   Price Range
@@ -504,6 +564,8 @@ function Studentarea() {
               <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Contact Method</label>
               <select
                 required
+                value={preferredContact}
+                onChange={(e) => setPreferredContact(e.target.value)}
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none"
               >
                 <option value="" hidden>Select Method</option>
@@ -518,6 +580,9 @@ function Studentarea() {
               <textarea
                 placeholder="Enter your Message here.."
                 rows={4}
+                required
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 resize-none"
               />
             </div>
@@ -543,14 +608,14 @@ function Studentarea() {
             <div className="sm:col-span-2 flex items-center justify-end">
               <button
                 type="submit"
-                disabled={!agreed}
+                disabled={!agreed || isSubmitting}
                 className={`px-4 py-3 rounded-lg font-medium transition
-                  ${agreed 
+                  ${agreed && !isSubmitting
                     ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
                     : "bg-gray-400 cursor-not-allowed text-gray-200"
                   }`}
               >
-                Send Your Message
+                {isSubmitting ? "Sending..." : "Send Your Message"}
               </button>
             </div>
           </form>
