@@ -3,8 +3,10 @@ import { FaEnvelope, FaPhone, FaDirections } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import Footer from "../Components/Footer";
 import useScrollToHash from "../hooks/useLocation";
+import { useState } from "react";
 
 function Contact() {
+   const [agreed, setAgreed] = useState(false);
   useScrollToHash();
   const services1 = [
     {
@@ -102,31 +104,34 @@ function Contact() {
               <input
                 type="text"
                 placeholder="Enter First Name"
+                required
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
             <div>
-              <label className="text-sm mb-1 block">Last Name</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">Last Name</label>
               <input
                 type="text"
                 placeholder="Enter Last Name"
+                required
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
             {/* Email & Phone */}
             <div>
-              <label className="text-sm mb-1 block">Email</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">Email</label>
               <input
                 type="email"
                 placeholder="Enter your Email"
+                required
                 className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
             <div>
-              <label className="text-sm mb-1 block">Phone</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">Phone</label>
               <input
                 type="tel"
                 placeholder="Enter Phone Number"
@@ -136,9 +141,9 @@ function Contact() {
 
             {/* Inquiry Type & Source */}
             <div>
-              <label className="text-sm mb-1 block">Inquiry Type</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">Inquiry Type</label>
 
-              <select className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white">
+              <select required className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white">
                 <option value="" hidden className=" ">
                   Select Inquiry Type
                 </option>
@@ -166,11 +171,11 @@ function Contact() {
             </div>
 
             <div>
-              <label className="text-sm mb-1 block">
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">
                 How Did You Hear About Us?
               </label>
 
-              <select className="w-full dark:bg-black/70 bg-gray-300 dark:text-white text-gray-900 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
+              <select required className="w-full dark:bg-black/70 bg-gray-300 dark:text-white text-gray-900 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
                 <option value="" hidden className=" ">
                   Select Option
                 </option>
@@ -210,21 +215,33 @@ function Contact() {
 
           {/* Agreement */}
           <div className="sm:col-span-2 flex items-center gap-3">
-            <input type="checkbox" className="mt-0.5" />
-            <p className="text-gray-400 text-sm">
-              I agree with the{" "}
-              <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
-              <span className="text-gray-900 dark:text-white underline">Policy</span>
-            </p>
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
+              <p className="text-gray-900 dark:text-white text-sm">
+                I agree with the{" "}
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                  Terms & Conditions
+                </a>
+              </p>
           </div>
 
           {/* Submit Button */}
           <div className="sm:col-span-2 flex items-center justify-end">
             <button
-              type="submit"
-              className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
-            >
-              Send Your Message
+                type="submit"
+                disabled={!agreed}
+                className={`px-4 py-3 rounded-lg font-medium transition
+                  ${agreed 
+                    ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
+                    : "bg-gray-400 cursor-not-allowed text-gray-200"
+                  }`}
+              >
+                Send Your Message
             </button>
           </div>
         </form>

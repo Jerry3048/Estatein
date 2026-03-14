@@ -14,6 +14,8 @@ import StudentHousing from "./Pages/Studentarea";
 import Admindashboard from "./Pages/Admindashboard";
 import PropertyForm from "./Pages/PropertyForm";
 import Login from "./Pages/Login";
+import NotFound from "./Pages/404Page";
+import TermsPolicies from "./Pages/Terms&Policies";
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/Admindashboard" element={<Admindashboard />} />
         <Route path="/property-form" element={<PropertyForm />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/terms-policies" element={<TermsPolicies />} />
       </Routes>
     </BrowserRouter>
   )

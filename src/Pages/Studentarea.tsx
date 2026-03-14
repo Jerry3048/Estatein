@@ -3,12 +3,7 @@ import { useEffect, useState } from "react";
 import { usePropertyStore } from "../Store/usePropertyStore.ts";
 import { useAreaMapStore } from "../Store/useAreaMapStore.ts";
 import type { Property } from "../types";
-import {
-  FiArrowLeft,
-  FiArrowRight,
-  FiMapPin,
-  FiHome,
-} from "react-icons/fi";
+import {FiArrowLeft,FiArrowRight,FiMapPin,FiHome} from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
 import PropertyCard from "../Components/PropertyCard";
 import Footer from "../Components/Footer.tsx";
@@ -18,16 +13,7 @@ import { NavLink } from "react-router";
 
 function Studentarea() {
   useScrollToHash();
-  const {
-    properties,
-    loading,
-    page,
-    ITEMS_PER_PAGE,
-    fetchProperties,
-    nextPage,
-    prevPage,
-    setPage,
-  } = usePropertyStore();
+  const {properties,loading,page,ITEMS_PER_PAGE,fetchProperties,nextPage,prevPage,setPage,} = usePropertyStore();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
@@ -49,6 +35,7 @@ function Studentarea() {
 
   const [showFilters, setShowFilters] = useState(false);
   const [filtered, setFiltered] = useState<Property[]>([]);
+  const [agreed, setAgreed] = useState(false);
 
   const priceOptions = [
     { label: "Budget", range: [0, 999999999] },
@@ -66,67 +53,78 @@ function Studentarea() {
 
   // Filtering
   useEffect(() => {
-    const results = properties.filter((p) => {
-      const matchesSearch =
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchTerm.toLowerCase());
+  const search = searchTerm.toLowerCase();
+
+  const results = properties.filter((p) => {
+    const locationText = p.location?.toLowerCase() || "";
+
+    const matchesSearch =
+      p.title.toLowerCase().includes(search) ||
+      p.description.toLowerCase().includes(search);
 
     const matchesUniversity = selectedUniversity
       ? areaMaps
           .find((u) => u.id === selectedUniversity)
-          ?.areas.includes(p.location.area)
+          ?.areas.some((area) =>
+            locationText.includes(area.toLowerCase())
+          )
       : true;
 
     const matchesLocation = location
-      ? p.location.area === location
+      ? locationText.includes(location.toLowerCase())
       : true;
 
-      const matchesType = type ? p.type === type : true;
-      const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
+    const matchesType = type ? p.type === type : true;
 
-      const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
-      const matchesPrice =
-        priceNum >= priceRange[0] && priceNum <= priceRange[1];
+    const matchesBedrooms = bedrooms
+      ? p.bedrooms === Number(bedrooms)
+      : true;
 
-      return (
-        matchesSearch &&
-        matchesUniversity &&
-        matchesLocation &&
-        matchesType &&
-        matchesBedrooms &&
-        matchesPrice
-      );
-    });
+    const priceNum = Number(p.price);
 
-    setFiltered(results);
-    setPage(0);
-  }, [
-    searchTerm,
-    location,
-    type,
-    bedrooms,
-    priceRange,
-    properties,
-    setPage,
-    areaMaps,
-    selectedUniversity
-  ]);
+    const matchesPrice =
+      priceNum >= priceRange[0] && priceNum <= priceRange[1];
 
-  // Pagination
-  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
-  const currentProperties = filtered.slice(
-    page * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
-  );
+    return (
+      matchesSearch &&
+      matchesUniversity &&
+      matchesLocation &&
+      matchesType &&
+      matchesBedrooms &&
+      matchesPrice
+    );
+  });
 
-  // Dropdown unique options
-  const uniqueLocations = Array.from(
-    new Set(
-      properties.map(
-        (p) => `${p.location.area}, ${p.location.city}, ${p.location.state}`,
-      ),
-    ),
-  );
+  setFiltered(results);
+  setPage(0);
+}, [
+  searchTerm,
+  location,
+  type,
+  bedrooms,
+  priceRange,
+  properties,
+  setPage,
+  areaMaps,
+  selectedUniversity,
+]);
+
+// Pagination
+const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+
+const currentProperties = filtered.slice(
+  page * ITEMS_PER_PAGE,
+  page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+);
+
+// Dropdown unique options
+const uniqueLocations = Array.from(
+  new Set(
+    properties
+      .map((p) => p.location)
+      .filter(Boolean)
+  )
+);
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
 
   if (loading) {
@@ -407,14 +405,15 @@ function Studentarea() {
             </p>
           </div>
 
-          <form className="grid grid-cols-1 dark:bg-[#1A1A1A] bg-white sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
+          <form className="grid dark:bg-[#1A1A1A] bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
             {/* Name */}
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Name</label>
               <input
                 type="text"
                 placeholder="Enter Full Name"
-                className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
+                required
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
@@ -424,7 +423,8 @@ function Studentarea() {
               <input
                 type="email"
                 placeholder="Enter your Email"
-                className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
+                required
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
@@ -434,17 +434,17 @@ function Studentarea() {
               <input
                 type="tel"
                 placeholder="Enter Phone Number"
-                className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
+                required
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
             {/* Preferred Location */}
             <div>
-              <label className="text-gray-700 dark:text-gray-300 text-sm">
-                Preferred Location
-              </label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Location</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70"
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={preferedLocation}
                 onChange={(e) => setPreferedLocation(e.target.value)}
               >
@@ -452,9 +452,7 @@ function Studentarea() {
                   Select Location
                 </option>
                 {uniqueLocations.map((loc, idx) => (
-                  <option key={idx} value={loc}>
-                    {loc}
-                  </option>
+                  <option key={idx} value={loc}>{loc}</option>
                 ))}
               </select>
             </div>
@@ -463,7 +461,8 @@ function Studentarea() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Property Type</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70"
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={preferedType}
                 onChange={(e) => setPreferedType(e.target.value)}
               >
@@ -471,9 +470,7 @@ function Studentarea() {
                   Property Type
                 </option>
                 {uniqueTypes.map((t, idx) => (
-                  <option key={idx} value={t}>
-                    {t}
-                  </option>
+                  <option key={idx} value={t}>{t}</option>
                 ))}
               </select>
             </div>
@@ -484,6 +481,8 @@ function Studentarea() {
               <input
                 type="number"
                 placeholder="Enter Number of Bedrooms"
+                required
+                min={1}
                 className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -492,7 +491,8 @@ function Studentarea() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Budget</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70 "
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={Budget}
                 onChange={(e) => {
                   const label = e.target.value;
@@ -505,54 +505,65 @@ function Studentarea() {
                   Price Range
                 </option>
                 {priceOptions.map((opt, idx) => (
-                  <option key={idx} value={opt.label}>
-                    {opt.label}
-                  </option>
+                  <option key={idx} value={opt.label}>{opt.label}</option>
                 ))}
               </select>
             </div>
 
             {/* Preferred Contact */}
             <div>
-              <label className="text-gray-700 dark:text-gray-300 text-sm">
-                Preferred Contact Method
-              </label>
-              <select className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70">
-                <option hidden>Select Method</option>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Contact Method</label>
+              <select
+                required
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none"
+              >
+                <option value="" hidden>Select Method</option>
                 <option>Phone</option>
                 <option>Email</option>
               </select>
             </div>
 
             {/* Message */}
-            <div className="sm:col-span-2 lg:col-span-4 ">
-                <label className="text-gray-700 dark:text-gray-300 text-sm">Message</label>
-                <textarea
-                  placeholder="Enter your Message here.."
-                  rows={4}
-                  className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 resize-none"
-                />
-              </div>
+            <div className="sm:col-span-2 lg:col-span-4">
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Message</label>
+              <textarea
+                placeholder="Enter your Message here.."
+                rows={4}
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 resize-none"
+              />
+            </div>
 
-              {/* Agreement */}
-              <div className="sm:col-span-2 flex items-center gap-3">
-                  <input type="checkbox" className="mt-0.5" />
-                  <p className="text-gray-900 dark:text-white text-sm">
-                    I agree with the{" "}
-                    <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
-                    <span className="text-gray-900 dark:text-white underline">Policy</span>
-                  </p>
-                </div>
+            {/* Agreement */}
+            <div className="sm:col-span-2 flex items-center gap-3">
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
+              <p className="text-gray-900 dark:text-white text-sm">
+                I agree with the{" "}
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                  Terms & Conditions
+                </a>
+              </p>
+            </div>
 
-                {/* Submit Button */}
-                <div className="sm:col-span-2 flex items-center justify-end">
-                  <button
-                    type="submit"
-                    className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
-                  >
-                    Send Your Message
-                  </button>
-                </div>
+            {/* Submit Button */}
+            <div className="sm:col-span-2 flex items-center justify-end">
+              <button
+                type="submit"
+                disabled={!agreed}
+                className={`px-4 py-3 rounded-lg font-medium transition
+                  ${agreed 
+                    ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
+                    : "bg-gray-400 cursor-not-allowed text-gray-200"
+                  }`}
+              >
+                Send Your Message
+              </button>
+            </div>
           </form>
         </div>
       </section>

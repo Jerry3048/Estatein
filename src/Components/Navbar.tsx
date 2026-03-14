@@ -57,10 +57,10 @@ const Navbar = () => {
       <div className="max-w-[90%] mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
+          <NavLink to="/" className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
             <img src={logo} alt="logo" className="h-10 mr-1" />
            <span> RewaCity</span>
-          </div>
+          </NavLink>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex lg:space-x-6 space-x-3 items-center text-gray-800 2xl:text-[18px] sm:text-[15px] dark:text-white">

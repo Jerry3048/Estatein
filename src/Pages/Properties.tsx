@@ -17,16 +17,7 @@ import { NavLink } from "react-router";
 
 function PropertySearchSection() {
   useScrollToHash();
-  const {
-    properties,
-    loading,
-    page,
-    ITEMS_PER_PAGE,
-    fetchProperties,
-    nextPage,
-    prevPage,
-    setPage,
-  } = usePropertyStore();
+  const {properties,loading,page,ITEMS_PER_PAGE,fetchProperties,nextPage,prevPage,setPage,} = usePropertyStore();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
@@ -46,6 +37,7 @@ function PropertySearchSection() {
 
   const [showFilters, setShowFilters] = useState(false);
   const [filtered, setFiltered] = useState<Property[]>([]);
+  const [agreed, setAgreed] = useState(false);
 
   const priceOptions = [
     { label: "Any Price", range: [0, 999999999] },
@@ -62,77 +54,97 @@ function PropertySearchSection() {
 
   // Filtering
   useEffect(() => {
-    const results = properties.filter((p) => {
-      const matchesSearch =
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchTerm.toLowerCase())||
-        p.location.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.location.area.toLowerCase().includes(searchTerm.toLowerCase());
+  const results = properties.filter((p) => {
+    const locationText = p.location?.toLowerCase() || "";
 
-      const matchesLocation = location ? p.location.state === location : true;
-      const matchesType = type ? p.type === type : true;
-      const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
-      const matchesArea = area ? p.location.area === area : true;
+    const matchesSearch =
+      p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      locationText.includes(searchTerm.toLowerCase());
 
-      const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
-      const matchesPrice =
-        priceNum >= priceRange[0] && priceNum <= priceRange[1];
+    const matchesLocation = location
+      ? locationText.includes(location.toLowerCase())
+      : true;
 
-      return (
-        matchesSearch &&
-        matchesLocation &&
-        matchesType &&
-        matchesBedrooms &&
-        matchesArea &&
-        matchesPrice
-      );
-    });
+    const matchesType = type ? p.type === type : true;
 
-    setFiltered(results);
-    setPage(0);
-  }, [
-    searchTerm,
-    location,
-    type,
-    bedrooms,
-    area,
-    priceRange,
-    properties,
-    setPage,
-  ]);
+    const matchesBedrooms = bedrooms
+      ? p.bedrooms === Number(bedrooms)
+      : true;
 
-  // Pagination
-  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
-  const currentProperties = filtered.slice(
-    page * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
-  );
+    const matchesArea = area
+      ? locationText.includes(area.toLowerCase())
+      : true;
 
-  // Dropdown unique options
-  const uniqueLocations = Array.from(
-    new Set(
-      properties.map(
-        (p) => `${p.location.state}`,
-      ),
-    ),
-  );
-  const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
-  const uniqueBedrooms = Array.from(
-    new Set(properties.map((p) => p.bedrooms)),
-  ).sort((a, b) => a - b);
-  const uniqueAreas = Array.from(
-    new Set(
-      properties
-        .filter((p) => (location ? p.location.state === location : true))
-        .map((p) => p.location.area),
-    ),
-  );
+    const priceNum = Number(p.price);
 
-  if (loading) {
+    const matchesPrice =
+      priceNum >= priceRange[0] && priceNum <= priceRange[1];
+
     return (
-      <p className="text-center text-white py-10">Loading properties...</p>
+      matchesSearch &&
+      matchesLocation &&
+      matchesType &&
+      matchesBedrooms &&
+      matchesArea &&
+      matchesPrice
     );
-  }
+  });
+
+  setFiltered(results);
+  setPage(0);
+}, [
+  searchTerm,
+  location,
+  type,
+  bedrooms,
+  area,
+  priceRange,
+  properties,
+  setPage,
+]);
+
+// Pagination
+const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+
+const currentProperties = filtered.slice(
+  page * ITEMS_PER_PAGE,
+  page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+);
+
+// Dropdown unique options
+const uniqueLocations = Array.from(
+  new Set(properties.map((p) => p.location).filter(Boolean))
+);
+
+const uniqueTypes = Array.from(
+  new Set(properties.map((p) => p.type).filter(Boolean))
+);
+
+const uniqueBedrooms = Array.from(
+  new Set(properties.map((p) => p.bedrooms).filter(Boolean))
+).sort((a, b) => Number(a) - Number(b));
+
+const uniqueAreas = Array.from(
+  new Set(
+    properties
+      .filter((p) =>
+        location
+          ? p.location?.toLowerCase().includes(location.toLowerCase())
+          : true
+      )
+      .map((p) => p.location)
+      .filter(Boolean)
+  )
+);
+
+if (loading) {
+  return (
+    <p className="text-center text-white py-10">
+      Loading properties...
+    </p>
+  );
+}
 
   return (
     <div>
@@ -400,13 +412,14 @@ function PropertySearchSection() {
             </p>
           </div>
 
-          <form className="grid dark:bg-[#1A1A1A] bg-white  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
+          <form className="grid dark:bg-[#1A1A1A] bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
             {/* Name */}
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Name</label>
               <input
                 type="text"
                 placeholder="Enter Full Name"
+                required
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -417,6 +430,7 @@ function PropertySearchSection() {
               <input
                 type="email"
                 placeholder="Enter your Email"
+                required
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -427,17 +441,17 @@ function PropertySearchSection() {
               <input
                 type="tel"
                 placeholder="Enter Phone Number"
+                required
                 className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
             {/* Preferred Location */}
             <div>
-              <label className="text-gray-700 dark:text-gray-300 text-sm">
-                Preferred Location
-              </label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Location</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70"
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={preferedLocation}
                 onChange={(e) => setPreferedLocation(e.target.value)}
               >
@@ -445,9 +459,7 @@ function PropertySearchSection() {
                   Select Location
                 </option>
                 {uniqueLocations.map((loc, idx) => (
-                  <option key={idx} value={loc}>
-                    {loc}
-                  </option>
+                  <option key={idx} value={loc}>{loc}</option>
                 ))}
               </select>
             </div>
@@ -456,7 +468,8 @@ function PropertySearchSection() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Property Type</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70"
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={preferedType}
                 onChange={(e) => setPreferedType(e.target.value)}
               >
@@ -464,9 +477,7 @@ function PropertySearchSection() {
                   Property Type
                 </option>
                 {uniqueTypes.map((t, idx) => (
-                  <option key={idx} value={t}>
-                    {t}
-                  </option>
+                  <option key={idx} value={t}>{t}</option>
                 ))}
               </select>
             </div>
@@ -477,6 +488,8 @@ function PropertySearchSection() {
               <input
                 type="number"
                 placeholder="Enter Number of Bedrooms"
+                required
+                min={1}
                 className="w-full mt-1 p-3 py-2.5 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
@@ -485,7 +498,8 @@ function PropertySearchSection() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Budget</label>
               <select
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70 border w-full border-gray-600/70 "
+                required
+                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
                 value={Budget}
                 onChange={(e) => {
                   const label = e.target.value;
@@ -498,27 +512,26 @@ function PropertySearchSection() {
                   Price Range
                 </option>
                 {priceOptions.map((opt, idx) => (
-                  <option key={idx} value={opt.label}>
-                    {opt.label}
-                  </option>
+                  <option key={idx} value={opt.label}>{opt.label}</option>
                 ))}
               </select>
             </div>
 
             {/* Preferred Contact */}
             <div>
-              <label className="text-gray-700 dark:text-gray-300 text-sm">
-                Preferred Contact Method
-              </label>
-              <select className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70">
-                <option hidden>Select Method</option>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Contact Method</label>
+              <select
+                required
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none"
+              >
+                <option value="" hidden>Select Method</option>
                 <option>Phone</option>
                 <option>Email</option>
               </select>
             </div>
 
             {/* Message */}
-            <div className="sm:col-span-2 lg:col-span-4 ">
+            <div className="sm:col-span-2 lg:col-span-4">
               <label className="text-gray-700 dark:text-gray-300 text-sm">Message</label>
               <textarea
                 placeholder="Enter your Message here.."
@@ -529,11 +542,18 @@ function PropertySearchSection() {
 
             {/* Agreement */}
             <div className="sm:col-span-2 flex items-center gap-3">
-              <input type="checkbox" className="mt-0.5" />
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
               <p className="text-gray-900 dark:text-white text-sm">
                 I agree with the{" "}
-                <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
-                <span className="text-gray-900 dark:text-white underline">Policy</span>
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                  Terms & Conditions
+                </a>
               </p>
             </div>
 
@@ -541,7 +561,12 @@ function PropertySearchSection() {
             <div className="sm:col-span-2 flex items-center justify-end">
               <button
                 type="submit"
-                className="bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-3 rounded-lg font-medium"
+                disabled={!agreed}
+                className={`px-4 py-3 rounded-lg font-medium transition
+                  ${agreed 
+                    ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white" 
+                    : "bg-gray-400 cursor-not-allowed text-gray-200"
+                  }`}
               >
                 Send Your Message
               </button>
