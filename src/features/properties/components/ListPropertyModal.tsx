@@ -323,7 +323,7 @@ const ListPropertyModal: React.FC<ListPropertyModalProps> = ({
                     : "bg-gray-400 cursor-not-allowed text-gray-200"
                   }`}
               >
-                {isSubmitting ? "Submitting..." : "Become a Lister"}
+                {isSubmitting ? "Submitting..." : "Submit Request"}
               </button>
             </div>
           </form>

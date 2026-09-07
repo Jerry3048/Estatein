@@ -471,7 +471,7 @@ const CoRentModal: React.FC<CoRentModalProps> = ({
                     : "bg-gray-400 cursor-not-allowed text-gray-200"
                   }`}
               >
-                {isSubmitting ? "Submitting..." : "Find Co-Rent Partners"}
+                {isSubmitting ? "Submitting..." : "Submit"}
               </button>
             </div>
           </form>
