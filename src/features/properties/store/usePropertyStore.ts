@@ -292,7 +292,7 @@ const mapSabiFlowProductsToProperties = (items: SabiFlowProduct[]): Property[] =
             phone: customData.care_taker_contact_optional.call_contact,
           }
         : undefined,
-      visitationfee: customData?.visitation_fee || 0,
+      visitationfee: (customData?.visitation_fee || 0) + 500,
     };
   });
 

@@ -1069,7 +1069,7 @@ function PropertyDetails() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                 {relatedPropertiesLoading
                   ? Array.from({ length: 3 }).map((_, index) => (
                     <PropertyCardSkeleton key={index} />

@@ -383,6 +383,11 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
                   {feeDisplay}
                 </span>
               </div>
+              <p className="text-xs text-[#703BF7] dark:text-[#a78bfa] leading-snug font-semibold">
+                {amount === 0
+                  ? "Since there's no inspection fee, you'll cover your own transportation — but you're free to view as many available properties as you like."
+                  : "This fee covers a visit to up to 2 properties. If you'd like to view more, you'll need to cover transportation for the additional visits."}
+              </p>
             </div>
 
             <div className="sm:col-span-2 flex items-center gap-3">
