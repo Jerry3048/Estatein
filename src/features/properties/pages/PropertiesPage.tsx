@@ -569,7 +569,61 @@ function PropertySearchSection() {
 
           <div className="mt-3">
             {/* Small screens: explicit, scrollable Listing Type pills + toggle */}
-            <div className="lg:hidden flex items-center gap-1.5">
+            <div className="sm:hidden flex items-center gap-1.5">
+              <div className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <button
+                  onClick={() => setListingType("")}
+                  className={`shrink-0 px-3 py-2 rounded-full border text-xs font-semibold transition ${listingType === ""
+                    ? "bg-[#703BF7] border-[#703BF7] text-white"
+                    : "border-gray-400 dark:border-neutral-700 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-900"
+                    }`}
+                >
+                  All
+                </button>
+
+                {listingTypeOptions
+                  .filter((opt) => opt.value !== "")
+                  .map((opt) => (
+                    <button
+                      key={opt.value}
+                      onClick={() => setListingType(opt.value)}
+                      className={`shrink-0 px-3 py-2 rounded-full border text-xs font-semibold transition whitespace-nowrap ${listingType === opt.value
+                        ? "bg-[#703BF7] border-[#703BF7] text-white"
+                        : "border-gray-400 dark:border-neutral-700 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-neutral-900"
+                        }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+              </div>
+
+              <div className="shrink-0">
+                <div className="flex items-center gap-1 bg-gray-100 dark:bg-neutral-800/90 p-1 rounded-xl border border-gray-300 dark:border-neutral-700/60 select-none">
+                  <button
+                    onClick={() => setViewMode("list")}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 cursor-pointer ${viewMode === "list" ? "bg-[#703BF7] text-white shadow-md" : "text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25A2.25 2.25 0 0 1 8.25 10.5H6A2.25 2.25 0 0 1 3.75 8.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 8.25 20.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25h2.25A2.25 2.25 0 0 1 20.25 6v2.25a2.25 2.25 0 0 1-2.25 2.25h-2.25A2.25 2.25 0 0 1 13.5 8.25V6ZM13.5 15.75A2.25 2.25 0 0 1 15.75 13.5H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                    </svg>
+                    List
+                  </button>
+
+                  <button
+                    onClick={() => setViewMode("map")}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 cursor-pointer ${viewMode === "map" ? "bg-[#703BF7] text-white shadow-md" : "text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75 12 9l3-2.25M9 17.25l3 2.25 3-2.25M9 6.75v10.5m6-12.75v12.75M3 9v12l6-2.25m12-9.75v12l-6-2.25M9 19.5l6-2.25" />
+                    </svg>
+                    Map
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* sm to lg: Category pills + toggle */}
+            <div className="hidden sm:flex lg:hidden items-center gap-1.5">
               <div className="flex-1 min-w-0 flex items-center gap-1.5 overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 <button
                   onClick={() => setCategory("")}
@@ -603,19 +657,8 @@ function PropertySearchSection() {
                     onClick={() => setViewMode("list")}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 cursor-pointer ${viewMode === "list" ? "bg-[#703BF7] text-white shadow-md" : "text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      className="w-3.5 h-3.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25A2.25 2.25 0 0 1 8.25 10.5H6A2.25 2.25 0 0 1 3.75 8.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 8.25 20.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25h2.25A2.25 2.25 0 0 1 20.25 6v2.25a2.25 2.25 0 0 1-2.25 2.25h-2.25A2.25 2.25 0 0 1 13.5 8.25V6ZM13.5 15.75A2.25 2.25 0 0 1 15.75 13.5H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
-                      />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25A2.25 2.25 0 0 1 8.25 10.5H6A2.25 2.25 0 0 1 3.75 8.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 8.25 20.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25h2.25A2.25 2.25 0 0 1 20.25 6v2.25a2.25 2.25 0 0 1-2.25 2.25h-2.25A2.25 2.25 0 0 1 13.5 8.25V6ZM13.5 15.75A2.25 2.25 0 0 1 15.75 13.5H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
                     </svg>
                     List
                   </button>
@@ -624,19 +667,8 @@ function PropertySearchSection() {
                     onClick={() => setViewMode("map")}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 cursor-pointer ${viewMode === "map" ? "bg-[#703BF7] text-white shadow-md" : "text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"}`}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      stroke="currentColor"
-                      className="w-3.5 h-3.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 6.75 12 9l3-2.25M9 17.25l3 2.25 3-2.25M9 6.75v10.5m6-12.75v12.75M3 9v12l6-2.25m12-9.75v12l-6-2.25M9 19.5l6-2.25"
-                      />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75 12 9l3-2.25M9 17.25l3 2.25 3-2.25M9 6.75v10.5m6-12.75v12.75M3 9v12l6-2.25m12-9.75v12l-6-2.25M9 19.5l6-2.25" />
                     </svg>
                     Map
                   </button>
@@ -1003,7 +1035,7 @@ function PropertySearchSection() {
 
       <section
         className="bg-gray-300 dark:bg-black/30 px-4 py-8"
-        id="Portfolio"
+        id="AddedServices"
       >
         <div className="mb-6 space-y-3">
           <img
@@ -1025,7 +1057,7 @@ function PropertySearchSection() {
           </div>
         </div>
 
-        <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {/* Card 1: Property Preference */}
           <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#1A1A1A] border border-gray-400/30 dark:border-gray-700/50 p-4 md:p-5 shadow-lg flex flex-col justify-between space-y-4">
             <div className="space-y-2">

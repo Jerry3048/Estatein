@@ -226,10 +226,10 @@ function Footer() {
               </li>
               <li>
                 <Link
-                  to="/Properties#Portfolio"
+                  to="/Properties#AddedServices"
                   className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]"
                 >
-                  Portfolio
+                  Added Services
                 </Link>
               </li>
             </ul>
