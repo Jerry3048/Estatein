@@ -417,7 +417,7 @@ const PreferenceModal: React.FC<PreferenceModalProps> = ({
                     : "bg-gray-400 cursor-not-allowed text-gray-200"
                   }`}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Submitting..." : "Submit Preference"}
               </button>
             </div>
           </form>
