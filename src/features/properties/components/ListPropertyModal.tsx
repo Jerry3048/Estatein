@@ -127,7 +127,7 @@ const ListPropertyModal: React.FC<ListPropertyModalProps> = ({
 
     const payload = {
       companyId: COMPANY_ID,
-      pipelineId: "69cec9f3dd40685bfe20adb2",
+      pipelineId: "6a9eb52b21202229fbb9eb00",
       title: `Become a Lister Request from ${name.trim()} (${listerRole}) - ${location.trim()}`,
       name: name.trim(),
       email: email.trim(),
