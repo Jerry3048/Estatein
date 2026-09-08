@@ -42,9 +42,12 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
   const [guestEmail, setGuestEmail] = useState("");
   const [guestPhone, setGuestPhone] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [visitDate, setVisitDate] = useState("");
+  const [visitTime, setVisitTime] = useState("");
   const modalCookieKey = "rewaciti_inspection_modal";
 
   const phone = profilePhone || customer?.phoneNumber || guestPhone;
+  const todayISO = new Date().toISOString().split("T")[0];
 
   React.useEffect(() => {
     const savedForm = getCookie(modalCookieKey);
@@ -55,6 +58,8 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
         setGuestEmail(parsed.guestEmail || "");
         setGuestPhone(parsed.guestPhone || "");
         setAgreed(parsed.agreed || false);
+        setVisitDate(parsed.visitDate || "");
+        setVisitTime(parsed.visitTime || "");
       } catch {
         // ignore malformed cookie data
       }
@@ -83,8 +88,8 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
   }, [open, isAuthenticated]);
 
   React.useEffect(() => {
-    setCookie(modalCookieKey, JSON.stringify({ guestName, guestEmail, guestPhone, agreed }));
-  }, [guestName, guestEmail, guestPhone, agreed]);
+    setCookie(modalCookieKey, JSON.stringify({ guestName, guestEmail, guestPhone, agreed, visitDate, visitTime }));
+  }, [guestName, guestEmail, guestPhone, agreed, visitDate, visitTime]);
 
   const addInspection = useInspectionStore((state) => state.addInspection);
   const updatePaymentStatus = useInspectionStore((state) => state.updatePaymentStatus);
@@ -126,6 +131,11 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
       return;
     }
 
+    if (!visitDate || !visitTime) {
+      toast.error("Please select your preferred visit date and time.");
+      return;
+    }
+
     if (!agreed) {
       toast.error("Please agree to the Terms and Privacy Policy to continue.");
       return;
@@ -148,7 +158,7 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
           }
         ],
         taxRate: 0,
-        notes: `Inspection booking for ${property.name} at ${propertyAddress}.\nProperty Link: ${propertyUrl}`,
+        notes: `Inspection booking for ${property.name} at ${propertyAddress}.\nPreferred Visit: ${visitDate} at ${visitTime}\nProperty Link: ${propertyUrl}`,
         paymentMethod: "credit_card",
         customerDetails: {
           name: fullName,
@@ -205,9 +215,11 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
               email: bookingEmail,
               phone: phone,
               address: propertyAddress,
-              note: `visit/inspection booking for ${property.name} at ${propertyAddress}.\nProperty Link: ${propertyUrl}.\nBooking Reference: ${transaction.reference}`,
+              note: `visit/inspection booking for ${property.name} at ${propertyAddress}.\nPreferred Visit: ${visitDate} at ${visitTime}\nProperty Link: ${propertyUrl}.\nBooking Reference: ${transaction.reference}`,
               customData: [
                 { label: "Property Name", value: property.name },
+                { label: "Preferred Visit Date", value: visitDate },
+                { label: "Preferred Visit Time", value: visitTime },
                 { label: "Property Link", value: propertyUrl },
                 { label: "Booking Reference", value: transaction.reference },
                 { label: "Inspection Fee", value: `₦${amount.toLocaleString()}` },
@@ -259,7 +271,7 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
             await handleDownloadReceipt(saleId);
 
             onOpenChange(false);
-            setCookie(modalCookieKey, JSON.stringify({ guestName: "", guestEmail: "", guestPhone: "", agreed: false }));
+            setCookie(modalCookieKey, JSON.stringify({ guestName: "", guestEmail: "", guestPhone: "", agreed: false, visitDate: "", visitTime: "" }));
           } catch (error) {
             console.error("Verification/CRM error:", error);
             toast.error("Payment successful, but verification failed. Please contact support.");
@@ -361,7 +373,36 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
               </div>
             )}
 
-            <div className="p-2 bg-gray-500/10 border border-gray-600/30 rounded-lg">
+           <div className="space-y-2 border border-gray-600/30 rounded-lg p-4 bg-gray-500/10">
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="mb-1 block text-sm text-gray-700 dark:text-gray-300">Preferred Date</label>
+                  <input
+                    type="date"
+                    required
+                    min={todayISO}
+                    value={visitDate}
+                    onChange={(e) => setVisitDate(e.target.value)}
+                    className="w-full rounded-md border border-gray-600/30 bg-white/80 px-2 py-1.5 text-sm text-gray-900 focus:outline-none focus:border-[#703BF7] dark:bg-[#1A1A1A] dark:text-white"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-sm text-gray-700 dark:text-gray-300">Preferred Time</label>
+                  <input
+                    type="time"
+                    required
+                    value={visitTime}
+                    onChange={(e) => setVisitTime(e.target.value)}
+                    className="w-full rounded-md border border-gray-600/30 bg-white/80 px-2 py-1.5 text-sm text-gray-900 focus:outline-none focus:border-[#703BF7] dark:bg-[#1A1A1A] dark:text-white"
+                  />
+                </div>
+              </div>
+              <p className="text-xs dark:text-gray-400 leading-snug text-gray-500">
+                This is just your preferred slot — if the agent isn't available at that time, our team will reach out to reschedule to a time that works for both of you.
+              </p>
+           </div>
+
+           <div className="p-2 bg-gray-500/10 border border-gray-600/30 rounded-lg">
               <p className="text-sm dark:text-gray-300 text-gray-700 text-center">
                 A member of our team will contact you within{" "}
                 <span className="font-semibold text-[#703BF7]">24 hours</span> to confirm your property details and schedule a suitable viewing time.
@@ -405,8 +446,8 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
 
             <button
               type="submit"
-              disabled={isSubmitting || !fullName.trim() || !bookingEmail.trim() || !phone.trim() || !agreed}
-              className={`w-full font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50 ${isSubmitting || !fullName.trim() || !bookingEmail.trim() || !phone.trim() || !agreed
+              disabled={isSubmitting || !fullName.trim() || !bookingEmail.trim() || !phone.trim() || !visitDate || !visitTime || !agreed}
+              className={`w-full font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50 ${isSubmitting || !fullName.trim() || !bookingEmail.trim() || !phone.trim() || !visitDate || !visitTime || !agreed
                 ? "bg-gray-400 cursor-not-allowed text-gray-200"
                 : "bg-[#703BF7] hover:bg-[#5c2fe0] text-white cursor-pointer"
                 }`}
